@@ -289,3 +289,80 @@ Stack trace:
 #8 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(183): CWebApplication->processRequest()
 #9 D:\xampp\www\me\jorryApps\app\turen\index.php(17): CWebApplication->run()
 REQUEST_URI=/jorryApps/app/turen/index.php?r=site/pro3.pro2.action1
+2014/12/25 13:43:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "captcha".' in D:\xampp\www\me\jorryApps\framework\web\CController.php:553
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\web\CController.php(277): CController->missingAction('captcha')
+#1 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(292): CController->run('captcha')
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('site/captcha')
+#3 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#4 D:\xampp\www\me\jorryApps\app\turen\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/jorryApps/app/turen/index.php?r=site/captcha&v=549c0670e670e
+HTTP_REFERER=http://me.cc/jorryApps/app/turen/index.php?r=site/contact
+---
+2014/12/25 13:43:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "page".' in D:\xampp\www\me\jorryApps\framework\web\CController.php:553
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\web\CController.php(277): CController->missingAction('page')
+#1 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(292): CController->run('page')
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('site/page')
+#3 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#4 D:\xampp\www\me\jorryApps\app\turen\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/jorryApps/app/turen/index.php?r=site/page&view=about
+HTTP_REFERER=http://me.cc/jorryApps/app/turen/index.php?r=site/contact
+---
+2014/12/25 13:43:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "captcha".' in D:\xampp\www\me\jorryApps\framework\web\CController.php:553
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\web\CController.php(277): CController->missingAction('captcha')
+#1 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(292): CController->run('captcha')
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('site/captcha')
+#3 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#4 D:\xampp\www\me\jorryApps\app\turen\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/jorryApps/app/turen/index.php?r=site/captcha&v=549c067330967
+HTTP_REFERER=http://me.cc/jorryApps/app/turen/index.php?r=site/contact
+---
+2014/12/25 13:43:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "page".' in D:\xampp\www\me\jorryApps\framework\web\CController.php:553
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\web\CController.php(277): CController->missingAction('page')
+#1 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(292): CController->run('page')
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('site/page')
+#3 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#4 D:\xampp\www\me\jorryApps\app\turen\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/jorryApps/app/turen/index.php?r=site/page&view=about
+HTTP_REFERER=http://me.cc/jorryApps/app/turen/index.php?r=site/contact
+---
+2014/12/25 13:43:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "page".' in D:\xampp\www\me\jorryApps\framework\web\CController.php:553
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\web\CController.php(277): CController->missingAction('page')
+#1 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(292): CController->run('page')
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('site/page')
+#3 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#4 D:\xampp\www\me\jorryApps\app\turen\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/jorryApps/app/turen/index.php?r=site/page&view=about
+HTTP_REFERER=http://me.cc/jorryApps/app/turen/index.php?r=site/page&view=about
+---
+2014/12/25 13:43:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "captcha".' in D:\xampp\www\me\jorryApps\framework\web\CController.php:553
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\web\CController.php(277): CController->missingAction('captcha')
+#1 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(292): CController->run('captcha')
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('site/captcha')
+#3 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#4 D:\xampp\www\me\jorryApps\app\turen\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/jorryApps/app/turen/index.php?r=site/captcha&v=549c067604ed0
+HTTP_REFERER=http://me.cc/jorryApps/app/turen/index.php?r=site/contact
+---
+2014/12/25 13:43:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "page".' in D:\xampp\www\me\jorryApps\framework\web\CController.php:553
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\web\CController.php(277): CController->missingAction('page')
+#1 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(292): CController->run('page')
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('site/page')
+#3 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#4 D:\xampp\www\me\jorryApps\app\turen\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/jorryApps/app/turen/index.php?r=site/page&view=about
+HTTP_REFERER=http://me.cc/jorryApps/app/turen/index.php?r=site/contact
+---
