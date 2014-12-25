@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__).'/../../framework/vendors/firePHP/fb.php';
+require_once dirname(__FILE__).'/../../framework/vendors/firePHPCore/fb.php';
 ob_start();
 
 //一个全局方法
