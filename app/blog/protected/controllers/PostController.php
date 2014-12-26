@@ -182,6 +182,7 @@ class PostController extends Controller
 			'order'=>'update_time DESC',
 			'with'=>'commentCount',
 		));
+		
 		if(isset($_GET['tag']))
 			$criteria->addSearchCondition('tags',$_GET['tag']);
 

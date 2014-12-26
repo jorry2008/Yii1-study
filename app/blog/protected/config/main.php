@@ -18,8 +18,16 @@ return array(
 		'application.models.*',
 		'application.components.*',
 	),
+		
+//典型的只读web属性
+// 	'themeManager' => array(
+// 		'themeNames'=>array(),//主题列表
+// 		'basePath'=>'',//绝对路径，默认："WebRootPath/themes".
+// 		'baseUrl'=>'',//更改主题的路径，默认：/WebRoot/themes，这个是相对的web路径
+// 	),
 
 	'defaultController'=>'post',
+	'theme' => 'classic',
 	
 	//GII应用程序，代码生成工具，module就是一个独立的应用
 	'modules'=>array(
