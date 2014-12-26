@@ -86,6 +86,8 @@ class CAccessControlFilter extends CFilter
 	 */
 	public $message;
 
+	//这个会在总控制器中初始化
+	//这是一个规则集，规则中的每个数组元素对应一个CAccessRule对象
 	private $_rules=array();
 
 	/**
@@ -105,15 +107,19 @@ class CAccessControlFilter extends CFilter
 		{
 			if(is_array($rule) && isset($rule[0]))
 			{
-				$r=new CAccessRule;
-				$r->allow=$rule[0]==='allow';
+				$r=new CAccessRule;//规则类就在当前
+				$r->allow=$rule[0]==='allow';//必须是首位
+				
 				foreach(array_slice($rule,1) as $name=>$value)
 				{
+					//数组类型和非数组类型的处理
 					if($name==='expression' || $name==='roles' || $name==='message' || $name==='deniedCallback')
 						$r->$name=$value;
 					else
 						$r->$name=array_map('strtolower',$value);
 				}
+				
+				//fb($r);//一个规则对应一个AccessRule对象
 				$this->_rules[]=$r;
 			}
 		}
@@ -130,19 +136,33 @@ class CAccessControlFilter extends CFilter
 		$app=Yii::app();
 		$request=$app->getRequest();
 		$user=$app->getUser();
-		$verb=$request->getRequestType();
+		$verb=$request->getRequestType();//动作_GET,_POST
 		$ip=$request->getUserHostAddress();
-
+		
+		//依次执行所有规则
 		foreach($this->getRules() as $rule)
 		{
+			//-1认证失败
 			if(($allow=$rule->isUserAllowed($user,$filterChain->controller,$filterChain->action,$ip,$verb))>0) // allowed
+			{
 				break;
+			}
+			//认证失败
 			elseif($allow<0) // denied
 			{
 				if(isset($rule->deniedCallback))
+				{
+					//调用指定的当前方法，处理认证失败后的过程
+					//注意：这个方法是全局方法，与index.php平行的方法
 					call_user_func($rule->deniedCallback, $rule);
+				}
 				else
+				{
+					//认证失败
+					//在这里执行例如操作！！！
 					$this->accessDenied($user,$this->resolveErrorMessage($rule));
+				}
+				
 				return false;
 			}
 		}
@@ -176,6 +196,8 @@ class CAccessControlFilter extends CFilter
 	 */
 	protected function accessDenied($user,$message)
 	{
+		//如果是游客则返回登录进一步认证，即留一个允许访问的余地
+		//如果用户是登录状态，那么就注定是真正的没有权限了
 		if($user->getIsGuest())
 			$user->loginRequired();
 		else
@@ -209,6 +231,10 @@ class CAccessRule extends CComponent
 	/**
 	 * @var array list of user names that this rule applies to. The comparison is case-insensitive.
 	 * If no user names are specified, rule applies to all users.
+	 * * to represent all users代表所有用户，包括游客用户
+	 * ? guest users代表游客用户
+	 * @ authenticated users代表已验证用户
+	 * 
 	 */
 	public $users;
 	/**
@@ -276,6 +302,7 @@ class CAccessRule extends CComponent
 	 * @param string $ip the request IP address
 	 * @param string $verb the request verb (GET, POST, etc.)
 	 * @return integer 1 if the user is allowed, -1 if the user is denied, 0 if the rule does not apply to the user
+	 * isUser可以看出，任何访问控制的前提就是用户登录
 	 */
 	public function isUserAllowed($user,$controller,$action,$ip,$verb)
 	{
@@ -312,20 +339,22 @@ class CAccessRule extends CComponent
 	/**
 	 * @param IWebUser $user the user
 	 * @return boolean whether the rule applies to the user
+	 * 首次，仅通过用户名和登录状态判断访问权限
 	 */
 	protected function isUserMatched($user)
 	{
-		if(empty($this->users))
+		if(empty($this->users))//默认对所有用户有效同*，包括游客【游客也是用户的一种，不走特例】
 			return true;
+		
 		foreach($this->users as $u)
 		{
-			if($u==='*')
+			if($u==='*')//允许所有
 				return true;
-			elseif($u==='?' && $user->getIsGuest())
+			elseif($u==='?' && $user->getIsGuest())//允许游客用户
 				return true;
-			elseif($u==='@' && !$user->getIsGuest())
+			elseif($u==='@' && !$user->getIsGuest())//允许已经验证用户
 				return true;
-			elseif(!strcasecmp($u,$user->getName()))
+			elseif(!strcasecmp($u,$user->getName()))//允许明确指定的用户
 				return true;
 		}
 		return false;
@@ -339,8 +368,10 @@ class CAccessRule extends CComponent
 	{
 		if(empty($this->roles))
 			return true;
+		
 		foreach($this->roles as $key=>$role)
 		{
+			//角色权限配置的两种写法
 			if(is_numeric($key))
 			{
 				if($user->checkAccess($role))
@@ -363,6 +394,7 @@ class CAccessRule extends CComponent
 	{
 		if(empty($this->ips))
 			return true;
+		
 		foreach($this->ips as $rule)
 		{
 			if($rule==='*' || $rule===$ip || (($pos=strpos($rule,'*'))!==false && !strncmp($ip,$rule,$pos)))
