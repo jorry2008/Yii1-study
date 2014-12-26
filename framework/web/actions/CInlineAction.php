@@ -24,8 +24,6 @@ class CInlineAction extends CAction
 	 * Runs the action.
 	 * The action method defined in the controller is invoked.
 	 * This method is required by {@link CAction}.
-	 * 
-	 * 正常控制器方法执行
 	 */
 	public function run()
 	{
@@ -39,16 +37,25 @@ class CInlineAction extends CAction
 	 * @param array $params the request parameters (name=>value)
 	 * @return boolean whether the request parameters are valid
 	 * @since 1.1.7
+	 * 由CController::runAction()直接执行过来的，带有当前控制器参数
 	 */
 	public function runWithParams($params)
 	{
 		$methodName='action'.$this->getId();
 		$controller=$this->getController();
+		
+		//actionview
+		//name ='actionView'
+		//class ='PostController'
 		$method=new ReflectionMethod($controller, $methodName);
-		if($method->getNumberOfParameters()>0)
+		
+		if($method->getNumberOfParameters()>0)//测试当前$method方法的参数个数
+		{
 			return $this->runWithParamsInternal($controller, $method, $params);
+		}
 		else
+		{
 			return $controller->$methodName();
+		}
 	}
-
 }

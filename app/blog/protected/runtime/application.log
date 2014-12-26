@@ -1634,3 +1634,41 @@ Stack trace:
 REQUEST_URI=/test/yii/app/blog/index.php?r=operationLog
 HTTP_REFERER=http://192.168.1.107/test/yii/app/blog/index.php?r=gii/crud/index
 ---
+2014/12/26 15:01:54 [error] [exception.CDbException] SQLSTATE[HY000] [1049] Unknown database 'blog'
+2014/12/26 15:01:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in D:\xampp\www\me\jorryApps\framework\db\CDbConnection.php:388
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 D:\xampp\www\me\jorryApps\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 D:\xampp\www\me\jorryApps\framework\base\CModule.php(391): CDbConnection->init()
+#3 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 D:\xampp\www\me\jorryApps\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 D:\xampp\www\me\jorryApps\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 D:\xampp\www\me\jorryApps\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 D:\xampp\www\me\jorryApps\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 D:\xampp\www\me\jorryApps\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 D:\xampp\www\me\jorryApps\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 D:\xampp\www\me\jorryApps\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 D:\xampp\www\me\jorryApps\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 D:\xampp\www\me\jorryApps\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(147): CListView->init()
+#14 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 D:\xampp\www\me\jorryApps\app\blog\protected\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(126): require('D:\\xampp\\www\\me...')
+#17 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\www\\me...', Array, true)
+#18 D:\xampp\www\me\jorryApps\framework\web\CController.php(939): CBaseController->renderFile('D:\\xampp\\www\\me...', Array, true)
+#19 D:\xampp\www\me\jorryApps\framework\web\CController.php(852): CController->renderPartial('index', Array, true)
+#20 D:\xampp\www\me\jorryApps\app\blog\protected\controllers\PostController.php(197): CController->render('index', Array)
+#21 D:\xampp\www\me\jorryApps\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 D:\xampp\www\me\jorryApps\framework\web\CController.php(318): CInlineAction->runWithParams(Array)
+#23 D:\xampp\www\me\jorryApps\framework\web\CController.php(294): CController->runAction(Object(CInlineAction))
+#24 D:\xampp\www\me\jorryApps\framework\web\CController.php(272): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(292): CController->run('')
+#26 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#27 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#28 D:\xampp\www\me\jorryApps\app\blog\index.php(22): CApplication->run()
+#29 {main}
+REQUEST_URI=/jorryApps/app/blog/
+HTTP_REFERER=http://me.cc/jorryApps/app/
+---
+2014/12/26 15:01:54 [error] [exception.CDbException] SQLSTATE[HY000] [1049] Unknown database 'blog'
+2014/12/26 15:02:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'turen.tbl_session' doesn't exist. The SQL statement executed was: DELETE FROM `tbl_session` WHERE expire<:expire.

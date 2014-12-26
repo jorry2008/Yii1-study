@@ -196,14 +196,15 @@ class CWebUser extends CApplicationComponent implements IWebUser
 	public function init()
 	{
 		parent::init();
-		Yii::app()->getSession()->open();
-		if($this->getIsGuest() && $this->allowAutoLogin)
+		Yii::app()->getSession()->open();//开启session
+		if($this->getIsGuest() && $this->allowAutoLogin)//如果当前是游客，则尝试完成自动登录，即session恢复
 			$this->restoreFromCookie();
-		elseif($this->autoRenewCookie && $this->allowAutoLogin)
+		elseif($this->autoRenewCookie && $this->allowAutoLogin)//如果开启了时间同步，则更新cookie过期时间
 			$this->renewCookie();
-		if($this->autoUpdateFlash)
+		if($this->autoUpdateFlash)//更新提示消息一个键对应一个
 			$this->updateFlash();
 
+		//如果开启了绝对时间，而未开始相对验证时间authTimeout，则每次检查是否登录超时
 		$this->updateAuthStatus();
 	}
 
@@ -227,6 +228,8 @@ class CWebUser extends CApplicationComponent implements IWebUser
 	public function login($identity,$duration=0)
 	{
 		$id=$identity->getId();
+		//登录之前获取持久状态，这些状态必须手动指定
+		//需要实现这个接口
 		$states=$identity->getPersistentStates();
 		if($this->beforeLogin($id,$states,false))
 		{
@@ -514,7 +517,7 @@ class CWebUser extends CApplicationComponent implements IWebUser
 			$this->getId(),
 			$this->getName(),
 			$duration,
-			$this->saveIdentityStates(),
+			$this->saveIdentityStates(),//这个数据就是与用户登录一起的持久层数据
 		);
 		$cookie->value=$app->getSecurityManager()->hashData(serialize($data));
 		$app->getRequest()->getCookies()->add($cookie->name,$cookie);
@@ -783,7 +786,6 @@ class CWebUser extends CApplicationComponent implements IWebUser
 		{
 			$expires=$this->getState(self::AUTH_TIMEOUT_VAR);
 			$expiresAbsolute=$this->getState(self::AUTH_ABSOLUTE_TIMEOUT_VAR);
-
 			if ($expires!==null && $expires < time() || $expiresAbsolute!==null && $expiresAbsolute < time())
 				$this->logout(false);
 			else
@@ -809,9 +811,12 @@ class CWebUser extends CApplicationComponent implements IWebUser
 	 */
 	public function checkAccess($operation,$params=array(),$allowCaching=true)
 	{
+		//fb(func_get_args());exit;//[0] => 'admin'
+		//针对普通的访问权限控制
 		if($allowCaching && $params===array() && isset($this->_access[$operation]))
 			return $this->_access[$operation];
 
+		//针对RBAC权限进行控制
 		$access=Yii::app()->getAuthManager()->checkAccess($operation,$this->getId(),$params);
 		if($allowCaching && $params===array())
 			$this->_access[$operation]=$access;

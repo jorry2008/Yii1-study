@@ -73,7 +73,9 @@ abstract class CAction extends CComponent implements IAction
 		if($method->getNumberOfParameters()>0)
 			return $this->runWithParamsInternal($this, $method, $params);
 		else
+		{
 			return $this->run();
+		}
 	}
 
 	/**
@@ -84,15 +86,25 @@ abstract class CAction extends CComponent implements IAction
 	 * @param array $params the named parameters
 	 * @return boolean whether the named parameters are valid
 	 * @since 1.1.7
+	 * 这个方法就是处理从url传递的所有参数与最终请求的那个action方法的参数一一对应，实现
+	 * 参数的自动赋值
+	 * 这里的核心东西就是反射，以下这个action核心也就是反射的最佳实践
+	 * 
+	 * 以下的整个过程是这样的：
+	 * 通过反射，取出当前使用的那个action方法的所有信息，
+	 * 再将传递过来的参数一一赋值过来，如果有参数没有值，则会获取默认值，
+	 * 如果没有默认值又没有值传递过来，则返回false，最终会抛出参数400错误的异常
 	 */
 	protected function runWithParamsInternal($object, $method, $params)
 	{
+		//fb($method);//反射的方法对象，这个对象极其了解当前指向的那个对象
 		$ps=array();
-		foreach($method->getParameters() as $i=>$param)
+		foreach($method->getParameters() as $i=>$param)//每个参数都是一个对象
 		{
 			$name=$param->getName();
 			if(isset($params[$name]))
 			{
+				//注意：这里如果是数组则就会把url的参数打包成数组
 				if($param->isArray())
 					$ps[]=is_array($params[$name]) ? $params[$name] : array($params[$name]);
 				elseif(!is_array($params[$name]))
@@ -100,12 +112,20 @@ abstract class CAction extends CComponent implements IAction
 				else
 					return false;
 			}
+			
+			//被反射的那个方法的参数是否有默认值
 			elseif($param->isDefaultValueAvailable())
+			{
 				$ps[]=$param->getDefaultValue();
+			}
 			else
 				return false;
 		}
-		$method->invokeArgs($object,$ps);
+		
+		//最终以反射的方式带上参数，调用并执行此方法
+		//这一步已经完成了action的正常执行，并且可以显示所有的内容，而不需要再执行下去了
+		$method->invokeArgs($object,$ps);//以其控制器对象和方法参数为参数调用这个方法
+		
 		return true;
 	}
 }
