@@ -29,6 +29,9 @@
  * @property array $themeNames List of available theme names.
  * @property string $basePath The base path for all themes. Defaults to "WebRootPath/themes".
  * @property string $baseUrl The base URL for all themes. Defaults to "/WebRoot/themes".
+ * 
+ * 主题文件是由CWebApplication::setTheme在配置文件中指定
+ * 其实，主题管理类中$themeNames、$basePath、$baseUrl在view层之前都可以修改，但都有合适的默认值
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @package system.web
@@ -58,7 +61,10 @@ class CThemeManager extends CApplicationComponent
 	 */
 	public function getTheme($name)
 	{
+		//DIRECTORY_SEPARATOR用于文件路径，在各平台之间不同
+		//资源路径是'/'这个是固定死了的，只有一个http请求协议，是跨平台的
 		$themePath=$this->getBasePath().DIRECTORY_SEPARATOR.$name;
+		//fb($themePath);// D:\xampp\www\me\jorryApps\app\blog\themes\classic
 		if(is_dir($themePath))
 		{
 			$class=Yii::import($this->themeClass, true);
@@ -70,6 +76,7 @@ class CThemeManager extends CApplicationComponent
 
 	/**
 	 * @return array list of available theme names
+	 * //从文件层面获取所有的主题名称
 	 */
 	public function getThemeNames()
 	{
@@ -95,6 +102,7 @@ class CThemeManager extends CApplicationComponent
 	 */
 	public function getBasePath()
 	{
+		//直接获取系统启动路径
 		if($this->_basePath===null)
 			$this->setBasePath(dirname(Yii::app()->getRequest()->getScriptFile()).DIRECTORY_SEPARATOR.self::DEFAULT_BASEPATH);
 		return $this->_basePath;

@@ -700,15 +700,19 @@ class CController extends CBaseController
 	 * @param mixed $layoutName layout name
 	 * @return string the view file for the layout. False if the view file cannot be found
 	 */
-	public function getLayoutFile($layoutName)
+	public function getLayoutFile($layoutName)//column2
 	{
 		if($layoutName===false)
 			return false;
 		
 		//$theme为主题管理类themeManager
 		//注：所有的系统默认组件都是由Yii::app()直接统一管理
+		//当有主题的时候，路径为
+		//fb(Yii::app()->getTheme());//一个主题的绝对路径和一个资源的相对路径
 		if(($theme=Yii::app()->getTheme())!==null && ($layoutFile=$theme->getLayoutFile($this,$layoutName))!==false)
+		{
 			return $layoutFile;
+		}
 
 		//module可以独立布局
 		if(empty($layoutName))
@@ -853,13 +857,22 @@ class CController extends CBaseController
 	 * @return string the rendering result. Null if the rendering result is not required.
 	 * @see renderPartial
 	 * @see getLayoutFile
+	 * 使用layout进行渲染
+	 * 首先调用renderPartial对视图进行渲染并生成$content
+	 * 
+	 * 
 	 */
 	public function render($view,$data=null,$return=false)
 	{
+		//$view:index,$data传递的数据,$return是返回数据还是直接输出，默认直接输出，ajax中返回数据用得多
 		if($this->beforeRender($view))
 		{
+			//局部渲染，将内容返回
 			$output=$this->renderPartial($view,$data,true);
 			//布局文件的最终处理是主题类或其管理类
+			//fb($output);//这个内容就是view层返回的action内容，并且将作为布局文件的layout中的content
+			
+			//当布局文件存在时，注意当前对象是$this,即PostController控制器对象
 			if(($layoutFile=$this->getLayoutFile($this->layout))!==false)
 			{
 				//fb($layoutFile);column2布局文件完全由controller提供，父类或其子类

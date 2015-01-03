@@ -259,8 +259,12 @@ class CWebApplication extends CApplication
 	 */
 	public function getTheme()
 	{
+		//这样做，可以在一次进程当中多次调用主题时，重复使用这个属性
 		if(is_string($this->_theme))
+		{
+			//返回的是一个主题管理对象管理的一个主题对象
 			$this->_theme=$this->getThemeManager()->getTheme($this->_theme);
+		}
 		return $this->_theme;
 	}
 
@@ -286,7 +290,7 @@ class CWebApplication extends CApplication
 			//备份原来的controller对象，执行当前controller对象
 			$oldController=$this->_controller;
 			$this->_controller=$controller;
-			fb($controller);
+			//fb($controller);
 			//到目前为止，有多少个与应用的结构有关系的对象：webapp,moduleapp,controller三个对象
 			$controller->init();
 			$controller->run($actionID);
