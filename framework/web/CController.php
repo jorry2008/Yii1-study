@@ -704,9 +704,13 @@ class CController extends CBaseController
 	{
 		if($layoutName===false)
 			return false;
+		
+		//$theme为主题管理类themeManager
+		//注：所有的系统默认组件都是由Yii::app()直接统一管理
 		if(($theme=Yii::app()->getTheme())!==null && ($layoutFile=$theme->getLayoutFile($this,$layoutName))!==false)
 			return $layoutFile;
 
+		//module可以独立布局
 		if(empty($layoutName))
 		{
 			$module=$this->getModule();
@@ -810,6 +814,11 @@ class CController extends CBaseController
 	 * to be located within the current controller.
 	 * @param boolean $exit whether to end the application after this call. Defaults to true.
 	 * @since 1.1.0
+	 * 意义非凡
+	 * forward
+	 * 可将多个控制器的执行过程连接起来，并渲染最后一个控制器action
+	 * 即从一个控制跳转到另一个控制器action执行
+	 * 可直接执行controller或者action
 	 */
 	public function forward($route,$exit=true)
 	{
@@ -850,8 +859,13 @@ class CController extends CBaseController
 		if($this->beforeRender($view))
 		{
 			$output=$this->renderPartial($view,$data,true);
+			//布局文件的最终处理是主题类或其管理类
 			if(($layoutFile=$this->getLayoutFile($this->layout))!==false)
+			{
+				//fb($layoutFile);column2布局文件完全由controller提供，父类或其子类
+				// C:\xampp\htdocs\test\turen\app\blog\protected\views\layouts\column2.php
 				$output=$this->renderFile($layoutFile,array('content'=>$output),true);
+			}	
 
 			$this->afterRender($view,$output);
 

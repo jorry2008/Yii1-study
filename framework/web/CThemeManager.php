@@ -33,6 +33,7 @@
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @package system.web
  * @since 1.0
+ * 这个类是从
  */
 class CThemeManager extends CApplicationComponent
 {
