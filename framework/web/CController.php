@@ -86,6 +86,16 @@ class CController extends CBaseController
 	 * is used. If it is false, no layout will be applied.
 	 * The {@link CWebModule::layout module layout} will be used
 	 * if the controller belongs to a module and this layout property is null.
+	 * 布局文件相对路径由CWebApplication::layout application的layout属性指定。
+	 * 并传递到控制器类CController的layout属性。
+	 * 所以这个值可以在main.php配置文件中配置一个基础的值，
+	 * 也可以在每个控制器的初始化中重新指定，也可以在总控制器里动态指定
+	 * 优先级如下：
+	 * 1.CController控制器的子类layout
+	 * 2.CController::layout
+	 * 3.CWebModule::layout
+	 * 4.CWebApplication::layout，配置文件
+	 * 如果都没有配置则不使用布局功能
 	 */
 	public $layout;
 	/**
@@ -702,7 +712,9 @@ class CController extends CBaseController
 	 */
 	public function getLayoutFile($layoutName)//column2
 	{
-		if($layoutName===false)
+		//注意，当前对象是PostController，所以在$layoutName中已经定义了，具有最高优先级
+		//fb($layoutName,FirePHP::TRACE);
+		if($layoutName===false)//到这里都没有定义，说明整个系统中对这个$this控制器没有赋予布局文件
 			return false;
 		
 		//$theme为主题管理类themeManager
@@ -711,10 +723,13 @@ class CController extends CBaseController
 		//fb(Yii::app()->getTheme());//一个主题的绝对路径和一个资源的相对路径
 		if(($theme=Yii::app()->getTheme())!==null && ($layoutFile=$theme->getLayoutFile($this,$layoutName))!==false)
 		{
+			fb($layoutFile);
+			fb(Yii::app()->themeManager->getThemeNames());
 			return $layoutFile;
 		}
 
-		//module可以独立布局
+		
+		//module可以独立布局，强大
 		if(empty($layoutName))
 		{
 			$module=$this->getModule();
@@ -867,15 +882,16 @@ class CController extends CBaseController
 		//$view:index,$data传递的数据,$return是返回数据还是直接输出，默认直接输出，ajax中返回数据用得多
 		if($this->beforeRender($view))
 		{
-			//局部渲染，将内容返回
-			$output=$this->renderPartial($view,$data,true);
+			//局部渲染，将内容返回，view层的生成代码
+			$output=$this->renderPartial($view,$data,true);//原理：缓冲区
 			//布局文件的最终处理是主题类或其管理类
 			//fb($output);//这个内容就是view层返回的action内容，并且将作为布局文件的layout中的content
 			
 			//当布局文件存在时，注意当前对象是$this,即PostController控制器对象
+			//$this->layout由控制器指定
 			if(($layoutFile=$this->getLayoutFile($this->layout))!==false)
 			{
-				//fb($layoutFile);column2布局文件完全由controller提供，父类或其子类
+				//fb($layoutFile);//column2布局文件完全由controller提供，父类或其子类
 				// C:\xampp\htdocs\test\turen\app\blog\protected\views\layouts\column2.php
 				$output=$this->renderFile($layoutFile,array('content'=>$output),true);
 			}	

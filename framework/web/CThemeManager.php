@@ -36,12 +36,13 @@
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @package system.web
  * @since 1.0
- * 这个类是从
+ * 所有的相对/绝对路径和http请求路径都是由request对象提供支持
  */
 class CThemeManager extends CApplicationComponent
 {
 	/**
 	 * default themes base path
+	 * 强制规定主题根目录
 	 */
 	const DEFAULT_BASEPATH='themes';
 
@@ -61,13 +62,16 @@ class CThemeManager extends CApplicationComponent
 	 */
 	public function getTheme($name)
 	{
+		//fb($name);// classic
 		//DIRECTORY_SEPARATOR用于文件路径，在各平台之间不同
 		//资源路径是'/'这个是固定死了的，只有一个http请求协议，是跨平台的
 		$themePath=$this->getBasePath().DIRECTORY_SEPARATOR.$name;
 		//fb($themePath);// D:\xampp\www\me\jorryApps\app\blog\themes\classic
 		if(is_dir($themePath))
 		{
+			//public $themeClass='CTheme';//公共属性，这说明可以重新部署主题类
 			$class=Yii::import($this->themeClass, true);
+			//fb($class);//CTheme
 			return new $class($name,$themePath,$this->getBaseUrl().'/'.$name);
 		}
 		else
@@ -77,6 +81,7 @@ class CThemeManager extends CApplicationComponent
 	/**
 	 * @return array list of available theme names
 	 * //从文件层面获取所有的主题名称
+	 * 获取当前所有主题的列表
 	 */
 	public function getThemeNames()
 	{
@@ -103,6 +108,7 @@ class CThemeManager extends CApplicationComponent
 	public function getBasePath()
 	{
 		//直接获取系统启动路径
+		//即与index.php所在同一个目录下为主题的起始目录
 		if($this->_basePath===null)
 			$this->setBasePath(dirname(Yii::app()->getRequest()->getScriptFile()).DIRECTORY_SEPARATOR.self::DEFAULT_BASEPATH);
 		return $this->_basePath;
@@ -124,6 +130,7 @@ class CThemeManager extends CApplicationComponent
 	 */
 	public function getBaseUrl()
 	{
+		//fb(Yii::app()->getBaseUrl());
 		if($this->_baseUrl===null)
 			$this->_baseUrl=Yii::app()->getBaseUrl().'/'.self::DEFAULT_BASEPATH;
 		return $this->_baseUrl;

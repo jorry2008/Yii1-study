@@ -248,6 +248,7 @@ class CWebApplication extends CApplication
 
 	/**
 	 * @return CThemeManager the theme manager.
+	 * 这是一个只读组件，yii设计者没有对外开放，因此重写主题类，是实现不了的
 	 */
 	public function getThemeManager()
 	{
@@ -256,6 +257,7 @@ class CWebApplication extends CApplication
 
 	/**
 	 * @return CTheme the theme used currently. Null if no theme is being used.
+	 * 返回的是getThemeManager管理器下的Theme对象
 	 */
 	public function getTheme()
 	{

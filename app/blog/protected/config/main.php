@@ -19,15 +19,17 @@ return array(
 		'application.components.*',
 	),
 		
-//典型的只读web属性
-// 	'themeManager' => array(
-// 		'themeNames'=>array(),//主题列表
-// 		'basePath'=>'',//绝对路径，默认："WebRootPath/themes".
-// 		'baseUrl'=>'',//更改主题的路径，默认：/WebRoot/themes，这个是相对的web路径
-// 	),
+	//典型的只读web属性,Property "CWebApplication.themeManager" is read only.
+	//'themeManager' => array(
+		//'themeClass'=>'CTheme',
+		//'_basePath'=>'',//绝对路径，默认："WebRootPath/themes".
+		//'_baseUrl'=>'',//更改主题的路径，默认：/WebRoot/themes，这个是相对的web路径
+	//),
 
 	'defaultController'=>'post',
+	//配置文件里可以这样配置，但如果没有对应的布局等文件，系统会自动取protected目录下的views文件
 	'theme' => 'classic',
+	'layout'=> 'column1',//基础布局，通常不取
 	
 	//GII应用程序，代码生成工具，module就是一个独立的应用
 	'modules'=>array(

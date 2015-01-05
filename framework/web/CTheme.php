@@ -21,6 +21,10 @@
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @package system.web
  * @since 1.0
+ * 主题对象完成是：描述主题包文件的目录结构和所有相关的路径，它决定了主题包的文件组织规范。
+ * 所以说，主题对象就告诉我们主题包的各种文件要怎么组织。
+ * 
+ * 整个主题的目录构建于，以index.php为起始的基础目录，+views+themes+layout布局+main.php主题主文件
  */
 class CTheme extends CComponent
 {
@@ -67,6 +71,7 @@ class CTheme extends CComponent
 
 	/**
 	 * @return string the path for controller views. Defaults to 'ThemeRoot/views'.
+	 * 目录来自：index.php所在同一个目录下为主题的起始目录
 	 */
 	public function getViewPath()
 	{
@@ -109,6 +114,7 @@ class CTheme extends CComponent
 	 * @param CController $controller the controller
 	 * @param string $layoutName the layout name
 	 * @return string the layout file path. False if the file does not exist.
+	 * 处理具体的主题目录结构，也考虑到module的情况
 	 */
 	public function getLayoutFile($controller,$layoutName)
 	{
@@ -135,6 +141,7 @@ class CTheme extends CComponent
 		elseif($module!==null)
 			$moduleViewPath.='/'.$module->getId();
 
+		//重点
 		return $controller->resolveViewFile($layoutName,$moduleViewPath.'/layouts',$basePath,$moduleViewPath);
 	}
 }

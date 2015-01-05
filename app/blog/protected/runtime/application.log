@@ -1709,3 +1709,48 @@ REQUEST_URI=/test/turen/app/blog/
 HTTP_REFERER=http://192.168.1.107/test/turen/app/
 ---
 2014/12/31 11:33:22 [error] [exception.CDbException] SQLSTATE[HY000] [1049] Unknown database 'turen'
+2015/01/03 03:56:26 [error] [php] Use of undefined constant TRACE - assumed 'TRACE' (C:\xampp\htdocs\test\turen\framework\web\CController.php:713)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#1 C:\xampp\htdocs\test\turen\framework\web\CController.php(327): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\test\turen\framework\web\CController.php(303): PostController->runAction()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(281): PostController->runActionWithFilters()
+#4 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(296): PostController->run()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController()
+#6 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+2015/01/03 04:27:10 [error] [php] include(.php): failed to open stream: No such file or directory (C:\xampp\htdocs\test\turen\framework\YiiBase.php:459)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CThemeManager.php(73): import()
+#1 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(267): CThemeManager->getTheme()
+#2 C:\xampp\htdocs\test\turen\framework\web\CController.php(666): CWebApplication->getTheme()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(979): PostController->getViewFile()
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(885): PostController->renderPartial()
+#5 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(198): PostController->render()
+#6 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(304): PostController->runAction()
+#9 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): PostController->runActionWithFilters()
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(297): PostController->run()
+#11 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController()
+#12 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+2015/01/03 04:37:15 [error] [php] include(.php): failed to open stream: No such file or directory (C:\xampp\htdocs\test\turen\framework\YiiBase.php:459)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CThemeManager.php(73): import()
+#1 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(268): CThemeManager->getTheme()
+#2 C:\xampp\htdocs\test\turen\framework\web\CController.php(666): CWebApplication->getTheme()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(979): PostController->getViewFile()
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(885): PostController->renderPartial()
+#5 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(198): PostController->render()
+#6 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(304): PostController->runAction()
+#9 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): PostController->runActionWithFilters()
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): PostController->run()
+#11 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController()
+#12 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
