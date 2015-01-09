@@ -29,7 +29,8 @@ return array(
 	'defaultController'=>'post',
 	//配置文件里可以这样配置，但如果没有对应的布局等文件，系统会自动取protected目录下的views文件
 	'theme' => 'classic',
-	'layout'=> 'column1',//基础布局，通常不取
+	'layout' => 'column1',//基础布局，通常不取
+	//'sourceLanguage' => 'zh_cn',//设置系统默认
 	
 	//GII应用程序，代码生成工具，module就是一个独立的应用
 	'modules'=>array(
@@ -79,9 +80,12 @@ return array(
 			'charset' => 'utf8',
 			'tablePrefix' => 'tbl_',
 		),
+			
+		//这里可以指定也可以默认以优先的方式获取
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
-			'errorAction'=>'site/error',
+			//'errorAction'=>'site/error',//默认的内容，非常专业
+			'adminInfo' => '980522557@qq.com',
 		),
 		/*
 		'urlManager'=>array(

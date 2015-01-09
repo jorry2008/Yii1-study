@@ -155,6 +155,7 @@ abstract class CApplication extends CModule
 		//举例：当有一个请求，我捕获了，经过检查发现这个请求来自一个被我屏蔽的国家，此时直接返回无权访问的状态。
 		$this->preinit();//by jorry这是Module的构造器，此时没有做任何工作，整个框架还未开始动作
 
+		//异常是以阶梯的形式一级一级的向后传递，直接最后由系统获取并处理为止
 		$this->initSystemHandlers();//by jorry初始化各种handler，给捕获异常及未捕获错误注册处理句柄
 		$this->registerCoreComponents();//by jorry注册核心“组件”，只引入不加载最初的的_componentConfig，_components为空没有对象【已经固定在了'应用'中】
 		
@@ -708,6 +709,8 @@ abstract class CApplication extends CModule
 	 */
 	public function handleException($exception)
 	{
+		//所有的异常都将经过此处理
+		
 		// disable error capturing to avoid recursive errors
 		restore_error_handler();
 		restore_exception_handler();

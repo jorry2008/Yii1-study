@@ -1754,3 +1754,1244 @@ Stack trace:
 #12 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
 #13 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CWebApplication->run()
 REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+2015/01/09 09:35:07 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:35:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(198): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\CController.php(304): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('')
+#26 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#27 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#29 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.107/test/turen/app/
+---
+2015/01/09 09:35:09 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:39:10 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:39:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(198): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\CController.php(304): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('')
+#26 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#27 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#29 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.107/test/turen/app/
+---
+2015/01/09 09:39:12 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:40:25 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:40:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\components\Controller.php(29): CActiveRecord->find('id=3')
+#8 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(297): Controller->init()
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#10 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#12 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.107/test/turen/app/
+---
+2015/01/09 09:40:27 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:43:14 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:43:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\components\Controller.php(27): CActiveRecord->find('id=3')
+#8 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(297): Controller->init()
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#10 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#12 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.107/test/turen/app/
+---
+2015/01/09 09:43:16 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:43:26 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:43:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(198): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\CController.php(304): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('')
+#26 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#27 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#29 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.107/test/turen/app/
+---
+2015/01/09 09:43:28 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:45:21 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:45:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(198): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\CController.php(304): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('')
+#26 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#27 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#29 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.107/test/turen/app/
+---
+2015/01/09 09:45:23 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:45:53 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:45:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(198): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\CController.php(304): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('')
+#26 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#27 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#29 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.107/test/turen/app/
+---
+2015/01/09 09:45:55 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:46:44 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:46:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(198): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\CController.php(304): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('')
+#26 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#27 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#29 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.107/test/turen/app/
+---
+2015/01/09 09:46:46 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:48:45 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:48:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(198): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\CController.php(304): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('')
+#26 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#27 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#29 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.107/test/turen/app/
+---
+2015/01/09 09:50:00 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:50:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(198): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\CController.php(304): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('')
+#26 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#27 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#29 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.107/test/turen/app/
+---
+2015/01/09 09:51:51 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:51:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(198): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\CController.php(304): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('')
+#26 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#27 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#29 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.107/test/turen/app/
+---
+2015/01/09 09:56:20 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 09:56:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\filters\ControllerFiler.php(14): CActiveRecord->find('id=3')
+#8 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(38): ControllerFiler->preFilter(Object(CFilterChain))
+#9 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#11 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#13 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#14 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#16 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 09:56:22 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:08:29 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:08:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 10:08:31 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:08:45 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:08:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\filters\ControllerFiler.php(14): CActiveRecord->find('id=3')
+#8 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(38): ControllerFiler->preFilter(Object(CFilterChain))
+#9 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#11 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#13 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#14 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#16 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 10:08:47 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:15:34 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:15:36 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:15:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 10:15:38 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:15:58 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:16:00 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:16:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 10:16:02 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:32:44 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:32:46 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:32:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 10:32:48 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:35:59 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:36:01 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:36:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 10:36:03 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:44:08 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:44:10 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:44:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(453): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(183): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 10:44:12 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:52:35 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:52:37 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 10:52:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 10:52:39 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:03:47 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:03:49 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:03:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:03:51 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:04:09 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:04:11 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:04:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:04:13 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:04:46 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:04:48 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:04:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:06:02 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:06:04 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:06:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:06:39 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:06:41 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:06:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:08:47 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:08:49 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:08:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:13:06 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:13:08 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:13:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:13:28 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:13:30 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:13:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:16:34 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:16:36 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:16:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:18:52 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:18:54 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:18:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 C:\xampp\htdocs\test\turen\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 C:\xampp\htdocs\test\turen\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 C:\xampp\htdocs\test\turen\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 C:\xampp\htdocs\test\turen\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(147): CListView->init()
+#14 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\post\index.php(9): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#18 C:\xampp\htdocs\test\turen\framework\web\CController.php(982): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#19 C:\xampp\htdocs\test\turen\framework\web\CController.php(886): CController->renderPartial('index', Array, true)
+#20 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): CController->render('index', Array)
+#21 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#22 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#27 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#29 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#30 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#32 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:19:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "poeest/index".' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('poeest/index')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=poeest/index
+---
+2015/01/09 11:24:16 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:24:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\components\Controller.php(27): CActiveRecord->find('id=3')
+#8 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(297): Controller->init()
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#10 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#12 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:24:57 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:24:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\components\Controller.php(27): CActiveRecord->find('id=3')
+#8 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(297): Controller->init()
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#10 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#12 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---
+2015/01/09 11:24:59 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:58:58 [error] [exception.CDbException] SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+
+2015/01/09 11:58:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php:388
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\xampp\htdocs\test\turen\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(391): CDbConnection->init()
+#3 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(454): CModule->getComponent('db')
+#4 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\components\Controller.php(27): CActiveRecord->find('id=3')
+#8 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(297): Controller->init()
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#10 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#12 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
+---

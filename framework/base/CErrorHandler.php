@@ -352,6 +352,19 @@ class CErrorHandler extends CApplicationComponent
 			Yii::app() instanceof CWebApplication ? Yii::app()->getSystemViewPath() : null,
 			YII_PATH.DIRECTORY_SEPARATOR.'views',
 		);
+		
+		//默认的模板和语言包是如何取得的
+		//fb($viewPaths);
+		/*
+		array(
+		[0] =>
+		'C:\xampp\htdocs\test\turen\app\blog\themes\classic\views\system'
+		[1] =>
+		'C:\xampp\htdocs\test\turen\app\blog\protected\views\system'
+		[2] =>
+		'C:\xampp\htdocs\test\turen\framework\views'
+		)
+		 */
 
 		foreach($viewPaths as $i=>$viewPath)
 		{
@@ -359,7 +372,11 @@ class CErrorHandler extends CApplicationComponent
 			{
 				 $viewFile=$this->getViewFileInternal($viewPath,$view,$code,$i===2?'en_us':null);
 				 if(is_file($viewFile))
-				 	 return $viewFile;
+				 {
+				 	//fb($viewFile);
+				 	//C:\xampp\htdocs\test\turen\framework\views\error500.php
+				 	return $viewFile;
+				 }
 			}
 		}
 	}

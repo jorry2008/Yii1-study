@@ -14,6 +14,8 @@ class PostController extends Controller
 	/**
 	 * @return array action filters
 	 */
+	
+	/*
 	public function filters()
 	{
 		return array();
@@ -39,6 +41,7 @@ class PostController extends Controller
 				),
 			);
 	}
+	*/
 	
 	//普通过滤器方法
 	public function filterProductList01($filterChain)

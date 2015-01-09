@@ -10,7 +10,7 @@ class SiteController extends Controller
 	 */
 	public function filters()
 	{
-		return array();
+		//return array();
 		//return array('a'=>'b');
 	}
 
