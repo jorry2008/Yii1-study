@@ -1,0 +1,25 @@
+1.创建目录并且列出当前目录路径：
+$ mkdir learngit
+$ cd learngit
+$ pwd
+/Users/michael/learngit
+
+2.显示目录中不可见目录：
+ls -last
+会显示目录详情和权限
+
+3.$ cat readme.txt
+显示指定文件的内容
+
+
+
+
+4.
+
+
+
+
+
+
+
+

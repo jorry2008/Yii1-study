@@ -1,0 +1,5 @@
+On branch master：在master分支上
+git status
+Untracked files:没有跟踪的文件
+git add 文件
+Changes to be committed：已经暂存

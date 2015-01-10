@@ -1,0 +1,154 @@
+汇总：
+其实学习git就是在整理git的正向命令和反向命令及复合命令。
+$ git init [folder]
+
+$ git config --system --list
+$ git config --global --list
+$ git config --list
+$ git config --global user.name "John Doe"
+
+$ git help init
+
+$ git add README
+$ git add *.c
+$ git add . 
+
+$ git commit -a
+$ git commit -m '一定要带上版本的描述'
+$ git commit * --amend -m "版本的描述"//将上次提交的内容在这次合并提交
+
+$ git diff
+$ git diff --cached
+
+$ git log
+$ git reflog
+
+$ git reset HEAD file//将指定文件辙出缓冲区（清除已缓存状态与add相反）
+$ git reset --hard HEADE^
+$ git reset --hard HEADE^^
+$ git reset --hard db706d4
+
+$ git checkout -- file
+
+$ git remote add origin git@server-name:path/repo-name.git
+$ git push -u origin master
+$ git push origin master
+$ git pull:等同于： git fetch + git merge）//从服务器的仓库中获取代码，和本地代码合并。
+
+
+
+
+
+
+
+1.将运程仓库克隆到本地：
+$ git clone git://git.kernel.org/pub/scm/git/git.git
+
+2.git config --system
+系统配置文件：/etc/gitconfig
+
+git config --global
+当前用户配置文件：~/.gitconfig
+
+git config默认是当前项目配置文件：.git/config
+注意：以上详细的会覆盖全局的。
+
+查看配置信息
+$ git config --system --list
+$ git config --global --list
+$ git config --list
+
+也可以直接查看指定项：$ git config user.name
+
+所以修改用户信息：
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+
+3.获取帮助
+查看git帮助：git help
+查看命令帮助：git help cofig
+
+4.如何在指定的一个项目下创建一个克隆项目
+$ git init初始化根据点
+首先cd进入到指定的那个目录
+再执行git clone url即可。
+克隆时可以为新建的项目取个名字：
+$ git clone git://github.com/schacon/grit.git mygrit
+协议：git:// 协议或者 http(s)://....
+
+然后添加一个些文件并提交：
+$ git add *.c
+$ git add README
+$ git commit -m '一定要带上版本的描述'
+git add .   全部加到缓存区
+
+注意：git强制要求填写-m即message版本描述信息
+
+5.查看当前目录下的文件状态：git status
+开始跟踪未跟踪的文件：git add 文件
+git commit -a
+
+6.如何设置忽略跟踪
+创建一个忽略配置文件：
+$ cat .gitignore *.[oa] *~
+向忽略文件中添加以o或a及~结尾的文件，不允许跟踪这类文件
+
+7.使用git diff直接当前目录下的文件，上次快照和当前修改的内容之间的差异。
+上次快照就是a,当前修改就是b
+所以git diff表示：当前文件和暂存区域快照
+git diff --cached
+
+8.移除
+rm --cached readme.txt
+只是移除缓存并脱离版本控制，保留文件本身在当前目录
+rm -f readme.txt
+移除文件并强制清除缓存区
+为什么仅仅使用rm有时会报错，因为这里时候写入了缓存，所以
+必须加一个-f或--cached
+rm \*~
+
+9.git的移动和重命名
+$ git mv file_from file_to
+
+10.查看日志
+git log
+git log -p -2显示每次差异，且是最近两次
+git log --pretty=oneline(不显示签名)
+
+11.如何辙消
+如果多git add了一些文件可以：
+git reset HEAD benchmarks.rb将指定文件辙消缓冲区
+如果多提交了一些文件可以：
+$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend
+如下所示：
+当一次提交时发现有一些文件都没有到缓冲区，那么这次提交的版本少了缺失的这些文件
+那么我们可以加上add这些文件，
+执行git commit --amend 这样做后，将上次提交的内容重新以这次提交生效。形成最终提交。
+git commit * --amend -m "九"
+
+12.Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，也就是最新的提交“ 3628164...882e1e0”（注意我的提交ID和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
+
+$ git reset --hard HEAD^
+恢复到上一个版本，reset恢复到指定版本
+
+同样我们也可以使用指纹来恢复到指定版本：
+$ git reset --hard 3628164
+版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位，因为Git可能会找到多个版本号，就无法确定是哪一个了。
+
+13.回到任何年代。
+HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，
+使用命令git reset --hard commit_id。
+穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
+要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+即退回之前先查log并选择退回，指定跳转先reflog查看id并跳转。
+
+14.删除文件
+首先已被git追踪的文件才可以使用git rm file进行删除
+否则只能使用LINUX rm命令
+当文件被删除后，即处于删除状态，最后要git commit file -m""确认即可
+
+
+
+
