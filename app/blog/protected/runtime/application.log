@@ -3131,3 +3131,243 @@ Stack trace:
 #15 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
 #16 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CWebApplication->run()
 REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+2015/01/25 10:00:29 [error] [exception.CException] exception 'CException' with message 'CWebUser.allowAutoLogin must be set true in order to use cookie-based authentication.' in D:\xampp\www\me\jorryApps\framework\web\auth\CWebUser.php:243
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\app\blog\protected\models\LoginForm.php(69): CWebUser->login(Object(UserIdentity), 2592000)
+#1 D:\xampp\www\me\jorryApps\app\blog\protected\controllers\SiteController.php(111): LoginForm->login()
+#2 D:\xampp\www\me\jorryApps\framework\web\actions\CInlineAction.php(58): SiteController->actionLogin()
+#3 D:\xampp\www\me\jorryApps\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 D:\xampp\www\me\jorryApps\framework\web\CController.php(304): CController->runAction(Object(CInlineAction))
+#5 D:\xampp\www\me\jorryApps\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), NULL)
+#6 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(298): CController->run('login')
+#7 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('site/login')
+#8 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#9 D:\xampp\www\me\jorryApps\app\blog\index.php(22): CApplication->run()
+#10 {main}
+REQUEST_URI=/jorryApps/app/blog/index.php?r=site/login
+HTTP_REFERER=http://me.cc/jorryApps/app/blog/index.php?r=site/login
+---
+2015/01/25 10:07:41 [error] [exception.CException] exception 'CException' with message 'Property "CHttpSession.connectionID" is not defined.' in D:\xampp\www\me\jorryApps\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\YiiBase.php(233): CComponent->__set('connectionID', 'db')
+#1 D:\xampp\www\me\jorryApps\framework\base\CModule.php(395): YiiBase::createComponent(Array)
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(207): CModule->getComponent('session')
+#3 D:\xampp\www\me\jorryApps\framework\web\auth\CWebUser.php(199): CWebApplication->getSession()
+#4 D:\xampp\www\me\jorryApps\framework\base\CModule.php(396): CWebUser->init()
+#5 D:\xampp\www\me\jorryApps\framework\base\CModule.php(106): CModule->getComponent('user')
+#6 D:\xampp\www\me\jorryApps\app\blog\themes\classic\views\layouts\column2.php(10): CModule->__get('user')
+#7 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(126): require('D:\\xampp\\www\\me...')
+#8 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\www\\me...', Array, true)
+#9 D:\xampp\www\me\jorryApps\framework\web\CController.php(900): CBaseController->renderFile('D:\\xampp\\www\\me...', Array, true)
+#10 D:\xampp\www\me\jorryApps\app\blog\protected\controllers\PostController.php(203): CController->render('index', Array)
+#11 D:\xampp\www\me\jorryApps\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#12 D:\xampp\www\me\jorryApps\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#13 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\www\me\jorryApps\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\www\me\jorryApps\framework\web\CController.php(311): CFilterChain->run()
+#17 D:\xampp\www\me\jorryApps\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(298): CController->run('')
+#19 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#20 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#21 D:\xampp\www\me\jorryApps\app\blog\index.php(22): CApplication->run()
+#22 {main}
+REQUEST_URI=/jorryApps/app/blog/index.php
+HTTP_REFERER=http://me.cc/jorryApps/app/blog/index.php?r=site/login
+---
+2015/01/25 10:08:49 [error] [exception.CException] exception 'CException' with message 'Property "CHttpSession.connectionID" is not defined.' in D:\xampp\www\me\jorryApps\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\YiiBase.php(233): CComponent->__set('connectionID', 'db')
+#1 D:\xampp\www\me\jorryApps\framework\base\CModule.php(395): YiiBase::createComponent(Array)
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(207): CModule->getComponent('session')
+#3 D:\xampp\www\me\jorryApps\framework\web\auth\CWebUser.php(199): CWebApplication->getSession()
+#4 D:\xampp\www\me\jorryApps\framework\base\CModule.php(396): CWebUser->init()
+#5 D:\xampp\www\me\jorryApps\framework\base\CModule.php(106): CModule->getComponent('user')
+#6 D:\xampp\www\me\jorryApps\app\blog\themes\classic\views\layouts\column2.php(10): CModule->__get('user')
+#7 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(126): require('D:\\xampp\\www\\me...')
+#8 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\www\\me...', Array, true)
+#9 D:\xampp\www\me\jorryApps\framework\web\CController.php(900): CBaseController->renderFile('D:\\xampp\\www\\me...', Array, true)
+#10 D:\xampp\www\me\jorryApps\app\blog\protected\controllers\PostController.php(203): CController->render('index', Array)
+#11 D:\xampp\www\me\jorryApps\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#12 D:\xampp\www\me\jorryApps\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#13 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\www\me\jorryApps\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\www\me\jorryApps\framework\web\CController.php(311): CFilterChain->run()
+#17 D:\xampp\www\me\jorryApps\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(298): CController->run('')
+#19 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#20 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#21 D:\xampp\www\me\jorryApps\app\blog\index.php(22): CApplication->run()
+#22 {main}
+REQUEST_URI=/jorryApps/app/blog/index.php
+HTTP_REFERER=http://me.cc/jorryApps/app/blog/index.php?r=site/login
+---
+2015/01/25 10:29:10 [error] [exception.CException] exception 'CException' with message '属性 "CHttpSession.connectionID" 未被定义.' in D:\xampp\www\me\jorryApps\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\YiiBase.php(233): CComponent->__set('connectionID', 'db')
+#1 D:\xampp\www\me\jorryApps\framework\base\CModule.php(395): YiiBase::createComponent(Array)
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(207): CModule->getComponent('session')
+#3 D:\xampp\www\me\jorryApps\framework\web\auth\CWebUser.php(199): CWebApplication->getSession()
+#4 D:\xampp\www\me\jorryApps\framework\base\CModule.php(396): CWebUser->init()
+#5 D:\xampp\www\me\jorryApps\framework\base\CModule.php(106): CModule->getComponent('user')
+#6 D:\xampp\www\me\jorryApps\app\blog\themes\classic\views\layouts\column2.php(10): CModule->__get('user')
+#7 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(126): require('D:\\xampp\\www\\me...')
+#8 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\www\\me...', Array, true)
+#9 D:\xampp\www\me\jorryApps\framework\web\CController.php(900): CBaseController->renderFile('D:\\xampp\\www\\me...', Array, true)
+#10 D:\xampp\www\me\jorryApps\app\blog\protected\controllers\PostController.php(203): CController->render('index', Array)
+#11 D:\xampp\www\me\jorryApps\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#12 D:\xampp\www\me\jorryApps\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#13 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\www\me\jorryApps\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\www\me\jorryApps\framework\web\CController.php(311): CFilterChain->run()
+#17 D:\xampp\www\me\jorryApps\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(298): CController->run('')
+#19 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#20 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#21 D:\xampp\www\me\jorryApps\app\blog\index.php(22): CApplication->run()
+#22 {main}
+REQUEST_URI=/jorryApps/app/blog/index.php
+HTTP_REFERER=http://me.cc/jorryApps/app/blog/index.php?r=site/login
+---
+2015/01/25 10:34:55 [error] [exception.CException] exception 'CException' with message '属性 "CHttpSession.connectionID" 未被定义.' in D:\xampp\www\me\jorryApps\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\YiiBase.php(233): CComponent->__set('connectionID', 'db')
+#1 D:\xampp\www\me\jorryApps\framework\base\CModule.php(395): YiiBase::createComponent(Array)
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(207): CModule->getComponent('session')
+#3 D:\xampp\www\me\jorryApps\framework\web\auth\CWebUser.php(199): CWebApplication->getSession()
+#4 D:\xampp\www\me\jorryApps\framework\base\CModule.php(396): CWebUser->init()
+#5 D:\xampp\www\me\jorryApps\framework\base\CModule.php(106): CModule->getComponent('user')
+#6 D:\xampp\www\me\jorryApps\app\blog\themes\classic\views\layouts\column2.php(10): CModule->__get('user')
+#7 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(126): require('D:\\xampp\\www\\me...')
+#8 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\www\\me...', Array, true)
+#9 D:\xampp\www\me\jorryApps\framework\web\CController.php(900): CBaseController->renderFile('D:\\xampp\\www\\me...', Array, true)
+#10 D:\xampp\www\me\jorryApps\app\blog\protected\controllers\PostController.php(203): CController->render('index', Array)
+#11 D:\xampp\www\me\jorryApps\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#12 D:\xampp\www\me\jorryApps\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#13 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\www\me\jorryApps\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\www\me\jorryApps\framework\web\CController.php(311): CFilterChain->run()
+#17 D:\xampp\www\me\jorryApps\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(298): CController->run('')
+#19 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#20 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#21 D:\xampp\www\me\jorryApps\app\blog\index.php(22): CApplication->run()
+#22 {main}
+REQUEST_URI=/jorryApps/app/blog/index.php
+HTTP_REFERER=http://me.cc/jorryApps/app/blog/index.php?r=site/login
+---
+2015/01/25 10:34:56 [error] [exception.CException] exception 'CException' with message '属性 "CHttpSession.connectionID" 未被定义.' in D:\xampp\www\me\jorryApps\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\YiiBase.php(233): CComponent->__set('connectionID', 'db')
+#1 D:\xampp\www\me\jorryApps\framework\base\CModule.php(395): YiiBase::createComponent(Array)
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(207): CModule->getComponent('session')
+#3 D:\xampp\www\me\jorryApps\framework\web\auth\CWebUser.php(199): CWebApplication->getSession()
+#4 D:\xampp\www\me\jorryApps\framework\base\CModule.php(396): CWebUser->init()
+#5 D:\xampp\www\me\jorryApps\framework\base\CModule.php(106): CModule->getComponent('user')
+#6 D:\xampp\www\me\jorryApps\app\blog\themes\classic\views\layouts\column2.php(10): CModule->__get('user')
+#7 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(126): require('D:\\xampp\\www\\me...')
+#8 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\www\\me...', Array, true)
+#9 D:\xampp\www\me\jorryApps\framework\web\CController.php(900): CBaseController->renderFile('D:\\xampp\\www\\me...', Array, true)
+#10 D:\xampp\www\me\jorryApps\app\blog\protected\controllers\PostController.php(203): CController->render('index', Array)
+#11 D:\xampp\www\me\jorryApps\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#12 D:\xampp\www\me\jorryApps\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#13 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\www\me\jorryApps\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\www\me\jorryApps\framework\web\CController.php(311): CFilterChain->run()
+#17 D:\xampp\www\me\jorryApps\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(298): CController->run('')
+#19 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#20 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#21 D:\xampp\www\me\jorryApps\app\blog\index.php(22): CApplication->run()
+#22 {main}
+REQUEST_URI=/jorryApps/app/blog/index.php
+HTTP_REFERER=http://me.cc/jorryApps/app/blog/index.php?r=site/login
+---
+2015/01/25 10:35:44 [error] [exception.CException] exception 'CException' with message 'Property "CHttpSession.connectionID" is not defined.' in D:\xampp\www\me\jorryApps\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\YiiBase.php(233): CComponent->__set('connectionID', 'db')
+#1 D:\xampp\www\me\jorryApps\framework\base\CModule.php(395): YiiBase::createComponent(Array)
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(207): CModule->getComponent('session')
+#3 D:\xampp\www\me\jorryApps\framework\web\auth\CWebUser.php(199): CWebApplication->getSession()
+#4 D:\xampp\www\me\jorryApps\framework\base\CModule.php(396): CWebUser->init()
+#5 D:\xampp\www\me\jorryApps\framework\base\CModule.php(106): CModule->getComponent('user')
+#6 D:\xampp\www\me\jorryApps\app\blog\themes\classic\views\layouts\column2.php(10): CModule->__get('user')
+#7 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(126): require('D:\\xampp\\www\\me...')
+#8 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\www\\me...', Array, true)
+#9 D:\xampp\www\me\jorryApps\framework\web\CController.php(900): CBaseController->renderFile('D:\\xampp\\www\\me...', Array, true)
+#10 D:\xampp\www\me\jorryApps\app\blog\protected\controllers\PostController.php(203): CController->render('index', Array)
+#11 D:\xampp\www\me\jorryApps\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#12 D:\xampp\www\me\jorryApps\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#13 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\www\me\jorryApps\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\www\me\jorryApps\framework\web\CController.php(311): CFilterChain->run()
+#17 D:\xampp\www\me\jorryApps\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(298): CController->run('')
+#19 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#20 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#21 D:\xampp\www\me\jorryApps\app\blog\index.php(22): CApplication->run()
+#22 {main}
+REQUEST_URI=/jorryApps/app/blog/index.php
+HTTP_REFERER=http://me.cc/jorryApps/app/blog/index.php?r=site/login
+---
+2015/01/25 11:01:43 [error] [exception.CException] exception 'CException' with message 'Property "CHttpSession.connectionID" is not defined.' in D:\xampp\www\me\jorryApps\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\YiiBase.php(233): CComponent->__set('connectionID', 'db')
+#1 D:\xampp\www\me\jorryApps\framework\base\CModule.php(395): YiiBase::createComponent(Array)
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(207): CModule->getComponent('session')
+#3 D:\xampp\www\me\jorryApps\framework\web\auth\CWebUser.php(199): CWebApplication->getSession()
+#4 D:\xampp\www\me\jorryApps\framework\base\CModule.php(396): CWebUser->init()
+#5 D:\xampp\www\me\jorryApps\framework\base\CModule.php(106): CModule->getComponent('user')
+#6 D:\xampp\www\me\jorryApps\app\blog\themes\classic\views\layouts\column2.php(10): CModule->__get('user')
+#7 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(126): require('D:\\xampp\\www\\me...')
+#8 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\www\\me...', Array, true)
+#9 D:\xampp\www\me\jorryApps\framework\web\CController.php(900): CBaseController->renderFile('D:\\xampp\\www\\me...', Array, true)
+#10 D:\xampp\www\me\jorryApps\app\blog\protected\controllers\PostController.php(203): CController->render('index', Array)
+#11 D:\xampp\www\me\jorryApps\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#12 D:\xampp\www\me\jorryApps\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#13 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\www\me\jorryApps\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\www\me\jorryApps\framework\web\CController.php(311): CFilterChain->run()
+#17 D:\xampp\www\me\jorryApps\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(298): CController->run('')
+#19 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#20 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#21 D:\xampp\www\me\jorryApps\app\blog\index.php(22): CApplication->run()
+#22 {main}
+REQUEST_URI=/jorryApps/app/blog/index.php
+HTTP_REFERER=http://me.cc/jorryApps/app/blog/index.php?r=site/login
+---
+2015/01/25 12:49:02 [error] [exception.CException] exception 'CException' with message '属性 "CHttpSession.connectionID" 未被定义.' in D:\xampp\www\me\jorryApps\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\xampp\www\me\jorryApps\framework\YiiBase.php(233): CComponent->__set('connectionID', 'db')
+#1 D:\xampp\www\me\jorryApps\framework\base\CModule.php(395): YiiBase::createComponent(Array)
+#2 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(207): CModule->getComponent('session')
+#3 D:\xampp\www\me\jorryApps\framework\web\auth\CWebUser.php(199): CWebApplication->getSession()
+#4 D:\xampp\www\me\jorryApps\framework\base\CModule.php(396): CWebUser->init()
+#5 D:\xampp\www\me\jorryApps\framework\base\CModule.php(106): CModule->getComponent('user')
+#6 D:\xampp\www\me\jorryApps\app\blog\themes\classic\views\layouts\column2.php(10): CModule->__get('user')
+#7 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(126): require('D:\\xampp\\www\\me...')
+#8 D:\xampp\www\me\jorryApps\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\www\\me...', Array, true)
+#9 D:\xampp\www\me\jorryApps\framework\web\CController.php(900): CBaseController->renderFile('D:\\xampp\\www\\me...', Array, true)
+#10 D:\xampp\www\me\jorryApps\app\blog\protected\controllers\PostController.php(203): CController->render('index', Array)
+#11 D:\xampp\www\me\jorryApps\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#12 D:\xampp\www\me\jorryApps\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#13 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\www\me\jorryApps\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 D:\xampp\www\me\jorryApps\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\www\me\jorryApps\framework\web\CController.php(311): CFilterChain->run()
+#17 D:\xampp\www\me\jorryApps\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(298): CController->run('')
+#19 D:\xampp\www\me\jorryApps\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#20 D:\xampp\www\me\jorryApps\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#21 D:\xampp\www\me\jorryApps\app\blog\index.php(22): CApplication->run()
+#22 {main}
+REQUEST_URI=/jorryApps/app/blog/index.php
+HTTP_REFERER=http://me.cc/jorryApps/app/blog/index.php?r=site/login
+---

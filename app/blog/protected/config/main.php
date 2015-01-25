@@ -9,7 +9,10 @@ return array(
 	//定义开发程序所在目录，默认是当前访问下的protected目录
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Yii Blog Demo',
-
+		
+	'sourceLanguage'=>'en_us',//设置系统级别的源语言，可以影响到views消息和系统多语言
+	'language'=>'zh_cn',//直接决定当前访问系统的显示语言
+	
 	// preloading 'log' component
 	'preload'=>array('log'),
 
