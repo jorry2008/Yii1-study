@@ -105,7 +105,7 @@ class CComponent
 	 * @see __set
 	 */
 	public function __get($name)
-	{
+	{//fb($name);
 		$getter='get'.$name;
 		if(method_exists($this,$getter))
 			return $this->$getter();

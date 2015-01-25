@@ -660,14 +660,18 @@ class CController extends CBaseController
 	 * @return string the view file path, false if the view file does not exist
 	 * @see resolveViewFile
 	 * @see CApplication::findLocalizedFile
+	 * 局部渲染
 	 */
-	public function getViewFile($viewName)
+	public function getViewFile($viewName)//index
 	{
+		//fb($theme=Yii::app()->getTheme());
 		if(($theme=Yii::app()->getTheme())!==null && ($viewFile=$theme->getViewFile($this,$viewName))!==false)
 			return $viewFile;
+		
 		$moduleViewPath=$basePath=Yii::app()->getViewPath();
 		if(($module=$this->getModule())!==null)
 			$moduleViewPath=$module->getViewPath();
+		
 		return $this->resolveViewFile($viewName,$this->getViewPath(),$basePath,$moduleViewPath);
 	}
 
@@ -894,7 +898,7 @@ class CController extends CBaseController
 				//fb($layoutFile);//column2布局文件完全由controller提供，父类或其子类
 				// C:\xampp\htdocs\test\turen\app\blog\protected\views\layouts\column2.php
 				$output=$this->renderFile($layoutFile,array('content'=>$output),true);
-			}	
+			}
 
 			$this->afterRender($view,$output);
 
@@ -1132,6 +1136,12 @@ class CController extends CBaseController
 	 * @param boolean $terminate whether to terminate the current application after calling this method. Defaults to true.
 	 * @param integer $statusCode the HTTP status code. Defaults to 302. See {@link http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html}
 	 * for details about HTTP status code.
+	 * 首先这是一个跳转，
+	 * 这个跳转是浏览器或者蜘蛛向服务器发出请求，
+	 * 服务器在响应内容中添加的header信息，就是告诉浏览器下一步应该怎么做，
+	 * 302就是表示下一步临时跳转到指定的href链接。
+	 * 
+	 * $terminate这个终止即表示后面的程序不再执行，默认是终止，否则这之后的程序还可以有效执行。
 	 */
 	public function redirect($url,$terminate=true,$statusCode=302)
 	{
@@ -1150,6 +1160,8 @@ class CController extends CBaseController
 	 * @param boolean $terminate whether to terminate the current application after calling this method
 	 * @param string $anchor the anchor that should be appended to the redirection URL.
 	 * Defaults to empty. Make sure the anchor starts with '#' if you want to specify it.
+	 * 刷新页面也支持#锚，常用于一个表单提交后，对当前的纯url进行再请求，即302跳转，而不带表单数据。
+	 * 这个跳转意义非凡，对用户体验来说是福音。
 	 */
 	public function refresh($terminate=true,$anchor='')
 	{

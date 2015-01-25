@@ -189,6 +189,8 @@ class PostController extends Controller
 		if(isset($_GET['tag']))
 			$criteria->addSearchCondition('tags',$_GET['tag']);
 
+		$db = Yii::app()->db;
+		
 		$dataProvider=new CActiveDataProvider('Post', array(
 			'pagination'=>array(
 				'pageSize'=>Yii::app()->params['postsPerPage'],

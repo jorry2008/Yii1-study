@@ -18,14 +18,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
 	),
-		
-	//典型的只读web属性,Property "CWebApplication.themeManager" is read only.
-	//'themeManager' => array(
-		//'themeClass'=>'CTheme',
-		//'_basePath'=>'',//绝对路径，默认："WebRootPath/themes".
-		//'_baseUrl'=>'',//更改主题的路径，默认：/WebRoot/themes，这个是相对的web路径
-	//),
-
+	
 	'defaultController'=>'post',
 	//配置文件里可以这样配置，但如果没有对应的布局等文件，系统会自动取protected目录下的views文件
 	'theme' => 'classic',
@@ -97,6 +90,7 @@ return array(
 			),
 		),
 		*/
+		
 		'session'=>array(
 			'class' => 'CDbHttpSession',
 			'sessionName'=>'blog',
@@ -105,6 +99,7 @@ return array(
 			'connectionID' => 'db',
 			'sessionTableName' => '{{session}}',
 		),
+		
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
@@ -113,13 +108,26 @@ return array(
 					'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages
-				/*
 				array(
 					'class'=>'CWebLogRoute',
 				),
-				*/
 			),
 		),
+		
+		//此组件可以任意指定当前module的主题所在位置
+		'themeManager' => array(//主题工厂类管理下面所有主题类
+			'themeClass'=>'CTheme',//指定一个新的主题类（默认）
+			//'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+// 			'basePath'=>'',//绝对路径，默认："WebRootPath/themes".
+			//'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',/
+// 			'baseUrl'=>'',//更改主题的路径，默认：/WebRoot/themes，这个是相对的web路径
+		),
+			
+			
+		
+			
+			
+		
 	),
 
 	// application-level parameters that can be accessed

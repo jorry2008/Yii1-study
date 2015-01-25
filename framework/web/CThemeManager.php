@@ -70,7 +70,7 @@ class CThemeManager extends CApplicationComponent
 		if(is_dir($themePath))
 		{
 			//public $themeClass='CTheme';//公共属性，这说明可以重新部署主题类
-			$class=Yii::import($this->themeClass, true);
+			$class=Yii::import($this->themeClass, true);//这里已经被固定了
 			//fb($class);//CTheme
 			return new $class($name,$themePath,$this->getBaseUrl().'/'.$name);
 		}

@@ -2995,3 +2995,139 @@ Stack trace:
 REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
 HTTP_REFERER=http://192.168.1.107/test/turen/app/blog/
 ---
+2015/01/23 04:54:21 [error] [php] include(CThemess.php): failed to open stream: No such file or directory (C:\xampp\htdocs\test\turen\framework\YiiBase.php:459)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CThemeManager.php(73): import()
+#1 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(268): CThemeManager->getTheme()
+#2 C:\xampp\htdocs\test\turen\framework\web\CController.php(668): CWebApplication->getTheme()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(984): PostController->getViewFile()
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(890): PostController->renderPartial()
+#5 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(201): PostController->render()
+#6 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): PostController->runAction()
+#9 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): ControllerFiler->filter()
+#11 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#12 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): PostController->runActionWithFilters()
+#13 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): PostController->run()
+#14 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController()
+#15 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+2015/01/23 11:03:23 [error] [php] Undefined variable: db (C:\xampp\htdocs\test\turen\framework\base\CApplication.php:478)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1455): Post->getCommandBuilder()
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\components\Controller.php(27): Post->find()
+#2 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(297): PostController->init()
+#3 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController()
+#4 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+2015/01/23 11:04:21 [error] [exception.Exception] exception 'Exception' with message 'abc' in C:\xampp\htdocs\test\turen\framework\base\CApplication.php:478
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#1 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#2 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#3 C:\xampp\htdocs\test\turen\app\blog\protected\components\Controller.php(27): CActiveRecord->find('id=3')
+#4 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(297): Controller->init()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#6 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#8 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.109/test/turen/app/blog/index.php?r=post/index
+---
+2015/01/23 11:05:07 [error] [exception.Exception] exception 'Exception' with message 'abc' in C:\xampp\htdocs\test\turen\framework\base\CApplication.php:478
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#1 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#2 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#3 C:\xampp\htdocs\test\turen\app\blog\protected\components\Controller.php(27): CActiveRecord->find('id=3')
+#4 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(297): Controller->init()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#6 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#8 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.109/test/turen/app/blog/index.php?r=post/index
+---
+2015/01/23 11:06:57 [error] [exception.Exception] exception 'Exception' with message 'abc' in C:\xampp\htdocs\test\turen\framework\base\CApplication.php:478
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#1 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#2 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#3 C:\xampp\htdocs\test\turen\app\blog\protected\components\Controller.php(27): CActiveRecord->find('id=3')
+#4 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(297): Controller->init()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#6 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#8 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.109/test/turen/app/blog/index.php?r=post/index
+---
+2015/01/23 12:12:06 [error] [exception.CException] exception 'CException' with message 'CWebApplication and its behaviors do not have a method or closure named "theme".' in C:\xampp\htdocs\test\turen\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(728): CComponent->__call('theme', Array)
+#1 C:\xampp\htdocs\test\turen\framework\web\CController.php(728): CWebApplication->theme()
+#2 C:\xampp\htdocs\test\turen\framework\web\CController.php(896): CController->getLayoutFile('column2')
+#3 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(203): CController->render('index', Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#5 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#10 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#12 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#13 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#15 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.109/test/turen/app/blog/index.php?r=site/page&view=about
+---
+2015/01/23 12:13:23 [error] [exception.CException] exception 'CException' with message 'Object configuration must be an array containing a "class" element.' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:206
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(395): YiiBase::createComponent(Array)
+#1 C:\xampp\htdocs\test\turen\framework\base\CModule.php(106): CModule->getComponent('theme')
+#2 C:\xampp\htdocs\test\turen\framework\base\CComponent.php(264): CModule->__get('theme')
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(728): CComponent->__call('theme', Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(728): CWebApplication->theme()
+#5 C:\xampp\htdocs\test\turen\framework\web\CController.php(896): CController->getLayoutFile('column2')
+#6 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(203): CController->render('index', Array)
+#7 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#13 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#15 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/index')
+#16 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CApplication->run()
+#18 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
+HTTP_REFERER=http://192.168.1.109/test/turen/app/blog/index.php?r=site/page&view=about
+---
+2015/01/23 12:13:59 [error] [php] Missing argument 1 for CTheme::__construct(), called in C:\xampp\htdocs\test\turen\framework\YiiBase.php on line 230 and defined (C:\xampp\htdocs\test\turen\framework\web\CTheme.php:41)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(106): CWebApplication->getComponent()
+#1 C:\xampp\htdocs\test\turen\framework\base\CComponent.php(264): CWebApplication->__get()
+#2 C:\xampp\htdocs\test\turen\framework\web\CController.php(728): CWebApplication->__call()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(728): CWebApplication->theme()
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(896): PostController->getLayoutFile()
+#5 C:\xampp\htdocs\test\turen\app\blog\protected\controllers\PostController.php(203): PostController->render()
+#6 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): PostController->runAction()
+#9 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): ControllerFiler->filter()
+#11 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#12 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): PostController->runActionWithFilters()
+#13 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): PostController->run()
+#14 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController()
+#15 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\test\turen\app\blog\index.php(22): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/index

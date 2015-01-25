@@ -126,7 +126,9 @@ abstract class CApplication extends CModule
 	 */
 	public function __construct($config=null)
 	{
+		//创建了一种访问方式：Yii::app()
 		Yii::setApplication($this);
+		
 		// set basePath at early as possible to avoid trouble
 		if(is_string($config))
 			$config=require($config);
@@ -137,6 +139,7 @@ abstract class CApplication extends CModule
 		}
 		else
 			$this->setBasePath('protected');//by jorry应用程序目录默认protected
+		
 		Yii::setPathOfAlias('application',$this->getBasePath());//by jorry开始以别名的方式拓展框架目录及命名空间
 		Yii::setPathOfAlias('webroot',dirname($_SERVER['SCRIPT_FILENAME']));
 		if(isset($config['extensionPath']))
@@ -153,21 +156,38 @@ abstract class CApplication extends CModule
 		}
 		
 		//举例：当有一个请求，我捕获了，经过检查发现这个请求来自一个被我屏蔽的国家，此时直接返回无权访问的状态。
-		$this->preinit();//by jorry这是Module的构造器，此时没有做任何工作，整个框架还未开始动作
+		//by jorry这是Module的构造器，此时没有做任何工作，整个框架还未开始动作
+		$this->preinit();
 
 		//异常是以阶梯的形式一级一级的向后传递，直接最后由系统获取并处理为止
-		$this->initSystemHandlers();//by jorry初始化各种handler，给捕获异常及未捕获错误注册处理句柄
-		$this->registerCoreComponents();//by jorry注册核心“组件”，只引入不加载最初的的_componentConfig，_components为空没有对象【已经固定在了'应用'中】
+		//by jorry初始化各种handler，给捕获异常及未捕获错误注册处理句柄
+		$this->initSystemHandlers();
 		
-		$this->configure($config);//by jorry从外部更新原有的“组件”配置，形成一份新的_componentConfig，_components为空没有对象【完美设计】
-		//fb($this->get_components());
-		//fb('系统配置如下：');
+		//by jorry注册核心“组件”，只引入不加载最初的_componentConfig
+		$this->registerCoreComponents();
+		
+		//by jorry从外部更新原有的“组件”配置，形成一份新的_componentConfig
+		$this->configure($config);
+		
+		/*
+		 * 通过以上核心注册和后面的main文件注册，生成一个全新的CModule::_componentConfig配置属性。
+		 * CModule::_components用于存储当前系统已经生成的组件对象，是个存储对象的动态容器。
+		 */
+		
+// 		fb('当前已经生成的组件对象:');
+// 		fb($this->get_components());
+		fb('当前系统最终组件配置如下：');
 		fb($this->get_componentConfig());
 		
 		$this->attachBehaviors($this->behaviors);//?
-		$this->preloadComponents();//载入'preload'=>array('log'),
-		//fb($this->get_components());
-		$this->init();//by jorry核心系统已经准备就绪了，整个框架准备好后，首次执行的方法
+		
+		//载入'preload'=>array('log'),前面只是加载了配置文件，此时是执行组件初始化
+		$this->preloadComponents();//启动日志组件
+		
+		//by jorry核心系统已经准备就绪了，整个框架准备好后，首次执行的方法，
+		//整个系统最接近开发都的那一层的根是module，即Moudle::init()这个方法是开发都可操作的最早执行的一个方法，
+		//常用于加载模块相关的文件
+		$this->init();
 	}
 
 	/**
@@ -178,10 +198,15 @@ abstract class CApplication extends CModule
 	 */
 	public function run()
 	{
-		if($this->hasEventHandler('onBeginRequest'))//by jorry如果有绑定的方法队列，则在执行到onBeginRequest标签时，就开始处理绑定到onBeginRequest标签的所有方法队列
+		//by jorry如果有绑定的方法队列，则在执行到onBeginRequest标签时，就开始处理绑定到onBeginRequest标签的所有方法队列
+		if($this->hasEventHandler('onBeginRequest'))
 			$this->onBeginRequest(new CEvent($this));
+		
 		register_shutdown_function(array($this,'end'),0,false);//by jorry注册一个方法：$this->end();？
-		$this->processRequest();//前端控制器入口
+		
+		//前端控制器入口
+		$this->processRequest();
+		
 		if($this->hasEventHandler('onEndRequest'))
 			$this->onEndRequest(new CEvent($this));
 	}
@@ -450,7 +475,7 @@ abstract class CApplication extends CModule
 	 * @return CDbConnection the database connection
 	 */
 	public function getDb()
-	{fb('这个db在哪里');
+	{
 		return $this->getComponent('db');
 	}
 

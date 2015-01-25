@@ -97,9 +97,11 @@ abstract class CModule extends CComponent
 	 * like reading module properties.
 	 * @param string $name application component or property name
 	 * @return mixed the named property value
+	 * CModule对象只开放了只读属性，__get()和检测触发__isset();
 	 */
 	public function __get($name)
 	{
+		//检测是否有组件对象，或者是否有组件配置数组
 		if($this->hasComponent($name))
 			return $this->getComponent($name);//by jorry返回对象
 		else
@@ -112,6 +114,7 @@ abstract class CModule extends CComponent
 	 * if the named application component is loaded.
 	 * @param string $name the property name or the event name
 	 * @return boolean whether the property value is null
+	 * 当系统调用isset()来检测当前对象是否有某个属性时，这个方法被触发。
 	 */
 	public function __isset($name)
 	{
@@ -379,8 +382,10 @@ abstract class CModule extends CComponent
 	{//fb($id);
 		if(isset($this->_components[$id])) {//by jorry已经有的对象，这里就是单例返回
 			return $this->_components[$id];
-		} 
-		elseif(isset($this->_componentConfig[$id]) && $createIfNull)//by jorry有引入的相关对象参数，可以用来创建对象
+		}
+		
+		//by jorry有引入的相关对象参数，可以用来创建对象
+		elseif(isset($this->_componentConfig[$id]) && $createIfNull)
 		{
 			$config=$this->_componentConfig[$id];
 			if(!isset($config['enabled']) || $config['enabled'])
@@ -552,6 +557,7 @@ abstract class CModule extends CComponent
 	 * Note that at this moment, the module has been configured, the behaviors
 	 * have been attached and the application components have been registered.
 	 * @see preinit
+	 * 所有的module都会首次执行此方法
 	 */
 	protected function init()
 	{

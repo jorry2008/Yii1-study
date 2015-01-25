@@ -25,7 +25,7 @@ class Controller extends CController
 	public function init()
 	{
 		$post = Post::model()->find('id=3');
-		fb($post);
+		//fb($post);
 	}
 	
 	public function filters()
