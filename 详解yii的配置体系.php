@@ -205,21 +205,125 @@
  * 
  * 
  * 多层类组件如何配置组件子类的配置元素？
+ * 多级工厂模式
  * 
  * 
  * 
  * 
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- */
+
+//CWebApplication属性解析？
+（注意：app对象也是组件的一种，整个yii都是由组件组成，包括module也是组件之一）
+它们的继承关系如下：
+CWebApplication->CApplication->CModule->CComponent
+
+CComponent:组件基类
+它利用__get、__set实现了属性和事件的读写逻辑
+$value=$component->propertyName;
+$handlers=$component->eventName;
+并定义了框架的事件和行为。
+为整个框架的所有组件提供了两个全新的特性，属性读写控制和事件行为的支持。
+它实现了框架的特性！
+
+CModule:模块基类
+由继承关系可知，模块也是组件之一
+它使得所有继承它的子类都具有模块的特性，比如模块独立性，模块嵌套性
+public $preload=array();//系统预加载组件的id
+public $behaviors=array();//系统的行为容器
+private $_parentModule;//维护模块的父子关系
+private $_basePath;//app路径
+private $_modulePath;//模块主路径
+private $_params;//参数容器对象，main配置文件中的params参数，支持几乎所有类型
+private $_modules=array();//模块对象容器
+private $_moduleConfig=array();//模块配置数据
+private $_components=array();//组件对象容器
+private $_componentConfig=array();//组件配置数据
+通过对这些属性的分析，CModule是整个框架的数据中心，是组织者，它是整个组织的交织点。
+所有组件对象都是在这里创建的，并实现单例。
+CModule决定框架的整个框架，它是框架实现模块化的灵魂。
+它实现了框架的数据整合！
+
+CApplication:应用app基类
+它是一个abstract类，到目前为止，框架对象app基本就差不多实现了
+它完成了对系统中各个组件的相互整合，比如：
+数据库、国际本地化、多语言、时区、安全、拓展路径等
+具体在此实现的组件如下：
+'coreMessages'//CApplication::getCoreMessages();
+'db',//CApplication::getDb();
+'messages',//CApplication::getMessages();
+'errorHandler',//CApplication::getErrorHandler()
+'securityManager',//CApplication::getSecurityManager()
+'statePersister',//CApplication::getStatePersister()
+'urlManager',//CApplication::getUrlManager()
+'request',//CApplication::getRequest()
+'format',//经过惰性加载处理过的组件
+为什么使用get组件id这种方式，而不是Yii::app()->组件id直接获取呢？
+上面已经解释过了，当使用Yii::app()->组件id的方式，组件的配置由main控制。
+而当使用get组件id这种方式，实现了进一步的继承拓展。
+其实这里就实现了：Yii中的一切都是独立的可被配置，可重用，可扩展的组件。
+它只负责加载通用应用的部分组件，并提供这些组件的调用接口，并且以get的方式，实现了在继承的层面的拓展性。
+它实现了可拓展通用app，包括web应用和console控制台应用或更多！
+
+CWebApplication:
+与CApplication完全一样，它就是app的具体实现，与之对应的还有一个CConsoleApplication
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+回到正题，如何来理解CWebApplication的属性？
+本质来讲，这里的属性应该把CWebApplication和CApplication放到一起讲，两者基本原理是一样的（整合组件提供调用接口）。
+一、首先是隐性属性，即以__get和__set的形式得到的与组件id相捆绑的属性，每个属性对应一个组件对象。
+所有的组件包括核心组件和第三方的配置组件都是这样捆绑的。其中
+核心组件来自get+组件id，
+	
+普通组件来自
+
+
+两者有何关系？
+public function getUser()
+{fb('如果mian配置了user则此方法不被调用');
+	return $this->getComponent('user');
+}
+可以推测getDb();方法是完全用不到的，哈哈
+
+如何拓展组件（除了事件行为）？
+
+
+
+二、
+
+
+
+
+
+三、
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

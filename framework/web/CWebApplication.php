@@ -211,7 +211,7 @@ class CWebApplication extends CApplication
 	 * @return CWebUser the user session information
 	 */
 	public function getUser()
-	{
+	{fb('如果配置了user则此方法不被调用');
 		return $this->getComponent('user');
 	}
 

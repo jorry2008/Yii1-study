@@ -23,7 +23,8 @@ return array(
 	//配置文件里可以这样配置，但如果没有对应的布局等文件，系统会自动取protected目录下的views文件
 	'theme' => 'classic',
 	'layout' => 'column1',//基础布局，通常不取
-	//'sourceLanguage' => 'zh_cn',//设置系统默认
+	//'sourceLanguage' => 'zh_cn',//设置系统默认源语言
+	//'language'=>'en_us',//设置系统指定翻出语言
 	
 	//GII应用程序，代码生成工具，module就是一个独立的应用
 	'modules'=>array(
