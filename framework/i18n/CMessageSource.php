@@ -47,6 +47,7 @@ abstract class CMessageSource extends CApplicationComponent
 	/**
 	 * @return string the language that the source messages are written in.
 	 * Defaults to {@link CApplication::language application language}.
+	 * _language获取的值就是application提供的那个语言值
 	 */
 	public function getLanguage()
 	{
@@ -80,7 +81,11 @@ abstract class CMessageSource extends CApplicationComponent
 	public function translate($category,$message,$language=null)
 	{
 		if($language===null)
+		{
 			$language=Yii::app()->getLanguage();
+			//$this->getLanguage()源语言
+			//$language系统指定的语言
+		}
 		if($this->forceTranslation || $language!==$this->getLanguage())
 			return $this->translateMessage($category,$message,$language);
 		else
