@@ -24,7 +24,6 @@ Yii::createWebApplication($config);
 
 Yii::app()->run();
 
-fb(Yii::app()->basePath);
 
 
 

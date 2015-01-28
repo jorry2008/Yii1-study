@@ -266,18 +266,17 @@ CApplication:应用app基类
 
 CWebApplication:
 与CApplication完全一样，它就是app的具体实现，与之对应的还有一个CConsoleApplication
-
-
-
-
-
-
-
-
-
-
-
-
+'session'=>'CHttpSession',//CWebApplication::getCoreMessages();
+'assetManager'=>'CAssetManager',//CWebApplication::getAssetManager();
+'user'=>'CWebUser',//CWebApplication::getUser();
+'themeManager'=>'CThemeManager',//CWebApplication::getThemeManager();
+'authManager'=>'CPhpAuthManager',//CWebApplication::getAuthManager();
+'clientScript'=>'CClientScript',//CWebApplication::getClientScript();
+'widgetFactory'=>'CWidgetFactory',//CWebApplication::getWidgetFactory();
+如何知道组件有工厂模式？
+方法一是从YiiBase类中导入的所有库查找。
+方法二是看上述的组件id和组件类，两者的名字是否只相差一个C，如果不是则可以确定为工厂模式。
+它仅仅实现了webapp最终的MVC模式！
 
 
 
@@ -285,44 +284,326 @@ CWebApplication:
 本质来讲，这里的属性应该把CWebApplication和CApplication放到一起讲，两者基本原理是一样的（整合组件提供调用接口）。
 一、首先是隐性属性，即以__get和__set的形式得到的与组件id相捆绑的属性，每个属性对应一个组件对象。
 所有的组件包括核心组件和第三方的配置组件都是这样捆绑的。其中
-核心组件来自get+组件id，
-	
-普通组件来自
-
+*核心组件来自get+组件id，
+*普通组件来自Yii::app()->组件id，
+如果main配置了相应的组件以上两种方式都走main配置。
 
 两者有何关系？
 public function getUser()
 {fb('如果mian配置了user则此方法不被调用');
 	return $this->getComponent('user');
 }
-可以推测getDb();方法是完全用不到的，哈哈
+推测：getDb();方法是完全用不到的，哈哈
+在这之前我们要明白的是，开发者在开发app之前框架的运行是没有强制依赖main.php配置的，此时配置文件是空的，
+所以main.php配置文件完全是由开发者自己决定。
 
-如何拓展组件（除了事件行为）？
+因此可以确定以下规则：
+对于所有核心组件，在框架中的运行机制，获取组件的方式：get+组件id的形式，
+对于开发者开发app，Yii::app()->组件id。
+
+可以看出，main.php拥有绝对的优先级，它决定最终的类实例化方式。
+对于核心组件，也可以通过main.php指定一个对应组件类的拓展类如：
+'session'=>array(
+	'class' => 'CDbHttpSession',
+}
+当然，此处是工厂模式的CDbHttpSession，也可以是一个全新的类，或者基于此类的子类。
+注意：如果是全新的类，应该要满足相应的接口，这就是全栈框架的特点，要替代原组件必须符合原组件应该符合的标准。
+
+另外，所有核心组件都提供了get+组件id的形式，且都是public权限
+因此开发都要以CWebApplication或CApplication为基准开发新的app对象时，
+就可以直接利用这种可读属性的特性，对原组件进行拓展和修改。如：
+MyApplication extends CWebApplication 
+{
+//重写所有get+组件id的形式的组件方法，实现框架默认行为的修改
+}
+
+二、显示属性，即在类中显示定义的属性
+下面来讲解一下各类的显示属性，及对应的权限设置
+CComponent:
+private $_e;
+private $_m;
+此两个属性专门处理事件和行为，私有只有通过__get，__set来读写，进而在操作的时候加载了相关的处理逻辑实现所有组件的特性。
+
+CModule:
+public $preload=array();
+public $behaviors=array();
+private $_id;
+private $_parentModule;
+private $_basePath;
+private $_modulePath;
+private $_params;
+private $_modules=array();
+private $_moduleConfig=array();
+private $_components=array();
+private $_componentConfig=array();
+以上属性都是各种容器，装载各种数据。
+
+CApplication:
+public $name='My Application';
+public $charset='UTF-8';
+public $sourceLanguage='en_us';
+
+private $_id;
+private $_basePath;
+private $_runtimePath;
+private $_extensionPath;
+private $_globalState;
+private $_stateChanged;
+private $_ended=false;
+private $_language;
+private $_homeUrl;
+以上定义了一些属性，用于在app组件各种组件时产生的临时的或者是交叉的一些数据。另外还提供了几个可以配置main的public属性。
+
+CWebApplication:
+public $defaultController='site';
+public $layout='main';
+public $controllerMap=array();
+public $catchAllRequest;//by jorry维护模式属性
+public $controllerNamespace;
+
+private $_controllerPath;
+private $_viewPath;
+private $_systemViewPath;
+private $_layoutPath;
+private $_controller;
+private $_theme;
+同上
 
 
-
-二、
-
-
-
-
-
-三、
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+yii有多少组件？
+以下是组件和对应的类：
+private static $_coreClasses=array(
+	//base
+	'CApplication' => '/base/CApplication.php',
+	'CApplicationComponent' => '/base/CApplicationComponent.php',
+	'CBehavior' => '/base/CBehavior.php',
+	'CComponent' => '/base/CComponent.php',
+	'CErrorEvent' => '/base/CErrorEvent.php',
+	'CErrorHandler' => '/base/CErrorHandler.php',
+	'CException' => '/base/CException.php',
+	'CExceptionEvent' => '/base/CExceptionEvent.php',
+	'CHttpException' => '/base/CHttpException.php',
+	'CModel' => '/base/CModel.php',
+	'CModelBehavior' => '/base/CModelBehavior.php',
+	'CModelEvent' => '/base/CModelEvent.php',
+	'CModule' => '/base/CModule.php',
+	'CSecurityManager' => '/base/CSecurityManager.php',
+	'CStatePersister' => '/base/CStatePersister.php',
+	//caching
+	'CApcCache' => '/caching/CApcCache.php',
+	'CCache' => '/caching/CCache.php',
+	'CDbCache' => '/caching/CDbCache.php',
+	'CDummyCache' => '/caching/CDummyCache.php',
+	'CEAcceleratorCache' => '/caching/CEAcceleratorCache.php',
+	'CFileCache' => '/caching/CFileCache.php',
+	'CMemCache' => '/caching/CMemCache.php',
+	'CRedisCache' => '/caching/CRedisCache.php',
+	'CWinCache' => '/caching/CWinCache.php',
+	'CXCache' => '/caching/CXCache.php',
+	'CZendDataCache' => '/caching/CZendDataCache.php',
+	'CCacheDependency' => '/caching/dependencies/CCacheDependency.php',
+	'CChainedCacheDependency' => '/caching/dependencies/CChainedCacheDependency.php',
+	'CDbCacheDependency' => '/caching/dependencies/CDbCacheDependency.php',
+	'CDirectoryCacheDependency' => '/caching/dependencies/CDirectoryCacheDependency.php',
+	'CExpressionDependency' => '/caching/dependencies/CExpressionDependency.php',
+	'CFileCacheDependency' => '/caching/dependencies/CFileCacheDependency.php',
+	'CGlobalStateCacheDependency' => '/caching/dependencies/CGlobalStateCacheDependency.php',
+	//collections
+	'CAttributeCollection' => '/collections/CAttributeCollection.php',
+	'CConfiguration' => '/collections/CConfiguration.php',
+	'CList' => '/collections/CList.php',
+	'CListIterator' => '/collections/CListIterator.php',
+	'CMap' => '/collections/CMap.php',
+	'CMapIterator' => '/collections/CMapIterator.php',
+	'CQueue' => '/collections/CQueue.php',
+	'CQueueIterator' => '/collections/CQueueIterator.php',
+	'CStack' => '/collections/CStack.php',
+	'CStackIterator' => '/collections/CStackIterator.php',
+	'CTypedList' => '/collections/CTypedList.php',
+	'CTypedMap' => '/collections/CTypedMap.php',
+	//console
+	'CConsoleApplication' => '/console/CConsoleApplication.php',
+	'CConsoleCommand' => '/console/CConsoleCommand.php',
+	'CConsoleCommandBehavior' => '/console/CConsoleCommandBehavior.php',
+	'CConsoleCommandEvent' => '/console/CConsoleCommandEvent.php',
+	'CConsoleCommandRunner' => '/console/CConsoleCommandRunner.php',
+	'CHelpCommand' => '/console/CHelpCommand.php',
+	//db
+	'CDbCommand' => '/db/CDbCommand.php',
+	'CDbConnection' => '/db/CDbConnection.php',
+	'CDbDataReader' => '/db/CDbDataReader.php',
+	'CDbException' => '/db/CDbException.php',
+	'CDbMigration' => '/db/CDbMigration.php',
+	'CDbTransaction' => '/db/CDbTransaction.php',
+	'CActiveFinder' => '/db/ar/CActiveFinder.php',
+	'CActiveRecord' => '/db/ar/CActiveRecord.php',
+	'CActiveRecordBehavior' => '/db/ar/CActiveRecordBehavior.php',
+	'CDbColumnSchema' => '/db/schema/CDbColumnSchema.php',
+	'CDbCommandBuilder' => '/db/schema/CDbCommandBuilder.php',
+	'CDbCriteria' => '/db/schema/CDbCriteria.php',
+	'CDbExpression' => '/db/schema/CDbExpression.php',
+	'CDbSchema' => '/db/schema/CDbSchema.php',
+	'CDbTableSchema' => '/db/schema/CDbTableSchema.php',
+	'CMssqlColumnSchema' => '/db/schema/mssql/CMssqlColumnSchema.php',
+	'CMssqlCommandBuilder' => '/db/schema/mssql/CMssqlCommandBuilder.php',
+	'CMssqlPdoAdapter' => '/db/schema/mssql/CMssqlPdoAdapter.php',
+	'CMssqlSchema' => '/db/schema/mssql/CMssqlSchema.php',
+	'CMssqlSqlsrvPdoAdapter' => '/db/schema/mssql/CMssqlSqlsrvPdoAdapter.php',
+	'CMssqlTableSchema' => '/db/schema/mssql/CMssqlTableSchema.php',
+	'CMysqlColumnSchema' => '/db/schema/mysql/CMysqlColumnSchema.php',
+	'CMysqlCommandBuilder' => '/db/schema/mysql/CMysqlCommandBuilder.php',
+	'CMysqlSchema' => '/db/schema/mysql/CMysqlSchema.php',
+	'CMysqlTableSchema' => '/db/schema/mysql/CMysqlTableSchema.php',
+	'COciColumnSchema' => '/db/schema/oci/COciColumnSchema.php',
+	'COciCommandBuilder' => '/db/schema/oci/COciCommandBuilder.php',
+	'COciSchema' => '/db/schema/oci/COciSchema.php',
+	'COciTableSchema' => '/db/schema/oci/COciTableSchema.php',
+	'CPgsqlColumnSchema' => '/db/schema/pgsql/CPgsqlColumnSchema.php',
+	'CPgsqlCommandBuilder' => '/db/schema/pgsql/CPgsqlCommandBuilder.php',
+	'CPgsqlSchema' => '/db/schema/pgsql/CPgsqlSchema.php',
+	'CPgsqlTableSchema' => '/db/schema/pgsql/CPgsqlTableSchema.php',
+	'CSqliteColumnSchema' => '/db/schema/sqlite/CSqliteColumnSchema.php',
+	'CSqliteCommandBuilder' => '/db/schema/sqlite/CSqliteCommandBuilder.php',
+	'CSqliteSchema' => '/db/schema/sqlite/CSqliteSchema.php',
+	//i18n
+	'CChoiceFormat' => '/i18n/CChoiceFormat.php',
+	'CDateFormatter' => '/i18n/CDateFormatter.php',
+	'CDbMessageSource' => '/i18n/CDbMessageSource.php',
+	'CGettextMessageSource' => '/i18n/CGettextMessageSource.php',
+	'CLocale' => '/i18n/CLocale.php',
+	'CMessageSource' => '/i18n/CMessageSource.php',
+	'CNumberFormatter' => '/i18n/CNumberFormatter.php',
+	'CPhpMessageSource' => '/i18n/CPhpMessageSource.php',
+	'CGettextFile' => '/i18n/gettext/CGettextFile.php',
+	'CGettextMoFile' => '/i18n/gettext/CGettextMoFile.php',
+	'CGettextPoFile' => '/i18n/gettext/CGettextPoFile.php',
+	//logging
+	'CChainedLogFilter' => '/logging/CChainedLogFilter.php',
+	'CDbLogRoute' => '/logging/CDbLogRoute.php',
+	'CEmailLogRoute' => '/logging/CEmailLogRoute.php',
+	'CFileLogRoute' => '/logging/CFileLogRoute.php',
+	'CLogFilter' => '/logging/CLogFilter.php',
+	'CLogRoute' => '/logging/CLogRoute.php',
+	'CLogRouter' => '/logging/CLogRouter.php',
+	'CLogger' => '/logging/CLogger.php',
+	'CProfileLogRoute' => '/logging/CProfileLogRoute.php',
+	'CWebLogRoute' => '/logging/CWebLogRoute.php',
+	//utils
+	'CDateTimeParser' => '/utils/CDateTimeParser.php',
+	'CFileHelper' => '/utils/CFileHelper.php',
+	'CFormatter' => '/utils/CFormatter.php',
+	'CLocalizedFormatter' => '/utils/CLocalizedFormatter.php',
+	'CMarkdownParser' => '/utils/CMarkdownParser.php',
+	'CPasswordHelper' => '/utils/CPasswordHelper.php',
+	'CPropertyValue' => '/utils/CPropertyValue.php',
+	'CTimestamp' => '/utils/CTimestamp.php',
+	'CVarDumper' => '/utils/CVarDumper.php',
+	//validators
+	'CBooleanValidator' => '/validators/CBooleanValidator.php',
+	'CCaptchaValidator' => '/validators/CCaptchaValidator.php',
+	'CCompareValidator' => '/validators/CCompareValidator.php',
+	'CDateValidator' => '/validators/CDateValidator.php',
+	'CDefaultValueValidator' => '/validators/CDefaultValueValidator.php',
+	'CEmailValidator' => '/validators/CEmailValidator.php',
+	'CExistValidator' => '/validators/CExistValidator.php',
+	'CFileValidator' => '/validators/CFileValidator.php',
+	'CFilterValidator' => '/validators/CFilterValidator.php',
+	'CInlineValidator' => '/validators/CInlineValidator.php',
+	'CNumberValidator' => '/validators/CNumberValidator.php',
+	'CRangeValidator' => '/validators/CRangeValidator.php',
+	'CRegularExpressionValidator' => '/validators/CRegularExpressionValidator.php',
+	'CRequiredValidator' => '/validators/CRequiredValidator.php',
+	'CSafeValidator' => '/validators/CSafeValidator.php',
+	'CStringValidator' => '/validators/CStringValidator.php',
+	'CTypeValidator' => '/validators/CTypeValidator.php',
+	'CUniqueValidator' => '/validators/CUniqueValidator.php',
+	'CUnsafeValidator' => '/validators/CUnsafeValidator.php',
+	'CUrlValidator' => '/validators/CUrlValidator.php',
+	'CValidator' => '/validators/CValidator.php',
+	//web
+	'CActiveDataProvider' => '/web/CActiveDataProvider.php',
+	'CArrayDataProvider' => '/web/CArrayDataProvider.php',
+	'CAssetManager' => '/web/CAssetManager.php',
+	'CBaseController' => '/web/CBaseController.php',
+	'CCacheHttpSession' => '/web/CCacheHttpSession.php',
+	'CClientScript' => '/web/CClientScript.php',
+	'CController' => '/web/CController.php',
+	'CDataProvider' => '/web/CDataProvider.php',
+	'CDataProviderIterator' => '/web/CDataProviderIterator.php',
+	'CDbHttpSession' => '/web/CDbHttpSession.php',
+	'CExtController' => '/web/CExtController.php',
+	'CFormModel' => '/web/CFormModel.php',
+	'CHttpCookie' => '/web/CHttpCookie.php',
+	'CHttpRequest' => '/web/CHttpRequest.php',
+	'CHttpSession' => '/web/CHttpSession.php',
+	'CHttpSessionIterator' => '/web/CHttpSessionIterator.php',
+	'COutputEvent' => '/web/COutputEvent.php',
+	'CPagination' => '/web/CPagination.php',
+	'CSort' => '/web/CSort.php',
+	'CSqlDataProvider' => '/web/CSqlDataProvider.php',
+	'CTheme' => '/web/CTheme.php',
+	'CThemeManager' => '/web/CThemeManager.php',
+	'CUploadedFile' => '/web/CUploadedFile.php',
+	'CUrlManager' => '/web/CUrlManager.php',
+	'CWebApplication' => '/web/CWebApplication.php',
+	'CWebModule' => '/web/CWebModule.php',
+	'CWidgetFactory' => '/web/CWidgetFactory.php',
+	'CAction' => '/web/actions/CAction.php',
+	'CInlineAction' => '/web/actions/CInlineAction.php',
+	'CViewAction' => '/web/actions/CViewAction.php',
+	'CAccessControlFilter' => '/web/auth/CAccessControlFilter.php',
+	'CAuthAssignment' => '/web/auth/CAuthAssignment.php',
+	'CAuthItem' => '/web/auth/CAuthItem.php',
+	'CAuthManager' => '/web/auth/CAuthManager.php',
+	'CBaseUserIdentity' => '/web/auth/CBaseUserIdentity.php',
+	'CDbAuthManager' => '/web/auth/CDbAuthManager.php',
+	'CPhpAuthManager' => '/web/auth/CPhpAuthManager.php',
+	'CUserIdentity' => '/web/auth/CUserIdentity.php',
+	'CWebUser' => '/web/auth/CWebUser.php',
+	'CFilter' => '/web/filters/CFilter.php',
+	'CFilterChain' => '/web/filters/CFilterChain.php',
+	'CHttpCacheFilter' => '/web/filters/CHttpCacheFilter.php',
+	'CInlineFilter' => '/web/filters/CInlineFilter.php',
+	'CForm' => '/web/form/CForm.php',
+	'CFormButtonElement' => '/web/form/CFormButtonElement.php',
+	'CFormElement' => '/web/form/CFormElement.php',
+	'CFormElementCollection' => '/web/form/CFormElementCollection.php',
+	'CFormInputElement' => '/web/form/CFormInputElement.php',
+	'CFormStringElement' => '/web/form/CFormStringElement.php',
+	'CGoogleApi' => '/web/helpers/CGoogleApi.php',
+	'CHtml' => '/web/helpers/CHtml.php',
+	'CJSON' => '/web/helpers/CJSON.php',
+	'CJavaScript' => '/web/helpers/CJavaScript.php',
+	'CJavaScriptExpression' => '/web/helpers/CJavaScriptExpression.php',
+	'CPradoViewRenderer' => '/web/renderers/CPradoViewRenderer.php',
+	'CViewRenderer' => '/web/renderers/CViewRenderer.php',
+	'CWebService' => '/web/services/CWebService.php',
+	'CWebServiceAction' => '/web/services/CWebServiceAction.php',
+	'CWsdlGenerator' => '/web/services/CWsdlGenerator.php',
+	'CActiveForm' => '/web/widgets/CActiveForm.php',
+	'CAutoComplete' => '/web/widgets/CAutoComplete.php',
+	'CClipWidget' => '/web/widgets/CClipWidget.php',
+	'CContentDecorator' => '/web/widgets/CContentDecorator.php',
+	'CFilterWidget' => '/web/widgets/CFilterWidget.php',
+	'CFlexWidget' => '/web/widgets/CFlexWidget.php',
+	'CHtmlPurifier' => '/web/widgets/CHtmlPurifier.php',
+	'CInputWidget' => '/web/widgets/CInputWidget.php',
+	'CMarkdown' => '/web/widgets/CMarkdown.php',
+	'CMaskedTextField' => '/web/widgets/CMaskedTextField.php',
+	'CMultiFileUpload' => '/web/widgets/CMultiFileUpload.php',
+	'COutputCache' => '/web/widgets/COutputCache.php',
+	'COutputProcessor' => '/web/widgets/COutputProcessor.php',
+	'CStarRating' => '/web/widgets/CStarRating.php',
+	'CTabView' => '/web/widgets/CTabView.php',
+	'CTextHighlighter' => '/web/widgets/CTextHighlighter.php',
+	'CTreeView' => '/web/widgets/CTreeView.php',
+	'CWidget' => '/web/widgets/CWidget.php',
+	'CCaptcha' => '/web/widgets/captcha/CCaptcha.php',
+	'CCaptchaAction' => '/web/widgets/captcha/CCaptchaAction.php',
+	'CBasePager' => '/web/widgets/pagers/CBasePager.php',
+	'CLinkPager' => '/web/widgets/pagers/CLinkPager.php',
+	'CListPager' => '/web/widgets/pagers/CListPager.php',
+);
 
 
 
