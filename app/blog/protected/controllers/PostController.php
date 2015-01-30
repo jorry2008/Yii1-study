@@ -112,6 +112,7 @@ class PostController extends Controller
 		$post=$this->loadModel();
 		$comment=$this->newComment($post);
 
+		//$this->render('view'支持多种路径模式，可以取任意指定的外部模板
 		$this->render('view',array(
 			'model'=>$post,
 			'comment'=>$comment,

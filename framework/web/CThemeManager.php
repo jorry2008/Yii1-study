@@ -66,7 +66,7 @@ class CThemeManager extends CApplicationComponent
 		//DIRECTORY_SEPARATOR用于文件路径，在各平台之间不同
 		//资源路径是'/'这个是固定死了的，只有一个http请求协议，是跨平台的
 		$themePath=$this->getBasePath().DIRECTORY_SEPARATOR.$name;
-		//fb($themePath);// D:\xampp\www\me\jorryApps\app\blog\themes\classic
+		//fb($themePath);//D:\xampp\www\me\jorryApps\app\blog\themes\classic
 		if(is_dir($themePath))
 		{
 			//public $themeClass='CTheme';//公共属性，这说明可以重新部署主题类
@@ -130,7 +130,6 @@ class CThemeManager extends CApplicationComponent
 	 */
 	public function getBaseUrl()
 	{
-		//fb(Yii::app()->getBaseUrl());
 		if($this->_baseUrl===null)
 			$this->_baseUrl=Yii::app()->getBaseUrl().'/'.self::DEFAULT_BASEPATH;
 		return $this->_baseUrl;
@@ -141,6 +140,7 @@ class CThemeManager extends CApplicationComponent
 	 */
 	public function setBaseUrl($value)
 	{
+		//从字符串的右端删除指定符号'/'
 		$this->_baseUrl=rtrim($value,'/');
 	}
 }

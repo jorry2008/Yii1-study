@@ -61,15 +61,25 @@ abstract class CViewRenderer extends CApplicationComponent implements IViewRende
 	 * @param mixed $data the data to be passed to the view
 	 * @param boolean $return whether the rendering result should be returned
 	 * @return mixed the rendering result, or null if the rendering result is not needed.
+	 * $context可能是controller对象
 	 */
 	public function renderFile($context,$sourceFile,$data,$return)
 	{
 		if(!is_file($sourceFile) || ($file=realpath($sourceFile))===false)
 			throw new CException(Yii::t('yii','View file "{file}" does not exist.',array('{file}'=>$sourceFile)));
-		$viewFile=$this->getViewFile($sourceFile);
+		
+		$viewFile=$this->getViewFile($sourceFile);//资源化处理
+		//fb($viewFile);//C:\xampp\htdocs\test\turen\app\blog\protected\runtime\views\ae9798f1\index.php
+		
+		//如果模板修改了，这里会马上更新
+		/*
+		 * 为什么要这样做？
+		 * generateViewFile将源文件转移到另一个资源位置，这个过程中，
+		 * 做了大量检测检验工作，最大限度的保证了主题view文件的安全性。
+		 */
 		if(@filemtime($sourceFile)>@filemtime($viewFile))
 		{
-			$this->generateViewFile($sourceFile,$viewFile);
+			$this->generateViewFile($sourceFile,$viewFile);//对模板文件进行校验
 			@chmod($viewFile,$this->filePermission);
 		}
 		return $context->renderInternal($viewFile,$data,$return);

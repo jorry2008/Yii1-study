@@ -176,8 +176,8 @@ abstract class CApplication extends CModule
 		
 // 		fb('当前已经生成的组件对象:');
 // 		fb($this->get_components());
-		fb('当前系统最终组件配置如下：');
-		fb($this->get_componentConfig());
+// 		fb('当前系统最终组件配置如下：');
+// 		fb($this->get_componentConfig());
 		
 		$this->attachBehaviors($this->behaviors);//?
 		
@@ -408,16 +408,26 @@ abstract class CApplication extends CModule
 	 * @param string $language the desired language that the file should be localized to. If null, the {@link getLanguage application language} will be used.
 	 * @return string the matching localized file. The original file is returned if no localized version is found
 	 * or if source language is the same as the desired language.
+	 * 当前默认的所有文件，都是source_language，而language与source_language不同是，则表明要实现本地化
+	 * 如：C:\xampp\htdocs\test\turen\app\blog\protected\views\post\index.php
+	 * 转化为：
+	 * C:\xampp\htdocs\test\turen\app\blog\protected\views\post\zh_cn\index.php
+	 * 仅在文件前加了一层语言相关的目录，具有最高优先级
+	 * 比如这个例子就是实现模板的本地化
 	 */
 	public function findLocalizedFile($srcFile,$srcLanguage=null,$language=null)
 	{
 		if($srcLanguage===null)
 			$srcLanguage=$this->sourceLanguage;
+		
 		if($language===null)
 			$language=$this->getLanguage();
+		
 		if($language===$srcLanguage)
 			return $srcFile;
+		
 		$desiredFile=dirname($srcFile).DIRECTORY_SEPARATOR.$language.DIRECTORY_SEPARATOR.basename($srcFile);
+		//fb($desiredFile);//C:\xampp\htdocs\test\turen\app\blog\protected\views\post\zh_cn\index.php
 		return is_file($desiredFile) ? $desiredFile : $srcFile;
 	}
 

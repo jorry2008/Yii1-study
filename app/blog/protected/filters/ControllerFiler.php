@@ -3,12 +3,12 @@ class ControllerFiler extends CFilter
 {
 	public function init()
 	{
-		fb('此对象首次执行的方法...');
+		//fb('此对象首次执行的方法...');
 	}
 	
 	protected function preFilter ($filterChain)
 	{
-		fb("过滤前");
+		//fb("过滤前");
 		
 		
 		/*
@@ -31,7 +31,7 @@ class ControllerFiler extends CFilter
 	
 	protected function postFilter ($filterChain)
 	{
-		fb("过滤后");
+		//fb("过滤后");
 		
 	}
 }

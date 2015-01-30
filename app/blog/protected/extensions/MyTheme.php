@@ -26,7 +26,7 @@
  * 
  * 整个主题的目录构建于，以index.php为起始的基础目录，+views+themes+layout布局+main.php主题主文件
  */
-class CTheme extends CComponent
+class MyTheme extends CComponent
 {
 	private $_name;
 	private $_basePath;
@@ -141,8 +141,7 @@ class CTheme extends CComponent
 		elseif($module!==null)
 			$moduleViewPath.='/'.$module->getId();
 
-		//重点，module可以自成一个独立的网站，如admin后台，布局文件等所有的都可以独立。
-		//此处，以module布局文件优先
+		//重点
 		return $controller->resolveViewFile($layoutName,$moduleViewPath.'/layouts',$basePath,$moduleViewPath);
 	}
 }

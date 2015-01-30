@@ -5,9 +5,27 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+/*
+拓展目录：
+application
+webroot//不可修改
+ext
+ */
 return array(
 	//定义开发程序所在目录，默认是当前访问下的protected目录
-	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',//就是application
+	//定义拓展所在目录，默认为application.extensions//就是ext
+	//'extensionPath'=>'application.extensions',
+	
+	/*
+	 * //配置维护模式
+	'catchAllRequest'=>array(
+	    'offline/notice',
+	    'param1'=>'value1',
+	    'param2'=>'value2',
+	),
+	*/
+	
 	'name'=>'Yii Blog Demo',
 
 	// preloading 'log' component
@@ -23,8 +41,8 @@ return array(
 	//配置文件里可以这样配置，但如果没有对应的布局等文件，系统会自动取protected目录下的views文件
 	'theme' => 'classic',
 	'layout' => 'column1',//基础布局，通常不取
-	//'sourceLanguage' => 'zh_cn',//设置系统默认源语言
-	//'language'=>'en_us',//设置系统指定翻出语言
+	'sourceLanguage' => 'en_us',//设置系统默认源语言
+	'language'=>'zh_cn',//设置系统指定翻出语言
 	
 	//GII应用程序，代码生成工具，module就是一个独立的应用
 	'modules'=>array(
@@ -117,21 +135,51 @@ return array(
 		
 		//此组件可以任意指定当前module的主题所在位置
 		'themeManager' => array(//主题工厂类管理下面所有主题类
-			'themeClass'=>'CTheme',//指定一个新的主题类（默认）
-			//'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-// 			'basePath'=>'',//绝对路径，默认："WebRootPath/themes".
-			//'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',/
-// 			'baseUrl'=>'',//更改主题的路径，默认：/WebRoot/themes，这个是相对的web路径
+			'class'=>'CThemeManager',
+			//'themeClass'=>'ext.MyTheme',//此类的配置及初始化交由CThemeManager工厂来统一管理，默认为CTheme类
+			//'basePath'=>Yii::getPathOfAlias('webroot.'.CThemeManager::DEFAULT_BASEPATH),//可以自定义所在主题目录，默认来自index.php相对路径
+			//'baseUrl'=>'/'.CThemeManager::DEFAULT_BASEPATH,//web请求路径，是相对于域名的，用来获取与主题相关的资源，默认值：Yii::app()->getBaseUrl().'/'.self::DEFAULT_BASEPATH
 		),
-			
-			
 		
-			
-			
+		//配置视图模板引擎（模板渲染器），它会将源模板文件解析为临时的php模板
+		//其目的就是为了实现多种模板代码开发风格统一解析为php类型模板
+		'viewRenderer'=>array(
+			'class'=>'CPradoViewRenderer',//默认
+			'useRuntimePath'=>true,//使用runtime存储，临时存放解析后的php模板文件
+			'filePermission'=>0755,//解析后的php模板文件的操作权限
+			'fileExtension'=>'.tpl',//配置模板的后缀
+		),
 		
+		//客户端对象，就是进一步处理DOM对象模型。这是一个继承CApplicationComponent的对象，具有特殊性
+		'clientScript'=>array(
+			'class'=>'CClientScript',//默认
+			'enableJavaScript'=>true,//是否开启javascript
+			//这个属性用来替换所有指定名称的资源文件
+			//If an array key is '*.js' or '*.css', the corresponding URL will replace all JavaScript files or CSS files, respectively.
+			'scriptMap'=>array('jquery.js'=>'http://code.jquery.com/jquery-1.8.3.min.js'),//外部添加的脚本，包括array('*.js'=>'','*.css'=>'','path'=>'');最后整合进脚本文件
+			//为框架添加新的集成包，即注册一个新的类库到框架中
+			'packages'=>array(
+				//引入一个slider包
+				'bxslider'=>array(
+					//注意：baseUrl有值则忽略basePath，其中：basePath基于目录访问，baseUrl基于http请求
+					'basePath'=>'application.sourceAssets.bxslider',//基于访问路径，可以是alias路径
+				 	'baseUrl'=>'http://bxslider.com/lib/',//基于请求路径，也可以基于系统自身的http请求
+				 	'js'=>array(YII_DEBUG ? 'jquery.bxslider.js' : 'jquery.bxslider.min.js'),//基于basePath或baseUrl
+				 	'css'=>array('jquery.bxslider.css'),//基于basePath或baseUrl
+				 	'depends'=>array('jquery'),//依赖包
+				 ),
+			 ),
+			//这是集成在yii中的核心脚本，如果想要更改框架集成，直接修改它即可
+			//'corePackages'=>'',//核心包，默认取'framework/web/js/packages.php'依赖数组，更新核心集成包时才更改
+			//在指定位置上注入代码片段，全局有效
+			//'scripts'=>array(CClientScript::POS_HEAD=>array('abc'=>'alert("abc");')),//@var array the registered JavaScript code blocks (position, key => code)???
+			'coreScriptPosition'=>CClientScript::POS_HEAD,
+			'defaultScriptFilePosition'=>CClientScript::POS_HEAD,
+			'defaultScriptPosition'=>CClientScript::POS_READY,
+		),
 	),
 
-	// application-level parameters that can be accessed
+	// application-level parameters that can be accessed是程序级别可以访问的参数
 	// using Yii::app()->params['paramName']
-	'params'=>require(dirname(__FILE__).'/params.php'),
+	'params'=>require(dirname(__FILE__).'/params.php'),//yii的params组件对象参数
 );

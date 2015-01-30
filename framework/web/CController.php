@@ -660,7 +660,12 @@ class CController extends CBaseController
 	 * @return string the view file path, false if the view file does not exist
 	 * @see resolveViewFile
 	 * @see CApplication::findLocalizedFile
-	 * 局部渲染
+	 * 获取局部渲染view文件
+	 * 这个文件的获取有以下优先级：
+	 * 1.module+language的文件路径最高
+	 * 2.module模块的视图文件
+	 * 3.没有主题时的视图路径$this->getViewPath()+language
+	 * 4.没有主题时的视图路径$this->getViewPath()
 	 */
 	public function getViewFile($viewName)//index
 	{
@@ -727,8 +732,8 @@ class CController extends CBaseController
 		//fb(Yii::app()->getTheme());//一个主题的绝对路径和一个资源的相对路径
 		if(($theme=Yii::app()->getTheme())!==null && ($layoutFile=$theme->getLayoutFile($this,$layoutName))!==false)
 		{
-			fb($layoutFile);
-			fb(Yii::app()->themeManager->getThemeNames());
+			//fb($layoutFile);
+			//fb(Yii::app()->themeManager->getThemeNames());
 			return $layoutFile;
 		}
 
@@ -780,6 +785,13 @@ class CController extends CBaseController
 	 * @param string $moduleViewPath the directory that is used to search for an absolute view name under the current module.
 	 * If this is not set, the application base view path will be used.
 	 * @return mixed the view file path. False if the view file does not exist.
+	 * 
+	 * 获取最终的模板文件：
+	 * 1.取模板文件考虑到模块
+	 * 2.考虑到模板引擎处理后的临时模板文件与拓展名
+	 * 3.考虑到语言本地化优先级模板
+	 * 4.支持多种路径，如post/index|ext.index(外部模板)
+	 * 
 	 */
 	public function resolveViewFile($viewName,$viewPath,$basePath,$moduleViewPath=null)
 	{
@@ -789,10 +801,14 @@ class CController extends CBaseController
 		if($moduleViewPath===null)
 			$moduleViewPath=$basePath;
 
+		//通过模板渲染器获取模板后缀
 		if(($renderer=Yii::app()->getViewRenderer())!==null)
+		{
 			$extension=$renderer->fileExtension;
+		}
 		else
 			$extension='.php';
+		
 		if($viewName[0]==='/')
 		{
 			if(strncmp($viewName,'//',2)===0)
@@ -805,6 +821,7 @@ class CController extends CBaseController
 		else
 			$viewFile=$viewPath.DIRECTORY_SEPARATOR.$viewName;
 
+		//fb($viewFile.$extension);
 		if(is_file($viewFile.$extension))
 			return Yii::app()->findLocalizedFile($viewFile.$extension);
 		elseif($extension!=='.php' && is_file($viewFile.'.php'))
@@ -876,18 +893,19 @@ class CController extends CBaseController
 	 * @return string the rendering result. Null if the rendering result is not required.
 	 * @see renderPartial
 	 * @see getLayoutFile
-	 * 使用layout进行渲染
-	 * 首先调用renderPartial对视图进行渲染并生成$content
 	 * 
-	 * 
+	 * 首先调用renderPartial对视图进行渲染并生成$content的html
+	 * 再将$content渲染到布局和main文件中，返回整个html文档
 	 */
 	public function render($view,$data=null,$return=false)
 	{
 		//$view:index,$data传递的数据,$return是返回数据还是直接输出，默认直接输出，ajax中返回数据用得多
 		if($this->beforeRender($view))
 		{
+			header("Content-type:text/html;charset=utf-8");
 			//局部渲染，将内容返回，view层的生成代码
 			$output=$this->renderPartial($view,$data,true);//原理：缓冲区
+			
 			//布局文件的最终处理是主题类或其管理类
 			//fb($output);//这个内容就是view层返回的action内容，并且将作为布局文件的layout中的content
 			
@@ -897,11 +915,13 @@ class CController extends CBaseController
 			{
 				//fb($layoutFile);//column2布局文件完全由controller提供，父类或其子类
 				// C:\xampp\htdocs\test\turen\app\blog\protected\views\layouts\column2.php
-				$output=$this->renderFile($layoutFile,array('content'=>$output),true);
+				$output=$this->renderFile($layoutFile,array('content'=>$output),true);//父类进行渲染且会被viewRender拦截
 			}
 
 			$this->afterRender($view,$output);
 
+			//fb($output);
+			//与页面缓存相关
 			$output=$this->processOutput($output);
 
 			if($return)
@@ -978,14 +998,20 @@ class CController extends CBaseController
 	 * @see getViewFile
 	 * @see processOutput
 	 * @see render
+	 * 局部渲染，融入了模块、主题、本地化处理、模板引擎。
 	 */
 	public function renderPartial($view,$data=null,$return=false,$processOutput=false)
 	{
 		if(($viewFile=$this->getViewFile($view))!==false)
 		{
-			$output=$this->renderFile($viewFile,$data,true);
+			//$viewFile的视图文件，已经融入了模块、主题、本地化、模板渲染器处理。
+			//fb($viewFile);//C:\xampp\htdocs\test\turen\app\blog\themes\classic\views/post\zh_cn\index.php
+			$output=$this->renderFile($viewFile,$data,true);//递归渲染，首先渲染views文件，再渲染views文件中的各种
+			//Widget，返回的结果就是递归输出的html文本内容
+			
 			if($processOutput)
 				$output=$this->processOutput($output);
+			
 			if($return)
 				return $output;
 			else
@@ -1177,6 +1203,8 @@ class CController extends CBaseController
 	 * @param string $method the method name
 	 * @param array $params parameters passed to the method
 	 * @see COutputCache
+	 * //recordCachingAction('clientScript','registerCssFile',$params);
+	 * 
 	 */
 	public function recordCachingAction($context,$method,$params)
 	{

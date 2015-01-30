@@ -16,7 +16,9 @@ $yii=dirname(__FILE__).'/../../framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
 
 // remove the following line when in production mode
-// defined('YII_DEBUG') or define('YII_DEBUG',true);
+
+//开启全局调试
+defined('YII_DEBUG') or define('YII_DEBUG',true);
 
 require_once($yii);
 //Yii::createWebApplication($config)->run();//价于
@@ -25,7 +27,7 @@ Yii::createWebApplication($config);
 Yii::app()->run();
 
 
-
+fb(Yii::app()->clientScript);
 
 
 

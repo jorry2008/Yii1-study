@@ -85,19 +85,33 @@ abstract class CBaseController extends CComponent
 	 * @param boolean $return whether the rendering result should be returned instead of being echoed
 	 * @return string the rendering result. Null if the rendering result is not required.
 	 * @throws CException if the view file does not exist
+	 * 第一次渲染是局部view层
+	 * 第二次渲染是布局和main:$output=$this->renderFile($layoutFile,array('content'=>$output),true);
 	 */
 	public function renderFile($viewFile,$data=null,$return=false)
 	{
 		$widgetCount=count($this->_widgetStack);
+		//判断渲染器配置的后缀和文件本身的后缀是否一致
 		if(($renderer=Yii::app()->getViewRenderer())!==null && $renderer->fileExtension==='.'.CFileHelper::getExtension($viewFile))
+		{
+			//模板引擎处理，执行renderFile进行最终的渲染
 			$content=$renderer->renderFile($this,$viewFile,$data,$return);
-		else
-			$content=$this->renderInternal($viewFile,$data,$return);
-		if(count($this->_widgetStack)===$widgetCount)
-			return $content;
+		}
 		else
 		{
+			//很少有此情况
+			$content=$this->renderInternal($viewFile,$data,$return);
+		}
+		
+		if(count($this->_widgetStack)===$widgetCount)
+		{
+			return $content;
+		}
+		else
+		{
+			//将数组内部指针指向最后一个元素,并返回该元素的值(如果成功)
 			$widget=end($this->_widgetStack);
+			
 			throw new CException(Yii::t('yii','{controller} contains improperly nested widget tags in its view "{view}". A {widget} widget does not have an endWidget() call.',
 				array('{controller}'=>get_class($this), '{view}'=>$viewFile, '{widget}'=>get_class($widget))));
 		}
@@ -123,7 +137,7 @@ abstract class CBaseController extends CComponent
 		{
 			ob_start();
 			ob_implicit_flush(false);
-			require($_viewFile_);
+			require($_viewFile_);//执行模板php文件，这个与后缀无关
 			return ob_get_clean();
 		}
 		else

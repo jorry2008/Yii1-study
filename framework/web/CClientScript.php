@@ -339,8 +339,10 @@ class CClientScript extends CApplicationComponent
 	 */
 	public function renderCoreScripts()
 	{
+		//fb($this->coreScripts);
 		if($this->coreScripts===null)
 			return;
+		
 		$cssFiles=array();
 		$jsFiles=array();
 		foreach($this->coreScripts as $name=>$package)
@@ -591,6 +593,8 @@ class CClientScript extends CApplicationComponent
 			$this->coreScripts[$name]=$package;
 			$this->hasScripts=true;
 			$params=func_get_args();
+			
+			//前端脚本缓存处理
 			$this->recordCachingAction('clientScript','registerCoreScript',$params);
 		}
 		return $this;
@@ -601,6 +605,7 @@ class CClientScript extends CApplicationComponent
 	 * @param string $url URL of the CSS file
 	 * @param string $media media that the CSS file should be applied to. If empty, it means all media types.
 	 * @return CClientScript the CClientScript object itself (to support method chaining, available since version 1.1.5).
+	 * 返回$this可以实现链式注册脚本
 	 */
 	public function registerCssFile($url,$media='')
 	{
@@ -816,11 +821,15 @@ class CClientScript extends CApplicationComponent
 	 * @param string $method the method name
 	 * @param array $params parameters passed to the method
 	 * @see COutputCache
+	 * $this->recordCachingAction('clientScript','registerCssFile',$params);
 	 */
 	protected function recordCachingAction($context,$method,$params)
 	{
 		if(($controller=Yii::app()->getController())!==null)
+		{
+			//fb($controller);//当前控制器父方法
 			$controller->recordCachingAction($context,$method,$params);
+		}
 	}
 
 	/**
