@@ -40,7 +40,7 @@ return array(
 	'defaultController'=>'post',
 	//配置文件里可以这样配置，但如果没有对应的布局等文件，系统会自动取protected目录下的views文件
 	'theme' => 'classic',
-	'layout' => 'column1',//基础布局，通常不取
+	'layout' => 'column1',//基础布局，通常不取，优先级最低
 	'sourceLanguage' => 'en_us',//设置系统默认源语言
 	'language'=>'zh_cn',//设置系统指定翻出语言
 	
@@ -50,6 +50,22 @@ return array(
 			'class'=>'system.gii.GiiModule',//声明一个名为gii的模块，它的类是GiiModule。
 			'password'=>'asdasd',//为这个模块设置了密码，访问Gii时会有一个输入框要求填写这个密码。
 			'ipFilters'=>array('*'),// 默认情况下只允许本机访问Gii
+		),
+		
+		//前台模块
+		'frontend'=>array(
+			'modules'=>array(
+				'site',
+				'account',
+			),
+		),
+		
+		//后台模块
+		'backend'=>array(
+			'modules'=>array(
+				'user',
+				'cms',
+			),
 		),
 	),
 

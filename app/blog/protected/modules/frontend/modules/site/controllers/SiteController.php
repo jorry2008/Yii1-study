@@ -2,7 +2,8 @@
 
 class SiteController extends Controller
 {
-	public $layout='column1';
+	//权限交给了module
+	//public $layout='column1';
 	
 	/**
 	 * (non-PHPdoc)

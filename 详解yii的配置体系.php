@@ -373,7 +373,7 @@ private $_theme;
 yii有多少组件？
 以下是组件和对应的类：
 private static $_coreClasses=array(
-	//base
+	//base，框架对象、事件行为、异常处理、模型、模块、安全、持久层
 	'CApplication' => '/base/CApplication.php',
 	'CApplicationComponent' => '/base/CApplicationComponent.php',
 	'CBehavior' => '/base/CBehavior.php',
@@ -389,28 +389,37 @@ private static $_coreClasses=array(
 	'CModule' => '/base/CModule.php',
 	'CSecurityManager' => '/base/CSecurityManager.php',
 	'CStatePersister' => '/base/CStatePersister.php',
+	
 	//caching
-	'CApcCache' => '/caching/CApcCache.php',
-	'CCache' => '/caching/CCache.php',
-	'CDbCache' => '/caching/CDbCache.php',
-	'CDummyCache' => '/caching/CDummyCache.php',
-	'CEAcceleratorCache' => '/caching/CEAcceleratorCache.php',
-	'CFileCache' => '/caching/CFileCache.php',
-	'CMemCache' => '/caching/CMemCache.php',
-	'CRedisCache' => '/caching/CRedisCache.php',
-	'CWinCache' => '/caching/CWinCache.php',
-	'CXCache' => '/caching/CXCache.php',
-	'CZendDataCache' => '/caching/CZendDataCache.php',
-	'CCacheDependency' => '/caching/dependencies/CCacheDependency.php',
-	'CChainedCacheDependency' => '/caching/dependencies/CChainedCacheDependency.php',
-	'CDbCacheDependency' => '/caching/dependencies/CDbCacheDependency.php',
-	'CDirectoryCacheDependency' => '/caching/dependencies/CDirectoryCacheDependency.php',
-	'CExpressionDependency' => '/caching/dependencies/CExpressionDependency.php',
-	'CFileCacheDependency' => '/caching/dependencies/CFileCacheDependency.php',
-	'CGlobalStateCacheDependency' => '/caching/dependencies/CGlobalStateCacheDependency.php',
-	//collections
+	'CCache' => '/caching/CCache.php',//缓存基类
+	'CApcCache' => '/caching/CApcCache.php',//apc缓存
+	'CDbCache' => '/caching/CDbCache.php',//db缓存
+	'CEAcceleratorCache' => '/caching/CEAcceleratorCache.php',//eAccelerator缓存
+	'CFileCache' => '/caching/CFileCache.php',//文件缓存
+	'CMemCache' => '/caching/CMemCache.php',//memcache缓存
+	'CRedisCache' => '/caching/CRedisCache.php',//Redis缓存
+	'CWinCache' => '/caching/CWinCache.php',//win平台缓存如iis服务器
+	'CXCache' => '/caching/CXCache.php',//XCache编译缓存
+	'CZendDataCache' => '/caching/CZendDataCache.php',//zend缓存
+	'CDummyCache' => '/caching/CDummyCache.php',//缓存点位符
+	这个缓存是Yii特别贴心的一种缓存，用这种缓存的时候，其实根本没有缓存任何东西，
+	特别方便开发人员在开发新功能时排出缓存的影响，并且在部署时，如果底层缓存系统出故障了，
+	可以临时切换到此缓存，代码不需要做任何修改。
+	
+	//缓存依赖
+	//比如我们生成的缓存内容是由多个文件拼装而成的，如果其中一个文件的内容发生了变化，那缓存就应该更新，这个就叫做缓存依赖。
+	'CCacheDependency' => '/caching/dependencies/CCacheDependency.php',//缓存依赖基类
+	'CChainedCacheDependency' => '/caching/dependencies/CChainedCacheDependency.php',//重点：依赖链管理类
+	'CDbCacheDependency' => '/caching/dependencies/CDbCacheDependency.php',//查询结果的依赖
+	'CDirectoryCacheDependency' => '/caching/dependencies/CDirectoryCacheDependency.php',//目录修改依赖
+	'CExpressionDependency' => '/caching/dependencies/CExpressionDependency.php',//php表达式返回的结果依赖
+	'CFileCacheDependency' => '/caching/dependencies/CFileCacheDependency.php',//文件修改依赖
+	'CGlobalStateCacheDependency' => '/caching/dependencies/CGlobalStateCacheDependency.php',//全局变量的依赖，如跨请求、跨SESSION的持久变量
+	注意，缓存依赖都是通过动态new的方式来使用的
+	
+	//collections//各种容器
 	'CAttributeCollection' => '/collections/CAttributeCollection.php',
-	'CConfiguration' => '/collections/CConfiguration.php',
+	'CConfiguration' => '/collections/CConfiguration.php',//数据配置文件容器
 	'CList' => '/collections/CList.php',
 	'CListIterator' => '/collections/CListIterator.php',
 	'CMap' => '/collections/CMap.php',
@@ -421,6 +430,30 @@ private static $_coreClasses=array(
 	'CStackIterator' => '/collections/CStackIterator.php',
 	'CTypedList' => '/collections/CTypedList.php',
 	'CTypedMap' => '/collections/CTypedMap.php',
+	class CMapIterator implements Iterator
+	class CMap extends CComponent implements IteratorAggregate,ArrayAccess,Countable
+	
+	class CListIterator implements Iterator
+	class CList extends CComponent implements IteratorAggregate,ArrayAccess,Countable
+	
+	class CQueueIterator implements Iterator
+	class CQueue extends CComponent implements IteratorAggregate,Countable
+	
+	class CStackIterator implements Iterator
+	class CStack extends CComponent implements IteratorAggregate,Countable
+	
+	class CConfiguration extends CMap
+	class CAttributeCollection extends CMap
+	class CTypedMap extends CMap
+	class CTypedList extends CList
+	最终：
+	CMap、CList、CQueue、CStack均实现了迭代器，如xxxIterator
+	具体的实现：
+	CConfiguration配置数据容器
+	CAttributeCollection对象属性容器
+	CTypedMap指定了类类型的Map
+	CTypedList指定了类类型的List
+	
 	//console
 	'CConsoleApplication' => '/console/CConsoleApplication.php',
 	'CConsoleCommand' => '/console/CConsoleCommand.php',
@@ -428,6 +461,7 @@ private static $_coreClasses=array(
 	'CConsoleCommandEvent' => '/console/CConsoleCommandEvent.php',
 	'CConsoleCommandRunner' => '/console/CConsoleCommandRunner.php',
 	'CHelpCommand' => '/console/CHelpCommand.php',
+	
 	//db
 	'CDbCommand' => '/db/CDbCommand.php',
 	'CDbConnection' => '/db/CDbConnection.php',
@@ -444,27 +478,11 @@ private static $_coreClasses=array(
 	'CDbExpression' => '/db/schema/CDbExpression.php',
 	'CDbSchema' => '/db/schema/CDbSchema.php',
 	'CDbTableSchema' => '/db/schema/CDbTableSchema.php',
-	'CMssqlColumnSchema' => '/db/schema/mssql/CMssqlColumnSchema.php',
-	'CMssqlCommandBuilder' => '/db/schema/mssql/CMssqlCommandBuilder.php',
-	'CMssqlPdoAdapter' => '/db/schema/mssql/CMssqlPdoAdapter.php',
-	'CMssqlSchema' => '/db/schema/mssql/CMssqlSchema.php',
-	'CMssqlSqlsrvPdoAdapter' => '/db/schema/mssql/CMssqlSqlsrvPdoAdapter.php',
-	'CMssqlTableSchema' => '/db/schema/mssql/CMssqlTableSchema.php',
 	'CMysqlColumnSchema' => '/db/schema/mysql/CMysqlColumnSchema.php',
 	'CMysqlCommandBuilder' => '/db/schema/mysql/CMysqlCommandBuilder.php',
 	'CMysqlSchema' => '/db/schema/mysql/CMysqlSchema.php',
 	'CMysqlTableSchema' => '/db/schema/mysql/CMysqlTableSchema.php',
-	'COciColumnSchema' => '/db/schema/oci/COciColumnSchema.php',
-	'COciCommandBuilder' => '/db/schema/oci/COciCommandBuilder.php',
-	'COciSchema' => '/db/schema/oci/COciSchema.php',
-	'COciTableSchema' => '/db/schema/oci/COciTableSchema.php',
-	'CPgsqlColumnSchema' => '/db/schema/pgsql/CPgsqlColumnSchema.php',
-	'CPgsqlCommandBuilder' => '/db/schema/pgsql/CPgsqlCommandBuilder.php',
-	'CPgsqlSchema' => '/db/schema/pgsql/CPgsqlSchema.php',
-	'CPgsqlTableSchema' => '/db/schema/pgsql/CPgsqlTableSchema.php',
-	'CSqliteColumnSchema' => '/db/schema/sqlite/CSqliteColumnSchema.php',
-	'CSqliteCommandBuilder' => '/db/schema/sqlite/CSqliteCommandBuilder.php',
-	'CSqliteSchema' => '/db/schema/sqlite/CSqliteSchema.php',
+	
 	//i18n
 	'CChoiceFormat' => '/i18n/CChoiceFormat.php',
 	'CDateFormatter' => '/i18n/CDateFormatter.php',
@@ -477,6 +495,7 @@ private static $_coreClasses=array(
 	'CGettextFile' => '/i18n/gettext/CGettextFile.php',
 	'CGettextMoFile' => '/i18n/gettext/CGettextMoFile.php',
 	'CGettextPoFile' => '/i18n/gettext/CGettextPoFile.php',
+	
 	//logging
 	'CChainedLogFilter' => '/logging/CChainedLogFilter.php',
 	'CDbLogRoute' => '/logging/CDbLogRoute.php',
@@ -488,6 +507,7 @@ private static $_coreClasses=array(
 	'CLogger' => '/logging/CLogger.php',
 	'CProfileLogRoute' => '/logging/CProfileLogRoute.php',
 	'CWebLogRoute' => '/logging/CWebLogRoute.php',
+	
 	//utils
 	'CDateTimeParser' => '/utils/CDateTimeParser.php',
 	'CFileHelper' => '/utils/CFileHelper.php',
@@ -498,6 +518,7 @@ private static $_coreClasses=array(
 	'CPropertyValue' => '/utils/CPropertyValue.php',
 	'CTimestamp' => '/utils/CTimestamp.php',
 	'CVarDumper' => '/utils/CVarDumper.php',
+	
 	//validators
 	'CBooleanValidator' => '/validators/CBooleanValidator.php',
 	'CCaptchaValidator' => '/validators/CCaptchaValidator.php',
@@ -520,6 +541,7 @@ private static $_coreClasses=array(
 	'CUnsafeValidator' => '/validators/CUnsafeValidator.php',
 	'CUrlValidator' => '/validators/CUrlValidator.php',
 	'CValidator' => '/validators/CValidator.php',
+	
 	//web
 	'CActiveDataProvider' => '/web/CActiveDataProvider.php',
 	'CArrayDataProvider' => '/web/CArrayDataProvider.php',
@@ -607,4 +629,3 @@ private static $_coreClasses=array(
 
 
 
-*/

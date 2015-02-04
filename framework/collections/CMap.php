@@ -16,6 +16,7 @@
  * To get the number of the items in the map, use {@link getCount}.
  * CMap can also be used like a regular array as follows,
  * <pre>
+ * 一定要是健值对，不能有空值，没有索引
  * $map[$key]=$value; // add a key-value pair
  * unset($map[$key]); // remove the value with the specified key
  * if(isset($map[$key])) // if the map contains the key

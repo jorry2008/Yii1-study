@@ -16,6 +16,7 @@
  * To get the number of the items in the list, use {@link getCount}.
  * CList can also be used like a regular array as follows,
  * <pre>
+ * 可以直接给空值，与array用法一样，有默认索引
  * $list[]=$item;  // append at the end
  * $list[$index]=$item; // $index must be between 0 and $list->Count
  * unset($list[$index]); // remove the item at $index

@@ -2,7 +2,8 @@
 
 class PostController extends Controller
 {
-	public $layout='column2';
+	//权限交给了module
+	//public $layout='column2';
 
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.

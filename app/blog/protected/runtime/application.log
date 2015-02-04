@@ -3956,3 +3956,327 @@ Stack trace:
 REQUEST_URI=/test/turen/app/blog/index.php?r=post/index
 HTTP_REFERER=http://192.168.1.103/test/turen/app/blog/index.php?r=site/page&view=about
 ---
+2015/02/03 16:10:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "backend/user"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('backend/user')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/user
+---
+2015/02/03 16:29:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "fontend"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('fontend')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=fontend
+---
+2015/02/03 16:30:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "frontend"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend
+---
+2015/02/03 16:30:30 [error] [exception.CException] exception 'CException' with message 'PostController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1021
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(907): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\controllers\PostController.php(204): CController->render('index', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/post/i...')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/post/index
+---
+2015/02/03 16:31:24 [error] [exception.CException] exception 'CException' with message 'PostController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1021
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(907): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\controllers\PostController.php(204): CController->render('index', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/post/i...')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/post/index
+---
+2015/02/03 16:39:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "post"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php
+HTTP_REFERER=http://192.168.106.1/test/turen/app/blog/index.php?r=gii/module/index
+---
+2015/02/03 16:39:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "post"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php
+HTTP_REFERER=http://192.168.106.1/test/turen/app/blog/index.php?r=gii/module/index
+---
+2015/02/03 16:40:19 [error] [exception.CException] exception 'CException' with message 'PostController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1021
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(907): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\controllers\PostController.php(204): CController->render('index', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/post/i...')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/post/index
+---
+2015/02/03 16:41:52 [error] [exception.CException] exception 'CException' with message 'PostController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1022
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(908): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\controllers\PostController.php(204): CController->render('index', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/post/i...')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/post/index
+---
+2015/02/03 16:42:08 [error] [exception.CException] exception 'CException' with message 'PostController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1022
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(908): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\controllers\PostController.php(204): CController->render('index', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/post/i...')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/post/index
+---
+2015/02/03 16:42:57 [error] [exception.CException] exception 'CException' with message 'PostController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1025
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(911): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\controllers\PostController.php(204): CController->render('index', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/post/i...')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/post/index
+---
+2015/02/03 17:14:24 [error] [exception.CException] exception 'CException' with message '属性 "FrontendModule.name" 是只读的.' in C:\xampp\htdocs\test\turen\framework\base\CComponent.php:170
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(528): CComponent->__set('name', '')
+#1 C:\xampp\htdocs\test\turen\framework\base\CModule.php(87): CModule->configure(Array)
+#2 C:\xampp\htdocs\test\turen\framework\YiiBase.php(219): CModule->__construct('frontend', NULL, Array)
+#3 C:\xampp\htdocs\test\turen\framework\base\CModule.php(288): YiiBase::createComponent('frontend.Fronte...', 'frontend', NULL, Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(393): CModule->getModule('frontend')
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(289): CWebApplication->createController('frontend/post/i...')
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/post/i...')
+#7 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#9 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/post/index
+HTTP_REFERER=http://192.168.106.1/test/turen/app/blog/index.php?r=frontend/post/index
+---
+2015/02/03 17:14:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "frontend/post/index"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/post/i...')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/post/index
+HTTP_REFERER=http://192.168.106.1/test/turen/app/blog/index.php?r=frontend/post/index
+---
+2015/02/03 17:14:51 [error] [exception.CException] exception 'CException' with message '别名 "site.SiteModule" 无效。请确认它指向一个存在的PHP文件。' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:349
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\YiiBase.php(209): YiiBase::import('site.SiteModule', true)
+#1 C:\xampp\htdocs\test\turen\framework\base\CModule.php(290): YiiBase::createComponent('site.SiteModule', 'frontend/site', Object(FrontendModule), Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(393): CModule->getModule('site')
+#3 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(398): CWebApplication->createController('site/post/index...', Object(FrontendModule))
+#4 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(289): CWebApplication->createController('frontend/site/p...')
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/site/p...')
+#6 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#8 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/site/post/index
+---
+2015/02/03 17:15:04 [error] [exception.CException] exception 'CException' with message '别名 "site.SiteModule" 无效。请确认它指向一个存在的PHP文件。' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:349
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\YiiBase.php(209): YiiBase::import('site.SiteModule', true)
+#1 C:\xampp\htdocs\test\turen\framework\base\CModule.php(290): YiiBase::createComponent('site.SiteModule', 'frontend/site', Object(FrontendModule), Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(393): CModule->getModule('site')
+#3 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(398): CWebApplication->createController('site/', Object(FrontendModule))
+#4 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(289): CWebApplication->createController('frontend/site')
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/site')
+#6 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#8 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/site
+---
+2015/02/03 17:17:20 [error] [exception.CException] exception 'CException' with message 'DefaultController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1024
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(910): CController->renderPartial('index', NULL, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\modules\site\controllers\DefaultController.php(7): CController->render('index')
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): DefaultController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/site')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/site
+---
+2015/02/03 17:17:31 [error] [exception.CException] exception 'CException' with message 'PostController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1024
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(910): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\modules\site\controllers\PostController.php(204): CController->render('index', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/site/p...')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/site/post
+---
+2015/02/03 17:17:38 [error] [exception.CException] exception 'CException' with message 'PostController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1024
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(910): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\modules\site\controllers\PostController.php(204): CController->render('index', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/site/p...')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/site/post/index
+---
+2015/02/03 17:20:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "post/view"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('post/view')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/view&id=4&title=%E5%A4%8F%E5%8F%88%E6%A1%A5%E6%B5%8B%E8%AF%952
+HTTP_REFERER=http://192.168.106.1/test/turen/app/blog/index.php?r=frontend/site/post/index
+---
+2015/02/03 17:20:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "post"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/
+---
+2015/02/04 03:41:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "frontend/site/post/index"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/site/p...')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/site/post/index
+---
+2015/02/04 04:41:57 [error] [exception.CException] exception 'CException' with message 'PostController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1043
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(929): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\modules\site\controllers\PostController.php(204): CController->render('index', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/site/p...')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/site/post/index
+---
+2015/02/04 04:50:50 [error] [exception.CException] exception 'CException' with message 'PostController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1047
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(933): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\modules\site\controllers\PostController.php(204): CController->render('index', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(298): CController->run('index')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/site/p...')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/site/post/index
+---
+2015/02/04 11:51:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "post"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php
+HTTP_REFERER=http://192.168.106.1/test/turen/app/blog/index.php?r=frontend/site/site/login
+---

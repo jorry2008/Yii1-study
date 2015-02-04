@@ -33,7 +33,7 @@ class CAttributeCollection extends CMap
 	/**
 	 * @var boolean whether the keys are case-sensitive. Defaults to false.
 	 */
-	public $caseSensitive=false;
+	public $caseSensitive=false;//大小写敏感
 
 	/**
 	 * Returns a property value or an event handler list by property or event name.

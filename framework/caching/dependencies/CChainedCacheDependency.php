@@ -24,6 +24,7 @@
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @package system.caching.dependencies
  * @since 1.0
+ * 将多个依赖对象注入到此对象链中，统一感知任何一个依赖发生改变。进而确定是否更新。
  */
 class CChainedCacheDependency extends CComponent implements ICacheDependency
 {

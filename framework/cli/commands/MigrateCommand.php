@@ -510,25 +510,34 @@ DESCRIPTION
   If the 'action' parameter is not given, it defaults to 'up'.
   Each action takes different parameters. Their usage can be found in
   the following examples.
+  该命令支持数据库迁移。“action”可选参数指定特定的迁移任务来执行。
+  它可以把这些命令包括:up, down, to, create, history, new, mark。
+  如果“action”参数不是给定的,它默认为‘up’。
 
 EXAMPLES
  * yiic migrate
    Applies ALL new migrations. This is equivalent to 'yiic migrate up'.
+  执行所有新的迁移。它等同于'yiic migrate up'.
 
  * yiic migrate create create_user_table
    Creates a new migration named 'create_user_table'.
+   创建一个对应表create_user_table的新迁移。
 
  * yiic migrate up 3
    Applies the next 3 new migrations.
+   执行最后3个新的迁移。
 
  * yiic migrate down
    Reverts the last applied migration.
+   还原最后一个迁移操作。
 
  * yiic migrate down 3
    Reverts the last 3 applied migrations.
+   还原最后三个迁移操作。
 
  * yiic migrate to 101129_185401
    Migrates up or down to version 101129_185401.
+   执行或还原一个指定版本的
 
  * yiic migrate mark 101129_185401
    Modifies the migration history up or down to version 101129_185401.

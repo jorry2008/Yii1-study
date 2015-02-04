@@ -669,14 +669,28 @@ class CController extends CBaseController
 	 */
 	public function getViewFile($viewName)//index
 	{
-		//fb($theme=Yii::app()->getTheme());
+		//fb($theme=Yii::app()->getTheme());//'C:\xampp\htdocs\test\turen\app\blog\themes\classic'
 		if(($theme=Yii::app()->getTheme())!==null && ($viewFile=$theme->getViewFile($this,$viewName))!==false)
+		{
 			return $viewFile;
+		}
+		
+		//通过以上过程，系统可以指定正确的模板文件路径，
+		//但在正确的路径下，开发者并没有提供对应的模板文件，怎么办？以下就是最终解决方案
+		//以下走的是无主题对象路线
 		
 		$moduleViewPath=$basePath=Yii::app()->getViewPath();
+		//fb($moduleViewPath);// C:\xampp\htdocs\test\turen\app\blog\protected\views
 		if(($module=$this->getModule())!==null)
+		{
 			$moduleViewPath=$module->getViewPath();
+		}
 		
+// 		fb('-------------');
+// 		fb($viewName);
+// 		fb($this->getViewPath());
+// 		fb($basePath);
+// 		fb($moduleViewPath);
 		return $this->resolveViewFile($viewName,$this->getViewPath(),$basePath,$moduleViewPath);
 	}
 
@@ -721,10 +735,13 @@ class CController extends CBaseController
 	 */
 	public function getLayoutFile($layoutName)//column2
 	{
+		//fb($layoutName === null);
 		//注意，当前对象是PostController，所以在$layoutName中已经定义了，具有最高优先级
 		//fb($layoutName,FirePHP::TRACE);
 		if($layoutName===false)//到这里都没有定义，说明整个系统中对这个$this控制器没有赋予布局文件
+		{
 			return false;
+		}
 		
 		//$theme为主题管理类themeManager
 		//注：所有的系统默认组件都是由Yii::app()直接统一管理
@@ -732,7 +749,6 @@ class CController extends CBaseController
 		//fb(Yii::app()->getTheme());//一个主题的绝对路径和一个资源的相对路径
 		if(($theme=Yii::app()->getTheme())!==null && ($layoutFile=$theme->getLayoutFile($this,$layoutName))!==false)
 		{
-			//fb($layoutFile);
 			//fb(Yii::app()->themeManager->getThemeNames());
 			return $layoutFile;
 		}
@@ -748,6 +764,7 @@ class CController extends CBaseController
 					return false;
 				if(!empty($module->layout))
 					break;
+				
 				$module=$module->getParentModule();
 			}
 			if($module===null)
@@ -797,7 +814,10 @@ class CController extends CBaseController
 	{
 		if(empty($viewName))
 			return false;
-
+		// 		column2
+		// 		C:\xampp\htdocs\test\turen\app\blog\themes\classic\views
+		// 		C:\xampp\htdocs\test\turen\app\blog\themes\classic\views/frontend
+		// 		C:\xampp\htdocs\test\turen\app\blog\themes\classic\views/frontend/layouts
 		if($moduleViewPath===null)
 			$moduleViewPath=$basePath;
 
@@ -809,19 +829,35 @@ class CController extends CBaseController
 		else
 			$extension='.php';
 		
+		
+		//调用模板时这样：$this->render('/index');
+		//取的模板是基于主题basePath路径时，模板名称前面加'/'
 		if($viewName[0]==='/')
 		{
+			//相等测试，模板名称前面加'//'，如$this->render('//index');
 			if(strncmp($viewName,'//',2)===0)
 				$viewFile=$basePath.$viewName;
 			else
 				$viewFile=$moduleViewPath.$viewName;
 		}
+		
+		//指定外部空间全称模板文件如：'ext.themes.post.index'，直接指向模板文件本身
 		elseif(strpos($viewName,'.'))
+		{
 			$viewFile=Yii::getPathOfAlias($viewName);
+		}
+		
+		//正常指向模板形式，$this->render('index');
 		else
+		{
 			$viewFile=$viewPath.DIRECTORY_SEPARATOR.$viewName;
+		}
+		
+// 		if(strpos($viewName,'column2') !== false)
+// 		{
+// 			fb($viewFile);exit;//C:\xampp\htdocs\test\turen\app\blog\themes\classic\views/frontend/site/post\index
+// 		}
 
-		//fb($viewFile.$extension);
 		if(is_file($viewFile.$extension))
 			return Yii::app()->findLocalizedFile($viewFile.$extension);
 		elseif($extension!=='.php' && is_file($viewFile.'.php'))
@@ -913,6 +949,7 @@ class CController extends CBaseController
 			//$this->layout由控制器指定
 			if(($layoutFile=$this->getLayoutFile($this->layout))!==false)
 			{
+				fb('layout path:'.$layoutFile);
 				//fb($layoutFile);//column2布局文件完全由controller提供，父类或其子类
 				// C:\xampp\htdocs\test\turen\app\blog\protected\views\layouts\column2.php
 				$output=$this->renderFile($layoutFile,array('content'=>$output),true);//父类进行渲染且会被viewRender拦截
@@ -1004,6 +1041,7 @@ class CController extends CBaseController
 	{
 		if(($viewFile=$this->getViewFile($view))!==false)
 		{
+			fb('view path:'.$viewFile);
 			//$viewFile的视图文件，已经融入了模块、主题、本地化、模板渲染器处理。
 			//fb($viewFile);//C:\xampp\htdocs\test\turen\app\blog\themes\classic\views/post\zh_cn\index.php
 			$output=$this->renderFile($viewFile,$data,true);//递归渲染，首先渲染views文件，再渲染views文件中的各种

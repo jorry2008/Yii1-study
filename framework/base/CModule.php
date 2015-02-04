@@ -52,7 +52,7 @@ abstract class CModule extends CComponent
 	private $_parentModule;
 	private $_basePath;
 	private $_modulePath;
-	private $_params;
+	private $_params;//CAttributeCollection
 	private $_modules=array();
 	private $_moduleConfig=array();
 	private $_components=array();

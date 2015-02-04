@@ -10,6 +10,7 @@
 
 /**
  * CDummyCache is a placeholder cache component.
+ * 仅仅是个点位符，方便开发者切换，从而避免了缓存导致的不便
  *
  * CDummyCache does not cache anything. It is provided so that one can always configure
  * a 'cache' application component and he does not need to check if Yii::app()->cache is null or not.

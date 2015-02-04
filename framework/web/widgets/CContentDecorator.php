@@ -64,11 +64,15 @@ class CContentDecorator extends COutputProcessor
 	 */
 	protected function decorate($content)
 	{
-		$owner=$this->getOwner();
+		$owner=$this->getOwner();//post对象
 		if($this->view===null)
+		{
 			$viewFile=Yii::app()->getController()->getLayoutFile(null);
+		}
 		else
+		{
 			$viewFile=$owner->getViewFile($this->view);
+		}
 		if($viewFile!==false)
 		{
 			$data=$this->data;
