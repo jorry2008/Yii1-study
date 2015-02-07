@@ -100,14 +100,20 @@ class CWebModule extends CModule
 	public function getControllerPath()
 	{
 		if($this->_controllerPath!==null)
+		{
 			return $this->_controllerPath;
+		}
 		else
+		{
+			//fb($this->getBasePath());// C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\modules\site
 			return $this->_controllerPath=$this->getBasePath().DIRECTORY_SEPARATOR.'controllers';
+		}
 	}
 
 	/**
 	 * @param string $value the directory that contains the controller classes.
 	 * @throws CException if the directory is invalid
+	 * 此方法基本不会用到
 	 */
 	public function setControllerPath($value)
 	{

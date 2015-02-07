@@ -24,6 +24,9 @@ require_once($yii);
 //Yii::createWebApplication($config)->run();//价于
 Yii::createWebApplication($config);
 
+//向框架中载入一个类，或者覆盖框架中的一个原有的类
+//Yii::$classMap = array('id'=>'class path');
+
 Yii::app()->run();
 
 

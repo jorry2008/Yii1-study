@@ -144,6 +144,8 @@ class CWebApplication extends CApplication
 			//完成url映射处理$this->getUrlManager()->parseUrl();
 			$route=$this->getUrlManager()->parseUrl($this->getRequest());
 		}
+		
+		//fb($route);// frontend/site/post/index
 		$this->runController($route);//by jorry仅仅为了获取一个route，其它的参数和数据都在request对象中！！
 	}
 
@@ -282,6 +284,7 @@ class CWebApplication extends CApplication
 	 * Creates the controller and performs the specified action.
 	 * @param string $route the route of the current request. See {@link createController} for more details.
 	 * @throws CHttpException if the controller could not be created.
+	 * frontend/site/post/index
 	 */
 	public function runController($route)
 	{
@@ -336,6 +339,9 @@ class CWebApplication extends CApplication
 	 * <strong>它负责根据url及规则找到指定的控制器类，
 	 * 并实例化返回控制器对象</strong>
 	 * </pre>
+	 * 
+	 * 最终返回一个正确的
+	 * 控制器对象和一个actionID
 	 */
 	public function createController($route,$owner=null)
 	{
@@ -359,6 +365,7 @@ class CWebApplication extends CApplication
 		$caseSensitive=$this->getUrlManager()->caseSensitive;
 		
 		$route.='/';
+		//frontend/site/post/index，从左到右逐步递归判断并处理。
 		while(($pos=strpos($route,'/'))!==false)
 		{
 			$id=substr($route,0,$pos);//取gii，下次取出default
@@ -372,6 +379,7 @@ class CWebApplication extends CApplication
 				$id=strtolower($id);
 			}
 			
+			//余下的路由
 			$route=(string)substr($route,$pos+1);//取 default/index/
 			
 			//这个路径，只有当把所有的module都嵌套完了才会真正处理最终的控制器和控制器方法
@@ -390,6 +398,10 @@ class CWebApplication extends CApplication
 				}
 
 				//转移应用对象由webapp转到module
+// 				fb($id);
+// 				frontend
+// 				site
+// 				post
 				if(($module=$owner->getModule($id))!==null)//此module是由配置文件main指定的，当然也可以由module对象绕过webapp自身配置
 				{
 					//重新递归，以新的应用对象来执行当前程序
@@ -398,9 +410,10 @@ class CWebApplication extends CApplication
 					return $this->createController($route,$module);
 				}
 
-				//moduleapp对象所在路径+controllers
+				//moduleapp对象所在路径+controllers   //fb($owner);exit;//SiteModule
+				//这个路径是由module类本身通过反射原理获取的，就是它自身所在真实路径
 				$basePath=$owner->getControllerPath();// C:\xampp\htdocs\test\yii\framework\gii\controllers
-				$controllerID='';
+				$controllerID='';//开始处理controllerID，先初始化
 			}
 			else
 			{
@@ -408,6 +421,7 @@ class CWebApplication extends CApplication
 				$controllerID.='/';
 			}
 			
+			//$id这个id必然就是controller的id
 			$className=ucfirst($id).'Controller';
 			$classFile=$basePath.DIRECTORY_SEPARATOR.$className.'.php';
 			
@@ -416,16 +430,19 @@ class CWebApplication extends CApplication
 			//参阅：http://www.yiiframework.com/doc/guide/1.1/zh/basics.namespace#namespace
 			if($owner->controllerNamespace!==null)
 			{
+				//兼容处理
 				$className=$owner->controllerNamespace.'\\'.$className;
 			}
 			
 			if(is_file($classFile))
 			{
+				//fb($classFile);// C:\xampp\htdocs\test\turen\app\blog\protected\modules\frontend\modules\site\controllers\PostController.php
 				//为什么要class_exists($className,false)不检查autoload()，很重要，每个module已经实现了命名空间的概念
 				//那么这个类必须是在当前空间下，如在gii下，否则可能出现同名类而引起错误！！
 				//这样做后，我们每创建一个webapp或者moduleapp都将创建一个对应的应用名称空间，好处你懂得。
 				if(!class_exists($className,false))
 				{
+					//载入控制器类文件
 					require($classFile);
 				}
 				
@@ -436,7 +453,7 @@ class CWebApplication extends CApplication
 					//实例化一个控制器
 					return array(
 						//所有的控制器在new的时候，如果是module都会带上moduleapp对象，使得控制器完成初始化
-						new $className($controllerID.$id,$owner===$this?null:$owner),//模块是一个全新的app对象
+						new $className($controllerID.$id,$owner===$this?null:$owner),
 						$this->parseActionParams($route),
 					);
 				}

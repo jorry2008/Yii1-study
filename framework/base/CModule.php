@@ -271,9 +271,12 @@ abstract class CModule extends CComponent
 	 * when calling this method with the given ID for the first time.
 	 * @param string $id application module ID (case-sensitive)
 	 * @return CModule the module instance, null if the module is disabled or does not exist.
+	 * 
+	 * 从配置文件中获取模块相关的参数，返回模块实例
 	 */
 	public function getModule($id)
 	{
+		//单例返回
 		if(isset($this->_modules[$id]) || array_key_exists($id,$this->_modules))
 			return $this->_modules[$id];
 		elseif(isset($this->_moduleConfig[$id]))
@@ -284,10 +287,18 @@ abstract class CModule extends CComponent
 				Yii::trace("Loading \"$id\" module",'system.base.CModule');
 				$class=$config['class'];
 				unset($config['class'], $config['enabled']);
+				
+				//为什么$this会转移？
 				if($this===Yii::app())
+				{
 					$module=Yii::createComponent($class,$id,null,$config);
+				}
 				else
+				{
+					//$this->getId().....frontend/site
 					$module=Yii::createComponent($class,$this->getId().'/'.$id,$this,$config);
+				}
+				
 				return $this->_modules[$id]=$module;
 			}
 		}

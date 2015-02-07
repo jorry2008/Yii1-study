@@ -11,8 +11,7 @@
 /**
  * CPortlet is the base class for portlet widgets.
  *
- * A portlet displays a fragment of content, usually in terms of a block
- * on the side bars of a Web page.
+ * A portlet displays a fragment of content, usually in terms of a block on the side bars of a Web page.
  *
  * To specify the content of the portlet, override the {@link renderContent}
  * method, or insert the content code between the {@link CController::beginWidget}

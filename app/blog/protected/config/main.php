@@ -1,5 +1,4 @@
 <?php
-
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 
@@ -12,10 +11,40 @@ webroot//不可修改
 ext
  */
 return array(
+	//以下是决定系统流程的配置，源于CModule
+	// @property CAttributeCollection $params The list of user-defined parameters.
+	// modulePath The directory that contains the application modules. Defaults to the 'modules' subdirectory of {@link basePath}.
+	// parentModule The parent module. Null if this module does not have a parent.
+	// modules The configuration of the currently installed modules (module ID => configuration).
+	// components The application components (indexed by their IDs).
+	
+	// preloading 'log' component
+	'preload'=>array('log'),
+	
+	//从配置文件导入类库
+	// autoloading model and component classes
+	'import'=>array(
+			'application.models.*',
+			'application.components.*',
+	),
+
+	//创建新别名
+// 	'aliases' => array(
+// 		'models'=>'application.models',              // an existing alias
+// 		'extensions'=>'application.extensions',      // an existing alias
+// 		'backend'=>dirname(__FILE__).'/../backend',  // a directory
+// 	),
 	//定义开发程序所在目录，默认是当前访问下的protected目录
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',//就是application
 	//定义拓展所在目录，默认为application.extensions//就是ext
 	//'extensionPath'=>'application.extensions',
+	
+	// application-level parameters that can be accessed是程序级别可以访问的参数
+	// using Yii::app()->params['paramName']，常用于系统中的固定参数
+	'params'=>require(dirname(__FILE__).'/params.php'),//yii的params组件对象参数，基于属性对象CAttributeCollection
+	
+	
+	
 	
 	/*
 	 * //配置维护模式
@@ -26,23 +55,17 @@ return array(
 	),
 	*/
 	
-	'name'=>'Yii Blog Demo',
-
-	// preloading 'log' component
-	'preload'=>array('log'),
-
-	// autoloading model and component classes
-	'import'=>array(
-		'application.models.*',
-		'application.components.*',
-	),
+	'name'=>'土人系统',
 	
-	'defaultController'=>'post',
+	//'defaultController'=>'post',//留给前后台的module自行配置
 	//配置文件里可以这样配置，但如果没有对应的布局等文件，系统会自动取protected目录下的views文件
 	'theme' => 'classic',
 	'layout' => 'column1',//基础布局，通常不取，优先级最低
 	'sourceLanguage' => 'en_us',//设置系统默认源语言
 	'language'=>'zh_cn',//设置系统指定翻出语言
+	
+	//'controllerMap'=>array('controllerID'=>class path),//此映射同样存在于module中，具有最高优先级
+		
 	
 	//GII应用程序，代码生成工具，module就是一个独立的应用
 	'modules'=>array(
@@ -54,6 +77,8 @@ return array(
 		
 		//前台模块
 		'frontend'=>array(
+			//'class'=>'application.modules.frontend',//指定模块的位置，默认为框架自身的机制
+			//'enabled'=>false,//模块的状态
 			'modules'=>array(
 				'site',
 				'account',
@@ -62,6 +87,19 @@ return array(
 		
 		//后台模块
 		'backend'=>array(
+			//'class'=>'application.modules.backend',//指定模块的位置
+			//'enabled'=>false,//模块的状态
+			//每个模块都有这种默认配置
+			'layout' => 'column2',//独立模块的布局文件
+			'defaultController' => 'default',//独立模块中的默认控制器
+			'controllerNamespace' => '',//独立模块的新的命名空间,Default is to use global namespace.模块将以这个命名空间重新定位
+			'controllerMap' => array(),//控制器映射，最高优先级创建控制器，位置自定义，它与模块的原理类似
+			
+			//同样它也有
+			//'basePath'
+			//'import',
+			//'aliases'
+			
 			'modules'=>array(
 				'user',
 				'cms',
@@ -106,7 +144,7 @@ return array(
 			'username' => 'root',
 			'password' => '123456',
 			'charset' => 'utf8',
-			'tablePrefix' => 'tbl_',
+			'tablePrefix' => 't_',
 		),
 			
 		//这里可以指定也可以默认以优先的方式获取
@@ -194,8 +232,4 @@ return array(
 			'defaultScriptPosition'=>CClientScript::POS_READY,
 		),
 	),
-
-	// application-level parameters that can be accessed是程序级别可以访问的参数
-	// using Yii::app()->params['paramName']
-	'params'=>require(dirname(__FILE__).'/params.php'),//yii的params组件对象参数
 );

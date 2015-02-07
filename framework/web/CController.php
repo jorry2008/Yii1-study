@@ -268,7 +268,7 @@ class CController extends CBaseController
 	{
 		if(($action=$this->createAction($actionID))!==null)
 		{
-			//返回一个控制器方法对象，$action，注意，方法是以对象的方式存在并且有有一种状态
+			//返回一个控制器方法对象，$action，注意，方法是以对象的方式存在并且有一种状态
 			if(($parent=$this->getModule())===null)
 			{
 				$parent=Yii::app();

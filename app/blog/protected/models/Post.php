@@ -90,7 +90,7 @@ class Post extends CActiveRecord
 	 */
 	public function getUrl()
 	{
-		return Yii::app()->createUrl('post/view', array(
+		return Yii::app()->createUrl('frontend/site/post/view', array(
 			'id'=>$this->id,
 			'title'=>$this->title,
 		));
@@ -103,7 +103,7 @@ class Post extends CActiveRecord
 	{
 		$links=array();
 		foreach(Tag::string2array($this->tags) as $tag)
-			$links[]=CHtml::link(CHtml::encode($tag), array('post/index', 'tag'=>$tag));
+			$links[]=CHtml::link(CHtml::encode($tag), array('frontend/site/post/index', 'tag'=>$tag));
 		return $links;
 	}
 

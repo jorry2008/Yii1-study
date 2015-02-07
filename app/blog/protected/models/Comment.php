@@ -95,6 +95,7 @@ class Comment extends CActiveRecord
 	{
 		if($post===null)
 			$post=$this->post;
+		
 		return $post->url.'#c'.$this->id;
 	}
 

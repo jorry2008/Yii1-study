@@ -4280,3 +4280,104 @@ Stack trace:
 REQUEST_URI=/test/turen/app/blog/index.php
 HTTP_REFERER=http://192.168.106.1/test/turen/app/blog/index.php?r=frontend/site/site/login
 ---
+2015/02/05 08:43:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "post"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/
+HTTP_REFERER=http://192.168.1.110/test/turen/app/
+---
+2015/02/05 08:43:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "post"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=
+---
+2015/02/05 08:43:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "frontend/"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:302
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(147): CWebApplication->runController('frontend/')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/
+---
+2015/02/05 11:55:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "site"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:305
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=frontend/site/site/login
+---
+2015/02/05 11:55:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "site"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:305
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(27): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=frontend/site/post/admin
+---
+2015/02/06 05:29:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "frontend/site/site/page"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:305
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('frontend/site/s...')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/site/site/page&view=about
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=frontend/site/post/index
+---
+2015/02/06 06:53:46 [error] [exception.CException] exception 'CException' with message '属性 "FrontendModule.name" 是只读的.' in C:\xampp\htdocs\test\turen\framework\base\CComponent.php:170
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(539): CComponent->__set('name', '\xE5\x93\x88\xE5\x93\x88')
+#1 C:\xampp\htdocs\test\turen\framework\base\CModule.php(87): CModule->configure(Array)
+#2 C:\xampp\htdocs\test\turen\framework\YiiBase.php(219): CModule->__construct('frontend', NULL, Array)
+#3 C:\xampp\htdocs\test\turen\framework\base\CModule.php(294): YiiBase::createComponent('frontend.Fronte...', 'frontend', NULL, Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(405): CModule->getModule('frontend')
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(292): CWebApplication->createController('frontend/site/s...')
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('frontend/site/s...')
+#7 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#9 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/site/site/page&view=about
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=frontend/site/post/index
+---
+2015/02/06 07:00:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'turen.t_post' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `t_post`.
+2015/02/06 07:00:04 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "Post" 对应的 table "{{post}}".' in C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Post))
+#1 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1350): CActiveRecord->getTableSchema()
+#3 C:\xampp\htdocs\test\turen\framework\db\ar\CActiveRecord.php(1456): CActiveRecord->query(Object(CDbCriteria))
+#4 C:\xampp\htdocs\test\turen\app\blog\protected\components\Controller.php(27): CActiveRecord->find('id=3')
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(300): Controller->init()
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('frontend/site/s...')
+#7 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#9 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=frontend/site/site/page&view=about
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=frontend/site/site/login
+---
+2015/02/07 04:28:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "post/view"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:305
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('post/view')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/view&id=4&title=%E5%A4%8F%E5%8F%88%E6%A1%A5%E6%B5%8B%E8%AF%952
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=frontend/site/post/index
+---
+2015/02/07 04:58:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "post/view"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:305
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('post/view')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=post/view&id=3&title=%E5%A4%8F%E5%8F%88%E6%A1%A5%E6%B5%8B%E8%AF%95
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=frontend/site/post/index
+---
