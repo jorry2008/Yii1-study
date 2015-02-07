@@ -4381,3 +4381,421 @@ Stack trace:
 REQUEST_URI=/test/turen/app/blog/index.php?r=post/view&id=3&title=%E5%A4%8F%E5%8F%88%E6%A1%A5%E6%B5%8B%E8%AF%95
 HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=frontend/site/post/index
 ---
+2015/02/07 11:20:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "backend/site/post/index"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:305
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/site/po...')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/site/post/index
+---
+2015/02/07 11:20:57 [error] [exception.CException] exception 'CException' with message '别名 "site.SiteModule" 无效。请确认它指向一个存在的PHP文件。' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:349
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\YiiBase.php(209): YiiBase::import('site.SiteModule', true)
+#1 C:\xampp\htdocs\test\turen\framework\base\CModule.php(299): YiiBase::createComponent('site.SiteModule', 'backend/site', Object(BackendModule), Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(405): CModule->getModule('site')
+#3 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(410): CWebApplication->createController('site/post/index...', Object(BackendModule))
+#4 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(292): CWebApplication->createController('backend/site/po...')
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/site/po...')
+#6 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#8 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/site/post/index
+---
+2015/02/07 11:21:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "backend/site/post/index"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:305
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/site/po...')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/site/post/index
+---
+2015/02/07 11:21:37 [error] [exception.CException] exception 'CException' with message '别名 "site.models.*" 是无效的. 请确定它指向一个已存在的目录或文件.' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:375
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(232): YiiBase::import('site.models.*')
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\AdminModule.php(18): CModule->setImport(Array)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(91): AdminModule->init()
+#3 C:\xampp\htdocs\test\turen\framework\YiiBase.php(219): CModule->__construct('backend/admin', Object(BackendModule), Array)
+#4 C:\xampp\htdocs\test\turen\framework\base\CModule.php(299): YiiBase::createComponent('admin.AdminModu...', 'backend/admin', Object(BackendModule), Array)
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(405): CModule->getModule('admin')
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(410): CWebApplication->createController('admin/post/inde...', Object(BackendModule))
+#7 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(292): CWebApplication->createController('backend/admin/p...')
+#8 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#9 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#11 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+---
+2015/02/07 11:23:02 [error] [exception.CException] exception 'CException' with message '别名 "site.models.*" 是无效的. 请确定它指向一个已存在的目录或文件.' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:375
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(232): YiiBase::import('site.models.*')
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\AdminModule.php(18): CModule->setImport(Array)
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(91): AdminModule->init()
+#3 C:\xampp\htdocs\test\turen\framework\YiiBase.php(219): CModule->__construct('backend/admin', Object(BackendModule), Array)
+#4 C:\xampp\htdocs\test\turen\framework\base\CModule.php(299): YiiBase::createComponent('admin.AdminModu...', 'backend/admin', Object(BackendModule), Array)
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(405): CModule->getModule('admin')
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(410): CWebApplication->createController('admin/post/inde...', Object(BackendModule))
+#7 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(292): CWebApplication->createController('backend/admin/p...')
+#8 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#9 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#11 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+---
+2015/02/07 11:24:00 [error] [exception.CException] exception 'CException' with message 'PostController 无法找到请求的视图 "index".' in C:\xampp\htdocs\test\turen\framework\web\CController.php:1059
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CController.php(943): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\controllers\PostController.php(205): CController->render('index', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#3 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#8 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): CController->run('index')
+#10 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#11 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#13 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+---
+2015/02/07 12:09:04 [error] [exception.CException] exception 'CException' with message '属性 "BsApi.getAssetsUrl" 未被定义.' in C:\xampp\htdocs\test\turen\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(40): CComponent->__get('getAssetsUrl')
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(26): BackendModule->initBootstrap()
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(91): BackendModule->init()
+#3 C:\xampp\htdocs\test\turen\framework\YiiBase.php(219): CModule->__construct('backend', NULL, Array)
+#4 C:\xampp\htdocs\test\turen\framework\base\CModule.php(294): YiiBase::createComponent('backend.Backend...', 'backend', NULL, Array)
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(405): CModule->getModule('backend')
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(292): CWebApplication->createController('backend/admin/p...')
+#7 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#8 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#10 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=backend/admin/site/page&view=about
+---
+2015/02/07 12:09:29 [error] [exception.CException] exception 'CException' with message 'Asset文件 "C:\xampp\htdocs\test\turen\app\blog\protected\extensions\bootstrap3\assets" 不存在.' in C:\xampp\htdocs\test\turen\framework\web\CAssetManager.php:257
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\app\blog\protected\extensions\bootstrap3\components\BsApi.php(79): CAssetManager->publish('C:\\xampp\\htdocs...', false, -1, true)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(40): BsApi->getAssetsUrl()
+#2 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(26): BackendModule->initBootstrap()
+#3 C:\xampp\htdocs\test\turen\framework\base\CModule.php(91): BackendModule->init()
+#4 C:\xampp\htdocs\test\turen\framework\YiiBase.php(219): CModule->__construct('backend', NULL, Array)
+#5 C:\xampp\htdocs\test\turen\framework\base\CModule.php(294): YiiBase::createComponent('backend.Backend...', 'backend', NULL, Array)
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(405): CModule->getModule('backend')
+#7 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(292): CWebApplication->createController('backend/admin/p...')
+#8 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#9 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#11 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=backend/admin/site/page&view=about
+---
+2015/02/07 12:27:31 [error] [php] Illegal offset type in isset or empty (C:\xampp\htdocs\test\turen\framework\YiiBase.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(106): CWebApplication->getComponent()
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(26): CWebApplication->__get()
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(91): BackendModule->init()
+#3 C:\xampp\htdocs\test\turen\framework\YiiBase.php(219): BackendModule->__construct()
+#4 C:\xampp\htdocs\test\turen\framework\base\CModule.php(294): createComponent()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(405): CWebApplication->getModule()
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(292): CWebApplication->createController()
+#7 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController()
+#8 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+2015/02/07 12:28:09 [error] [php] Illegal offset type in isset or empty (C:\xampp\htdocs\test\turen\framework\YiiBase.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(106): CWebApplication->getComponent()
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(26): CWebApplication->__get()
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(91): BackendModule->init()
+#3 C:\xampp\htdocs\test\turen\framework\YiiBase.php(219): BackendModule->__construct()
+#4 C:\xampp\htdocs\test\turen\framework\base\CModule.php(294): createComponent()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(405): CWebApplication->getModule()
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(292): CWebApplication->createController()
+#7 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController()
+#8 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+2015/02/07 12:28:53 [error] [php] Illegal offset type in isset or empty (C:\xampp\htdocs\test\turen\framework\YiiBase.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(106): CWebApplication->getComponent()
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(26): CWebApplication->__get()
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(91): BackendModule->init()
+#3 C:\xampp\htdocs\test\turen\framework\YiiBase.php(219): BackendModule->__construct()
+#4 C:\xampp\htdocs\test\turen\framework\base\CModule.php(294): createComponent()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(405): CWebApplication->getModule()
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(292): CWebApplication->createController()
+#7 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController()
+#8 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+2015/02/07 12:28:57 [error] [php] Illegal offset type in isset or empty (C:\xampp\htdocs\test\turen\framework\YiiBase.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(106): CWebApplication->getComponent()
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(26): CWebApplication->__get()
+#2 C:\xampp\htdocs\test\turen\framework\base\CModule.php(91): BackendModule->init()
+#3 C:\xampp\htdocs\test\turen\framework\YiiBase.php(219): BackendModule->__construct()
+#4 C:\xampp\htdocs\test\turen\framework\base\CModule.php(294): createComponent()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(405): CWebApplication->getModule()
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(292): CWebApplication->createController()
+#7 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController()
+#8 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+2015/02/07 12:30:18 [error] [php] Illegal offset type in isset or empty (C:\xampp\htdocs\test\turen\framework\YiiBase.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(106): CWebApplication->getComponent()
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(46): CWebApplication->__get()
+#2 C:\xampp\htdocs\test\turen\framework\web\CWebModule.php(195): BackendModule->beforeControllerAction()
+#3 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\AdminModule.php(25): AdminModule->beforeControllerAction()
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(278): AdminModule->beforeControllerAction()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): PostController->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController()
+#7 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+2015/02/07 12:31:05 [error] [php] Illegal offset type in isset or empty (C:\xampp\htdocs\test\turen\framework\YiiBase.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(106): CWebApplication->getComponent()
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(46): CWebApplication->__get()
+#2 C:\xampp\htdocs\test\turen\framework\web\CWebModule.php(195): BackendModule->beforeControllerAction()
+#3 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\AdminModule.php(25): AdminModule->beforeControllerAction()
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(278): AdminModule->beforeControllerAction()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): PostController->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController()
+#7 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+2015/02/07 12:31:43 [error] [exception.CException] exception 'CException' with message '属性 "CWebApplication.bootstrap" 未被定义.' in C:\xampp\htdocs\test\turen\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(108): CComponent->__get('bootstrap')
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(46): CModule->__get('bootstrap')
+#2 C:\xampp\htdocs\test\turen\framework\web\CWebModule.php(195): BackendModule->beforeControllerAction(Object(PostController), Object(CInlineAction))
+#3 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\AdminModule.php(25): CWebModule->beforeControllerAction(Object(PostController), Object(CInlineAction))
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(278): AdminModule->beforeControllerAction(Object(PostController), Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): CController->run('index')
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#7 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#9 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=backend/admin/site/page&view=about
+---
+2015/02/07 12:32:05 [error] [php] Illegal offset type in isset or empty (C:\xampp\htdocs\test\turen\framework\YiiBase.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(106): CWebApplication->getComponent()
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(46): CWebApplication->__get()
+#2 C:\xampp\htdocs\test\turen\framework\web\CWebModule.php(195): BackendModule->beforeControllerAction()
+#3 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\AdminModule.php(25): AdminModule->beforeControllerAction()
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(278): AdminModule->beforeControllerAction()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): PostController->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController()
+#7 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+2015/02/07 12:32:07 [error] [php] Illegal offset type in isset or empty (C:\xampp\htdocs\test\turen\framework\YiiBase.php:291)
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\base\CModule.php(106): CWebApplication->getComponent()
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(46): CWebApplication->__get()
+#2 C:\xampp\htdocs\test\turen\framework\web\CWebModule.php(195): BackendModule->beforeControllerAction()
+#3 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\AdminModule.php(25): AdminModule->beforeControllerAction()
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(278): AdminModule->beforeControllerAction()
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): PostController->run()
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController()
+#7 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CWebApplication->run()
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+2015/02/07 13:55:16 [error] [exception.CException] exception 'CException' with message 'BackendModule and its behaviors do not have a method or closure named "getAssetsUrl".' in C:\xampp\htdocs\test\turen\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(54): CComponent->__call('getAssetsUrl', Array)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(54): BackendModule->getAssetsUrl()
+#2 C:\xampp\htdocs\test\turen\framework\web\CWebModule.php(195): BackendModule->beforeControllerAction(Object(PostController), Object(CInlineAction))
+#3 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\AdminModule.php(25): CWebModule->beforeControllerAction(Object(PostController), Object(CInlineAction))
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(278): AdminModule->beforeControllerAction(Object(PostController), Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): CController->run('index')
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#7 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#9 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=backend/admin/site/page&view=about
+---
+2015/02/07 14:28:12 [error] [exception.CException] exception 'CException' with message 'BackendModule and its behaviors do not have a method or closure named "getAssetsUrl".' in C:\xampp\htdocs\test\turen\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(40): CComponent->__call('getAssetsUrl', Array)
+#1 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\BackendModule.php(40): BackendModule->getAssetsUrl()
+#2 C:\xampp\htdocs\test\turen\framework\web\CWebModule.php(195): BackendModule->beforeControllerAction(Object(PostController), Object(CInlineAction))
+#3 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\AdminModule.php(25): CWebModule->beforeControllerAction(Object(PostController), Object(CInlineAction))
+#4 C:\xampp\htdocs\test\turen\framework\web\CController.php(278): AdminModule->beforeControllerAction(Object(PostController), Object(CInlineAction))
+#5 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): CController->run('index')
+#6 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#7 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#9 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+---
+2015/02/07 14:39:23 [error] [exception.CException] exception 'CException' with message '别名 "bootstrap.widgets.TbMenu" 无效。请确认它指向一个存在的PHP文件。' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:349
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(160): CWidgetFactory->createWidget(Object(PostController), 'bootstrap.widge...', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(186): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\test\turen\app\blog\themes\Tadmin\views\backend\layouts\zh_cn\column-21.php(18): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(140): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(103): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\test\turen\framework\web\CController.php(955): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\controllers\PostController.php(205): CController->render('index', Array)
+#8 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#9 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#14 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): CController->run('index')
+#16 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#17 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#19 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+---
+2015/02/07 14:42:25 [error] [exception.CException] exception 'CException' with message '别名 "bootstrap.widgets.TbMenu" 无效。请确认它指向一个存在的PHP文件。' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:349
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(160): CWidgetFactory->createWidget(Object(PostController), 'bootstrap.widge...', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(186): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\test\turen\app\blog\themes\Tadmin\views\backend\layouts\zh_cn\column-21.php(18): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(140): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(103): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\test\turen\framework\web\CController.php(955): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\controllers\PostController.php(205): CController->render('index', Array)
+#8 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#9 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#14 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): CController->run('index')
+#16 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#17 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#19 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+---
+2015/02/07 14:42:26 [error] [exception.CException] exception 'CException' with message '别名 "bootstrap.widgets.TbMenu" 无效。请确认它指向一个存在的PHP文件。' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:349
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(160): CWidgetFactory->createWidget(Object(PostController), 'bootstrap.widge...', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(186): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\test\turen\app\blog\themes\Tadmin\views\backend\layouts\zh_cn\column-21.php(18): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(140): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(103): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\test\turen\framework\web\CController.php(955): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\controllers\PostController.php(205): CController->render('index', Array)
+#8 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#9 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#14 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): CController->run('index')
+#16 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#17 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#19 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+---
+2015/02/07 14:43:12 [error] [exception.CException] exception 'CException' with message '别名 "bootstrap.widgets.BsMenu" 无效。请确认它指向一个存在的PHP文件。' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:349
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(160): CWidgetFactory->createWidget(Object(PostController), 'bootstrap.widge...', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(186): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\test\turen\app\blog\themes\Tadmin\views\backend\layouts\zh_cn\column-21.php(18): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(140): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(103): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\test\turen\framework\web\CController.php(955): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\controllers\PostController.php(205): CController->render('index', Array)
+#8 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#9 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#14 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): CController->run('index')
+#16 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#17 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#19 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+---
+2015/02/07 14:43:14 [error] [exception.CException] exception 'CException' with message '别名 "bootstrap.widgets.BsMenu" 无效。请确认它指向一个存在的PHP文件。' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:349
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(160): CWidgetFactory->createWidget(Object(PostController), 'bootstrap.widge...', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(186): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\test\turen\app\blog\themes\Tadmin\views\backend\layouts\zh_cn\column-21.php(18): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(140): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(103): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\test\turen\framework\web\CController.php(955): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\controllers\PostController.php(205): CController->render('index', Array)
+#8 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#9 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#14 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): CController->run('index')
+#16 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#17 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#19 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+---
+2015/02/07 14:44:14 [error] [exception.CException] exception 'CException' with message '别名 "bootstrap.widgets.TbMenu" 无效。请确认它指向一个存在的PHP文件。' in C:\xampp\htdocs\test\turen\framework\YiiBase.php:349
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(160): CWidgetFactory->createWidget(Object(PostController), 'bootstrap.widge...', Array)
+#2 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(186): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\test\turen\app\blog\themes\Tadmin\views\backend\layouts\zh_cn\column-21.php(18): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(140): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\test\turen\framework\web\CBaseController.php(103): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\test\turen\framework\web\CController.php(955): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\test\turen\app\blog\protected\modules\backend\modules\admin\controllers\PostController.php(205): CController->render('index', Array)
+#8 C:\xampp\htdocs\test\turen\framework\web\actions\CInlineAction.php(58): PostController->actionIndex()
+#9 C:\xampp\htdocs\test\turen\framework\web\CController.php(328): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(165): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\test\turen\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\test\turen\framework\web\filters\CFilterChain.php(162): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\test\turen\framework\web\CController.php(311): CFilterChain->run()
+#14 C:\xampp\htdocs\test\turen\framework\web\CController.php(282): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(301): CController->run('index')
+#16 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('backend/admin/p...')
+#17 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#19 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=backend/admin/post/index
+---
+2015/02/07 15:03:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "site/login"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:305
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('site/login')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php?r=site/login
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=backend/admin/post/index
+---
+2015/02/07 15:07:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "site"。' in C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php:305
+Stack trace:
+#0 C:\xampp\htdocs\test\turen\framework\web\CWebApplication.php(149): CWebApplication->runController('')
+#1 C:\xampp\htdocs\test\turen\framework\base\CApplication.php(208): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\test\turen\app\blog\index.php(30): CApplication->run()
+#3 {main}
+REQUEST_URI=/test/turen/app/blog/index.php
+HTTP_REFERER=http://192.168.1.110/test/turen/app/blog/index.php?r=backend/admin/post/index
+---

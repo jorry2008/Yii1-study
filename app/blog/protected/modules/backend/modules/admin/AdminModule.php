@@ -1,12 +1,12 @@
 <?php
-
-class FrontendModule extends CWebModule
+/**
+ * 
+ * @author xia.q
+ *
+ */
+class AdminModule extends CWebModule
 {
-	public $layout = 'column2';
-	
-	//C:\xampp\htdocs\test\turen\app\blog\themes\classic\views/frontend/layouts\column2(空)
-	//C:\xampp\htdocs\test\turen\app\blog\themes\classic\views/frontend/column2(/)
-	//C:\xampp\htdocs\test\turen\app\blog\themes\classic\views//column2(//)
+	public $defaultController='post';
 	
 	public function init()
 	{
@@ -15,15 +15,9 @@ class FrontendModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'frontend.models.*',
-			'frontend.components.*',
+			'admin.models.*',
+			'admin.components.*',
 		));
-		
-		//设置后台模板
-		Yii::app()->theme = 'Tclassic';
-		
-		
-		
 	}
 
 	public function beforeControllerAction($controller, $action)

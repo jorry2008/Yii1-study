@@ -20,13 +20,6 @@ return array(
 	
 	// preloading 'log' component
 	'preload'=>array('log'),
-	
-	//从配置文件导入类库
-	// autoloading model and component classes
-	'import'=>array(
-			'application.models.*',
-			'application.components.*',
-	),
 
 	//创建新别名
 // 	'aliases' => array(
@@ -34,6 +27,18 @@ return array(
 // 		'extensions'=>'application.extensions',      // an existing alias
 // 		'backend'=>dirname(__FILE__).'/../backend',  // a directory
 // 	),
+
+	'aliases' => array(
+		'bootstrap'=>'ext.bootstrap3',//创建一个新路径
+	),
+	
+	//从配置文件导入类库
+	// autoloading model and component classes
+	'import'=>array(
+		'application.models.*',
+		'application.components.*',
+	),
+	
 	//定义开发程序所在目录，默认是当前访问下的protected目录
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',//就是application
 	//定义拓展所在目录，默认为application.extensions//就是ext
@@ -42,8 +47,6 @@ return array(
 	// application-level parameters that can be accessed是程序级别可以访问的参数
 	// using Yii::app()->params['paramName']，常用于系统中的固定参数
 	'params'=>require(dirname(__FILE__).'/params.php'),//yii的params组件对象参数，基于属性对象CAttributeCollection
-	
-	
 	
 	
 	/*
@@ -90,10 +93,10 @@ return array(
 			//'class'=>'application.modules.backend',//指定模块的位置
 			//'enabled'=>false,//模块的状态
 			//每个模块都有这种默认配置
-			'layout' => 'column2',//独立模块的布局文件
-			'defaultController' => 'default',//独立模块中的默认控制器
-			'controllerNamespace' => '',//独立模块的新的命名空间,Default is to use global namespace.模块将以这个命名空间重新定位
-			'controllerMap' => array(),//控制器映射，最高优先级创建控制器，位置自定义，它与模块的原理类似
+ 			//'layout' => 'column2',//独立模块的布局文件
+ 			//'defaultController' => 'default',//独立模块中的默认控制器
+			//'controllerNamespace' => '',//独立模块的新的命名空间,Default is to use global namespace.模块将以这个命名空间重新定位
+			//'controllerMap' => array(),//控制器映射，最高优先级创建控制器，位置自定义，它与模块的原理类似
 			
 			//同样它也有
 			//'basePath'
@@ -101,6 +104,7 @@ return array(
 			//'aliases'
 			
 			'modules'=>array(
+				'admin',//后台管理模块（用来管理其它模块的模块）
 				'user',
 				'cms',
 			),
@@ -109,6 +113,20 @@ return array(
 
 	// application components
 	'components'=>array(
+		
+		//bootstrap组件，只是声明，是否使用由前后台自身决定
+		'bootstrap' => array(
+			'class' => 'bootstrap.components.Bootstrap',   //加载核心接口
+			//导入基础js、css文件，其余的组件在使用的时候按需导入即可
+			'assetsJs'=>array(
+				YII_DEBUG?'bootstrap.js':'bootstrap.min.js',
+			),
+			'assetsCss'=>array(
+				YII_DEBUG?'bootstrap.css':'bootstrap.min.css',
+				YII_DEBUG?'bootstrap-theme.css':'bootstrap-theme.min.css',
+			),
+		),
+		
 		'user'=>array(
 			// enable cookie-based authentication
 			'stateKeyPrefix'=>'x_',//身份验证cookie名称【一个专用cookie】
@@ -210,8 +228,9 @@ return array(
 			'enableJavaScript'=>true,//是否开启javascript
 			//这个属性用来替换所有指定名称的资源文件
 			//If an array key is '*.js' or '*.css', the corresponding URL will replace all JavaScript files or CSS files, respectively.
-			'scriptMap'=>array('jquery.js'=>'http://code.jquery.com/jquery-1.8.3.min.js'),//外部添加的脚本，包括array('*.js'=>'','*.css'=>'','path'=>'');最后整合进脚本文件
+			'scriptMap'=>array('jquery.js'=>'http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js'),//外部添加的脚本，包括array('*.js'=>'','*.css'=>'','path'=>'');最后整合进脚本文件
 			//为框架添加新的集成包，即注册一个新的类库到框架中
+			/*
 			'packages'=>array(
 				//引入一个slider包
 				'bxslider'=>array(
@@ -223,6 +242,7 @@ return array(
 				 	'depends'=>array('jquery'),//依赖包
 				 ),
 			 ),
+			 */
 			//这是集成在yii中的核心脚本，如果想要更改框架集成，直接修改它即可
 			//'corePackages'=>'',//核心包，默认取'framework/web/js/packages.php'依赖数组，更新核心集成包时才更改
 			//在指定位置上注入代码片段，全局有效
