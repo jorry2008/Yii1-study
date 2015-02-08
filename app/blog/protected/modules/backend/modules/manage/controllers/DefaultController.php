@@ -1,9 +1,18 @@
 <?php
-
+/**
+ * 
+ * @author xia.q
+ *
+ */
 class DefaultController extends Controller
 {
 	public function actionIndex()
 	{
-		echo 'test test';
+		
+		
+		
+		
+		
+		$this->render('index',array());
 	}
 }

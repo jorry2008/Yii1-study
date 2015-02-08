@@ -17,6 +17,7 @@ class BackendModule extends CWebModule
 		
 		//设置后台模板
 		Yii::app()->theme = 'Tadmin';//目前后台只准备一套模板
+		Yii::app()->homeUrl = Yii::app()->createUrl('backend/manage/default/index');
 		
 		//独立配置后台模块初始信息
 		$this->layout = 'column-21';//独立模块的布局文件
@@ -37,6 +38,8 @@ class BackendModule extends CWebModule
 			$bootstrap = Yii::app()->bootstrap;
 			
 			$assetsThemeUrl = $assetManager->publish(Yii::app()->theme->basePath.DIRECTORY_SEPARATOR.'assets', true, -1, true);//强制复制
+			$clientScript->registerCssFile($assetsThemeUrl.'/css/'.'bootstrap-theme.css');
+			//$clientScript->registerCssFile($assetsThemeUrl.'/css/'.'non-responsive.css');
 			$clientScript->registerCssFile($assetsThemeUrl.'/css/'.'web.css');
 			$clientScript->registerScriptFile($assetsThemeUrl.'/js/'.'web.js');
 
@@ -44,7 +47,8 @@ class BackendModule extends CWebModule
 			$clientScript->registerMetaTag(Yii::app()->language,'language');
 			$clientScript->registerMetaTag('text/html',null,'Content-Type',array('charset'=>Yii::app()->charset));
 			$clientScript->registerMetaTag('IE=edge',null,'X-UA-Compatible');
-			$clientScript->registerMetaTag('width=device-width, initial-scale=1.0, user-scalable=no','viewport');
+			//无响应设计
+			//$clientScript->registerMetaTag('width=device-width, initial-scale=1.0, user-scalable=no','viewport');
 			$clientScript->registerMetaTag('webkit','renderer');
 			$clientScript->registerMetaTag('jorry 980522557@qq.com','author');
 			

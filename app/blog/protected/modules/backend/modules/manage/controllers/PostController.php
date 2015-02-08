@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * 
+ * @author xia.q
+ *
+ */
 class PostController extends Controller
 {
 	//权限交给了module

@@ -4,10 +4,8 @@
  * @author xia.q
  *
  */
-class AdminModule extends CWebModule
+class ManageModule extends CWebModule
 {
-	public $defaultController='post';
-	
 	public function init()
 	{
 		// this method is called when the module is being created
@@ -15,8 +13,8 @@ class AdminModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'admin.models.*',
-			'admin.components.*',
+			'manage.models.*',
+			'manage.components.*',
 		));
 	}
 

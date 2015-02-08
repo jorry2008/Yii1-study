@@ -17,10 +17,13 @@ class TbNavbar extends CWidget
 {
 	// Navbar types.
 	const TYPE_INVERSE = 'inverse';
+	const TYPE_DEFAULT = 'default';
 
 	// Navbar fix locations.
-	const FIXED_TOP = 'top';
-	const FIXED_BOTTOM = 'bottom';
+	const TOP = 'top';
+	const BOTTOM = 'bottom';
+	const FIXD = 'fixed';
+	const STATICS = 'static';
 
 	/**
 	 * @var string the navbar type. Valid values are 'inverse'.
@@ -45,11 +48,13 @@ class TbNavbar extends CWidget
 	 * Setting the value to false will make the navbar static.
 	 * @since 0.9.8
 	 */
-	public $fixed = self::FIXED_TOP;
+	public $pattern = 'fixd';
+	public $position = 'top';
 	/**
 	* @var boolean whether the nav span over the full width. Defaults to false.
 	* @since 0.9.8
 	*/
+	
 	public $fluid = false;
 	/**
 	 * @var boolean whether to enable collapsing on narrow screens. Default to false.
@@ -81,18 +86,18 @@ class TbNavbar extends CWidget
 			$this->brandOptions['href'] = CHtml::normalizeUrl($this->brandUrl);
 
 			if (isset($this->brandOptions['class']))
-				$this->brandOptions['class'] .= ' brand';
+				$this->brandOptions['class'] .= ' navbar-brand';
 			else
-				$this->brandOptions['class'] = 'brand';
+				$this->brandOptions['class'] = 'navbar-brand';
 		}
 
 		$classes = array('navbar');
 
-		if (isset($this->type) && in_array($this->type, array(self::TYPE_INVERSE)))
+		if (isset($this->type) && in_array($this->type, array(self::TYPE_INVERSE,self::TYPE_DEFAULT)))
 			$classes[] = 'navbar-'.$this->type;
 
-		if ($this->fixed !== false && in_array($this->fixed, array(self::FIXED_TOP, self::FIXED_BOTTOM)))
-			$classes[] = 'navbar-fixed-'.$this->fixed;
+		if (in_array($this->pattern, array(self::FIXD, self::STATICS)) && in_array($this->position, array(self::TOP, self::BOTTOM)))
+			$classes[] = 'navbar-'.$this->pattern.'-'.$this->position;
 
 		if (!empty($classes))
 		{
@@ -109,8 +114,8 @@ class TbNavbar extends CWidget
 	 */
 	public function run()
 	{
-		echo CHtml::openTag('div', $this->htmlOptions);
-		echo '<div class="navbar-inner"><div class="'.$this->getContainerCssClass().'">';
+		echo CHtml::openTag('nav', $this->htmlOptions);
+		echo '<div class="'.$this->getContainerCssClass().'">';
 
 		$collapseId = TbCollapse::getNextContainerId();
 
@@ -123,6 +128,7 @@ class TbNavbar extends CWidget
 
 		if ($this->brand !== false)
 		{
+			echo '<div class="navbar-header">';
 			if ($this->brandUrl !== false)
 				echo CHtml::openTag('a', $this->brandOptions).$this->brand.'</a>';
 			else
@@ -130,6 +136,7 @@ class TbNavbar extends CWidget
 				unset($this->brandOptions['href']); // spans cannot have a href attribute
 				echo CHtml::openTag('span', $this->brandOptions).$this->brand.'</span>';
 			}
+			echo '</div>';
 		}
 
 		if ($this->collapse !== false)
@@ -160,7 +167,7 @@ class TbNavbar extends CWidget
 		if ($this->collapse !== false)
 			$this->controller->endWidget();
 
-		echo '</div></div></div>';
+		echo '</div></nav>';
 	}
 
 	/**

@@ -44,7 +44,7 @@ class TbMenu extends TbBaseMenu
 	public function init()
 	{
 		parent::init();
-
+		
 		$classes = array('nav');
 
 		$validTypes = array(self::TYPE_TABS, self::TYPE_PILLS, self::TYPE_LIST);

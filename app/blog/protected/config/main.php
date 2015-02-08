@@ -104,7 +104,7 @@ return array(
 			//'aliases'
 			
 			'modules'=>array(
-				'admin',//后台管理模块（用来管理其它模块的模块）
+				'manage',//后台管理模块（用来管理其它模块的模块）
 				'user',
 				'cms',
 			),
@@ -123,7 +123,6 @@ return array(
 			),
 			'assetsCss'=>array(
 				YII_DEBUG?'bootstrap.css':'bootstrap.min.css',
-				YII_DEBUG?'bootstrap-theme.css':'bootstrap-theme.min.css',
 			),
 		),
 		
@@ -199,9 +198,9 @@ return array(
 					'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages
-				array(
-					'class'=>'CWebLogRoute',
-				),
+// 				array(
+// 					'class'=>'CWebLogRoute',
+// 				),
 			),
 		),
 		
