@@ -128,7 +128,7 @@ return array(
 		
 		'user'=>array(
 			// enable cookie-based authentication
-			'stateKeyPrefix'=>'x_',//身份验证cookie名称【一个专用cookie】
+			'stateKeyPrefix'=>'x_',//身份验证cookie名称【一个专用cookie,基于cookie登录的】
 			//是否启用基于cookie的登录
 			'allowAutoLogin'=>true,
 			//持久层是否延续最新时间，使cookie保持最新
